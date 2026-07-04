@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In - ONEklient Solutions Inc.</title>
+  <link rel="stylesheet" href="admin-oneklient.css" />
+  <link rel="stylesheet" href="signin_init.css" />
+</head>
+<body>
+  <header class="app-header" role="banner">
+    <div class="app-brand">
+      <span class="logo" aria-hidden="true"></span>
+      <span class="brand-text">ONEklient Solutions Inc.</span>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <section class="signin-card" aria-labelledby="signin-title">
+      <div class="signin-head">
+        <div class="signin-topbar">
+          <div class="signin-title-row">
+            <h1 id="signin-title" class="signin-title">Sign In</h1>
+            <span
+              class="question-icon"
+              id="signin-help-icon"
+              title="Click for info"
+              data-code="1000010"
+              role="button"
+              tabindex="0"
+              aria-label="Show sign in help code"
+            >?</span>
+          </div>
+
+          <div class="page-number">000</div>
+        </div>
+
+        <p class="signin-subtitle">Enter your credentials to continue to onboarding</p>
+      </div>
+
+      <form id="signinForm" class="signin-form" novalidate>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="organization-client-card">
+              Organization Client Card <span class="required">*</span>
+            </label>
+            <input
+              type="text"
+              id="organization-client-card"
+              placeholder="Enter organization client card"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="superadmin-client-card">
+              SuperAdmin Client Card <span class="required">*</span>
+            </label>
+            <input
+              type="text"
+              id="superadmin-client-card"
+              placeholder="Enter superadmin client card"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="password">
+              Password <span class="required">*</span>
+            </label>
+            <input
+              type="password"
+              id="password"
+              placeholder="Enter password"
+            />
+          </div>
+        </div>
+
+        <div class="btn-container">
+          <button type="submit" class="btn btn-signin">SIGN IN</button>
+          <button type="button" class="btn btn-cancel" id="backBtn">BACK</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script src="signin_init.js"></script>
+</body>
+</html>

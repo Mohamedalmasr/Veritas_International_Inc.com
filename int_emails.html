@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Inbox</title>
+  <link rel="stylesheet" href="int_emails.css">
+</head>
+<body>
+  <div id="email-list-view">
+    <h2>Inbox</h2>
+    <div class="email-item" onclick="openEmail(1)">
+      <b>Admin</b> - Regarding the new onboarding requirements... <br>
+      <small>Today, 10:30 AM</small>
+    </div>
+    <div class="email-item" onclick="openEmail(2)">
+      <b>Support</b> - Your ticket #9928 has been resolved. <br>
+      <small>Yesterday, 04:15 PM</small>
+    </div>
+  </div>
+
+  <div id="email-detail-view" style="display:none;">
+    <button onclick="backToInbox()" class="btn-back">← Back to Inbox</button>
+    <h2 id="email-subject"></h2>
+    <p id="email-body" style="background: #f8fafc; padding: 20px; border-radius: 12px;"></p>
+    
+    <div class="reply-section">
+      <h3>Reply</h3>
+      <textarea id="reply-text" rows="4" placeholder="Write your reply..."></textarea>
+      <button class="btn-send" onclick="sendReply()">Send Reply</button>
+    </div>
+  </div>
+
+  <script src="int_emails.js"></script>
+</body>
+</html>

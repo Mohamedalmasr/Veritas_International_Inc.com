@@ -1,0 +1,1118 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Transtario | Ontario School Bus & Coach Charters</title>
+  <meta name="description" content="Transtario provides safe, reliable school bus, sprinter van and luxury coach charters for schools, corporate groups, weddings, events and tours throughout Ontario and North America." />
+  <meta name="theme-color" content="#0f766e" />
+  <meta property="og:title" content="Transtario | Your Journey, Our Expertise" />
+  <meta property="og:description" content="Trusted charter transportation for schools, corporate groups, events, weddings and tours." />
+  <meta property="og:type" content="website" />
+  <style>
+    :root {
+      --teal-950: #073b38;
+      --teal-900: #0a4f49;
+      --teal-800: #0f665e;
+      --teal-700: #13756c;
+      --teal-500: #23a397;
+      --teal-100: #dff7f3;
+      --pink-600: #d83d93;
+      --pink-500: #f05dab;
+      --pink-100: #ffe4f3;
+      --gold-400: #f4b731;
+      --ink: #142524;
+      --muted: #637573;
+      --line: #d9e6e3;
+      --paper: #fbfffe;
+      --white: #ffffff;
+      --shadow-sm: 0 10px 24px rgba(7, 59, 56, .10);
+      --shadow-md: 0 20px 48px rgba(7, 59, 56, .18);
+      --radius-lg: 28px;
+      --radius-md: 20px;
+      --radius-sm: 14px;
+      --container: 1160px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.6;
+      text-rendering: optimizeLegibility;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button, input, select, textarea { font: inherit; }
+    .skip-link {
+      position: absolute;
+      left: 1rem;
+      top: -5rem;
+      z-index: 999;
+      padding: .75rem 1rem;
+      border-radius: 999px;
+      background: var(--white);
+      color: var(--teal-900);
+      box-shadow: var(--shadow-sm);
+    }
+    .skip-link:focus { top: 1rem; }
+    :focus-visible {
+      outline: 3px solid rgba(240, 93, 171, .55);
+      outline-offset: 3px;
+    }
+
+    .container { width: min(100% - 32px, var(--container)); margin: 0 auto; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      padding: .35rem .75rem;
+      border-radius: 999px;
+      color: var(--teal-900);
+      background: var(--teal-100);
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-size: .75rem;
+    }
+    .eyebrow::before {
+      content: "";
+      width: .48rem;
+      height: .48rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--pink-500), var(--teal-500));
+    }
+    .section { padding: 96px 0; }
+    .section-header {
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(280px, .55fr);
+      gap: 32px;
+      align-items: end;
+      margin-bottom: 36px;
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      font-size: clamp(3.1rem, 7vw, 6.6rem);
+      line-height: .92;
+      letter-spacing: -.075em;
+      margin-bottom: 24px;
+      color: var(--white);
+    }
+    h2 {
+      font-size: clamp(2.25rem, 5vw, 4.4rem);
+      line-height: .98;
+      letter-spacing: -.055em;
+      margin-bottom: 18px;
+      color: var(--teal-950);
+    }
+    h3 {
+      font-size: 1.35rem;
+      line-height: 1.15;
+      letter-spacing: -.025em;
+      margin-bottom: 12px;
+    }
+    .lead { color: var(--muted); font-size: 1.1rem; }
+    .muted { color: var(--muted); }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .55rem;
+      min-height: 48px;
+      padding: .85rem 1.15rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 850;
+      cursor: pointer;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+      white-space: nowrap;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary {
+      color: var(--white);
+      background: linear-gradient(135deg, var(--pink-600), var(--pink-500));
+      box-shadow: 0 16px 34px rgba(216, 61, 147, .26);
+    }
+    .btn-secondary {
+      color: var(--teal-950);
+      background: var(--white);
+      border-color: rgba(255,255,255,.55);
+      box-shadow: 0 12px 26px rgba(7, 59, 56, .16);
+    }
+    .btn-outline {
+      color: var(--teal-900);
+      background: transparent;
+      border-color: rgba(15, 102, 94, .24);
+    }
+    .btn-outline:hover { background: var(--teal-100); }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(251, 255, 254, .88);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(217, 230, 227, .85);
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      min-height: 78px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: .75rem;
+      font-weight: 1000;
+      letter-spacing: -.04em;
+      font-size: 1.3rem;
+      color: var(--teal-950);
+    }
+    .brand-mark {
+      position: relative;
+      display: inline-grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      overflow: hidden;
+      color: white;
+      background: var(--teal-800);
+      box-shadow: inset 0 -10px 18px rgba(0,0,0,.18);
+    }
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      inset: auto -8px -10px 4px;
+      height: 22px;
+      border-radius: 999px 999px 0 0;
+      background: linear-gradient(90deg, var(--pink-500), #a74aa0, var(--teal-500));
+      transform: rotate(-4deg);
+    }
+    .brand-mark span { position: relative; z-index: 2; font-size: .9rem; letter-spacing: -.02em; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-links a {
+      display: inline-flex;
+      padding: .65rem .85rem;
+      border-radius: 999px;
+      color: var(--muted);
+      font-weight: 760;
+    }
+    .nav-links a:hover { color: var(--teal-950); background: var(--teal-100); }
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
+    .phone-link { font-weight: 900; color: var(--teal-900); }
+    .menu-button {
+      display: none;
+      width: 46px;
+      height: 46px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--white);
+      cursor: pointer;
+    }
+    .menu-button span {
+      display: block;
+      width: 18px;
+      height: 2px;
+      background: var(--teal-950);
+      margin: 4px auto;
+      border-radius: 999px;
+    }
+
+    .hero {
+      position: relative;
+      min-height: calc(100svh - 78px);
+      isolation: isolate;
+      overflow: hidden;
+      color: var(--white);
+      background:
+        radial-gradient(circle at 12% 18%, rgba(240, 93, 171, .38), transparent 32%),
+        radial-gradient(circle at 78% 8%, rgba(35, 163, 151, .35), transparent 30%),
+        linear-gradient(135deg, rgba(7, 59, 56, .96), rgba(10, 79, 73, .92)),
+        url("https://www.transtario.com/assets/images/coach_bus_800.jpg") center/cover no-repeat;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(90deg, rgba(7,59,56,.98), rgba(7,59,56,.78) 50%, rgba(7,59,56,.35)),
+        linear-gradient(0deg, rgba(7,59,56,.72), transparent 45%);
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -14vw;
+      bottom: -10vw;
+      width: 58vw;
+      min-width: 560px;
+      aspect-ratio: 1;
+      z-index: -1;
+      border-radius: 999px;
+      background: conic-gradient(from 220deg, transparent 0 24%, rgba(240,93,171,.58) 24% 39%, rgba(167,74,160,.42) 39% 53%, rgba(35,163,151,.52) 53% 68%, transparent 68%);
+      filter: blur(.2px);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, .95fr) minmax(300px, .52fr);
+      gap: 44px;
+      align-items: center;
+      padding: 92px 0 64px;
+    }
+    .hero .eyebrow {
+      color: var(--white);
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.18);
+    }
+    .hero .eyebrow::before { background: var(--pink-500); }
+    .hero-copy p {
+      max-width: 680px;
+      margin-bottom: 28px;
+      color: rgba(255,255,255,.86);
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 34px; }
+    .hero-proof {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .proof-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      padding: .65rem .78rem;
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 999px;
+      background: rgba(255,255,255,.10);
+      color: rgba(255,255,255,.9);
+      font-weight: 750;
+      backdrop-filter: blur(10px);
+    }
+    .hero-panel {
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,.12);
+      box-shadow: var(--shadow-md);
+      backdrop-filter: blur(18px);
+      overflow: hidden;
+    }
+    .hero-panel-top {
+      padding: 22px;
+      border-bottom: 1px solid rgba(255,255,255,.16);
+    }
+    .hero-panel h2 {
+      color: var(--white);
+      font-size: 1.7rem;
+      letter-spacing: -.035em;
+      margin: 0 0 6px;
+    }
+    .mini-form { display: grid; gap: 10px; padding: 22px; }
+    .mini-form input, .mini-form select {
+      width: 100%;
+      min-height: 48px;
+      border: 1px solid rgba(255,255,255,.24);
+      border-radius: 14px;
+      padding: .8rem .9rem;
+      color: var(--white);
+      background: rgba(255,255,255,.12);
+    }
+    .mini-form input::placeholder { color: rgba(255,255,255,.64); }
+    .mini-form select { color-scheme: dark; }
+    .mini-note { color: rgba(255,255,255,.72); font-size: .9rem; margin: 2px 0 0; }
+
+    .stats-strip {
+      position: relative;
+      z-index: 2;
+      margin-top: -36px;
+    }
+    .stats-card {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--line);
+      box-shadow: var(--shadow-md);
+    }
+    .stat {
+      padding: 26px 22px;
+      background: var(--white);
+    }
+    .stat strong {
+      display: block;
+      font-size: clamp(1.65rem, 4vw, 2.55rem);
+      letter-spacing: -.055em;
+      line-height: 1;
+      color: var(--teal-950);
+    }
+    .stat span { color: var(--muted); font-weight: 760; }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(280px, .8fr) minmax(0, 1fr);
+      gap: 42px;
+      align-items: center;
+    }
+    .image-stack { position: relative; min-height: 520px; }
+    .image-card {
+      position: absolute;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      border: 8px solid var(--paper);
+      background: linear-gradient(135deg, var(--teal-100), var(--pink-100));
+    }
+    .image-card img { width: 100%; height: 100%; object-fit: cover; }
+    .image-card.primary { inset: 0 14% 16% 0; }
+    .image-card.secondary { right: 0; bottom: 0; width: 48%; height: 45%; }
+    .experience-badge {
+      position: absolute;
+      left: 24px;
+      bottom: 32px;
+      width: 168px;
+      height: 168px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 1rem;
+      border-radius: 42px;
+      color: var(--white);
+      background: linear-gradient(135deg, var(--teal-900), var(--teal-700));
+      box-shadow: var(--shadow-md);
+    }
+    .experience-badge strong {
+      display: block;
+      font-size: 3rem;
+      line-height: .95;
+      letter-spacing: -.07em;
+    }
+    .feature-list {
+      display: grid;
+      gap: 14px;
+      margin: 26px 0 0;
+    }
+    .feature-item {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 14px;
+      align-items: start;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+    }
+    .icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      color: var(--teal-950);
+      background: var(--teal-100);
+      font-weight: 900;
+    }
+    .feature-item p { margin-bottom: 0; color: var(--muted); }
+
+    .services { background: linear-gradient(180deg, #f1fbf9, var(--paper)); }
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .service-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 236px;
+      padding: 24px;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(15,102,94,.14);
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .service-card::after {
+      content: "";
+      position: absolute;
+      right: -34px;
+      bottom: -34px;
+      width: 112px;
+      height: 112px;
+      border-radius: 999px;
+      background: var(--teal-100);
+      transition: transform .18s ease;
+    }
+    .service-card:hover::after { transform: scale(1.25); }
+    .service-card .service-icon {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      margin-bottom: 20px;
+      color: var(--white);
+      background: linear-gradient(135deg, var(--teal-800), var(--pink-500));
+      box-shadow: 0 14px 24px rgba(19,117,108,.20);
+      font-size: 1.35rem;
+    }
+    .service-card p { color: var(--muted); margin-bottom: 0; }
+
+    .fleet-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .fleet-card {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+    }
+    .fleet-image {
+      height: 245px;
+      background: linear-gradient(135deg, var(--teal-100), var(--pink-100));
+      overflow: hidden;
+    }
+    .fleet-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .25s ease; }
+    .fleet-card:hover img { transform: scale(1.04); }
+    .fleet-body { padding: 24px; }
+    .fleet-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 16px 0 18px;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: .35rem .65rem;
+      border-radius: 999px;
+      color: var(--teal-950);
+      background: var(--teal-100);
+      font-size: .86rem;
+      font-weight: 850;
+    }
+    .fleet-card ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+    .fleet-card li {
+      display: grid;
+      grid-template-columns: 18px 1fr;
+      gap: 8px;
+      color: var(--muted);
+    }
+    .fleet-card li::before { content: "✓"; color: var(--teal-700); font-weight: 900; }
+
+    .process {
+      color: var(--white);
+      background:
+        radial-gradient(circle at 20% 0%, rgba(240,93,171,.28), transparent 34%),
+        linear-gradient(135deg, var(--teal-950), var(--teal-800));
+    }
+    .process h2, .process .lead { color: var(--white); }
+    .process .lead { opacity: .78; }
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    .process-card {
+      position: relative;
+      padding: 24px;
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: var(--radius-md);
+      background: rgba(255,255,255,.09);
+      backdrop-filter: blur(12px);
+    }
+    .step {
+      display: inline-grid;
+      place-items: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      margin-bottom: 28px;
+      color: var(--teal-950);
+      background: var(--white);
+      font-weight: 950;
+    }
+    .process-card p { color: rgba(255,255,255,.74); margin-bottom: 0; }
+
+    .safety-grid {
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(300px, .62fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+    .safety-card {
+      padding: 34px;
+      border-radius: var(--radius-lg);
+      background: var(--white);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-sm);
+    }
+    .check-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .check {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: 10px;
+      padding: 14px;
+      border-radius: 16px;
+      background: #f1fbf9;
+      color: var(--teal-950);
+      font-weight: 750;
+    }
+    .check::before { content: "✓"; color: var(--pink-600); font-weight: 1000; }
+    .quote-callout {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 34px;
+      border-radius: var(--radius-lg);
+      color: var(--white);
+      background:
+        radial-gradient(circle at 84% 16%, rgba(244,183,49,.28), transparent 28%),
+        linear-gradient(135deg, var(--teal-900), var(--pink-600));
+      box-shadow: var(--shadow-md);
+    }
+    .quote-callout h3 { font-size: 2rem; }
+    .quote-callout p { color: rgba(255,255,255,.82); }
+
+    .contact { background: #f1fbf9; }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, .74fr) minmax(320px, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+    .contact-card, .form-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+    }
+    .contact-card { padding: 30px; position: sticky; top: 102px; }
+    .contact-methods { display: grid; gap: 14px; margin-top: 22px; }
+    .contact-method {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 14px;
+      align-items: center;
+      padding: 14px;
+      border-radius: 18px;
+      background: #f8fffd;
+      border: 1px solid var(--line);
+    }
+    .contact-method span { display: block; color: var(--muted); font-size: .92rem; }
+    .contact-method strong { display: block; color: var(--teal-950); }
+    .form-card { padding: 30px; }
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .field { display: grid; gap: 7px; }
+    .field.full { grid-column: 1 / -1; }
+    label { font-weight: 820; color: var(--teal-950); }
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid #cbdcd8;
+      border-radius: 15px;
+      padding: .85rem .95rem;
+      min-height: 50px;
+      color: var(--ink);
+      background: #fbfffe;
+      transition: border .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+    textarea { min-height: 128px; resize: vertical; }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--teal-500);
+      background: var(--white);
+      box-shadow: 0 0 0 4px rgba(35, 163, 151, .14);
+    }
+    .form-foot {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-top: 18px;
+    }
+    .form-note { color: var(--muted); font-size: .92rem; margin: 0; }
+    .hidden { display: none !important; }
+
+    .site-footer {
+      color: rgba(255,255,255,.74);
+      background: var(--teal-950);
+      padding: 58px 0 28px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr .7fr .9fr .9fr;
+      gap: 30px;
+      padding-bottom: 38px;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+    }
+    .footer-brand { color: var(--white); }
+    .footer-brand .brand-mark { background: rgba(255,255,255,.13); }
+    .footer-grid h3 {
+      color: var(--white);
+      font-size: 1rem;
+      letter-spacing: 0;
+      margin-bottom: 14px;
+    }
+    .footer-grid ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; }
+    .footer-grid a:hover { color: var(--white); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding-top: 22px;
+      font-size: .92rem;
+    }
+
+    .floating-cta {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 60;
+      display: none;
+      box-shadow: var(--shadow-md);
+    }
+
+    @media (max-width: 980px) {
+      .section { padding: 76px 0; }
+      .section-header,
+      .hero-grid,
+      .about-grid,
+      .safety-grid,
+      .contact-grid { grid-template-columns: 1fr; }
+      .hero { min-height: auto; }
+      .hero-grid { padding: 72px 0 86px; }
+      .stats-card { grid-template-columns: repeat(2, 1fr); }
+      .service-grid, .fleet-grid, .process-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact-card { position: static; }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+      .nav-actions .phone-link { display: none; }
+    }
+
+    @media (max-width: 740px) {
+      .container { width: min(100% - 24px, var(--container)); }
+      .menu-button { display: inline-block; }
+      .nav-links {
+        position: fixed;
+        left: 12px;
+        right: 12px;
+        top: 86px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 12px;
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        background: var(--white);
+        box-shadow: var(--shadow-md);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { justify-content: center; }
+      .nav-actions .btn { display: none; }
+      .hero-actions .btn { width: 100%; }
+      .hero-panel { display: none; }
+      .stats-card, .service-grid, .fleet-grid, .process-grid, .check-grid, .form-grid, .footer-grid { grid-template-columns: 1fr; }
+      .image-stack { min-height: 390px; }
+      .image-card.primary { inset: 0 0 20% 0; }
+      .image-card.secondary { display: none; }
+      .experience-badge { width: 138px; height: 138px; border-radius: 34px; }
+      .experience-badge strong { font-size: 2.4rem; }
+      .form-foot .btn { width: 100%; }
+      .footer-bottom { flex-direction: column; }
+      .floating-cta { display: inline-flex; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Transtario Inc.",
+    "telephone": "+1-905-775-1010",
+    "email": "transtario@hotmail.com",
+    "description": "School bus, sprinter van and luxury charter coach transportation for schools, corporate groups, weddings, events and tours.",
+    "areaServed": ["Ontario", "North America"],
+    "openingHours": "Mo-Fr 08:00-18:00"
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header" aria-label="Site header">
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="Transtario home">
+        <span class="brand-mark" aria-hidden="true"><span>TR</span></span>
+        <span>Transtario</span>
+      </a>
+
+      <nav aria-label="Primary navigation">
+        <button class="menu-button" type="button" aria-controls="nav-links" aria-expanded="false" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#fleet">Fleet</a></li>
+          <li><a href="#safety">Safety</a></li>
+          <li><a href="#quote">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="phone-link" href="tel:+19057751010">(905) 775-1010</a>
+        <a class="btn btn-primary" href="#quote">Get a Quote</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Trusted charter services</span>
+          <h1 id="hero-title">Your journey, handled with expertise.</h1>
+          <p>Safe, reliable school bus, sprinter van and motorcoach charters for schools, companies, wedding parties, event planners and tour groups across Ontario and North America.</p>
+          <div class="hero-actions" aria-label="Hero actions">
+            <a class="btn btn-primary" href="#quote">Plan Your Trip</a>
+            <a class="btn btn-secondary" href="#fleet">Explore Fleet</a>
+          </div>
+          <div class="hero-proof" aria-label="Trust indicators">
+            <span class="proof-chip">Modern fleet</span>
+            <span class="proof-chip">Licensed drivers</span>
+            <span class="proof-chip">School & coach charters</span>
+            <span class="proof-chip">Responsive support</span>
+          </div>
+        </div>
+
+        <aside class="hero-panel" aria-label="Quick quote panel">
+          <div class="hero-panel-top">
+            <h2>Get moving faster</h2>
+            <p class="mini-note">Share the basics and we will help match your group to the right vehicle.</p>
+          </div>
+          <form class="mini-form" data-quote-form>
+            <input name="name" type="text" placeholder="Your name" autocomplete="name" required />
+            <input name="email" type="email" placeholder="Email address" autocomplete="email" required />
+            <select name="vehicle" required aria-label="Vehicle type">
+              <option value="">Vehicle type</option>
+              <option>Charter Coach</option>
+              <option>School Bus</option>
+              <option>Sprinter Van</option>
+            </select>
+            <input name="date" type="date" aria-label="Trip date" />
+            <button class="btn btn-primary" type="submit">Start Quote</button>
+            <p class="mini-note">This static demo opens your email app with the request details.</p>
+          </form>
+        </aside>
+      </div>
+    </section>
+
+    <section class="stats-strip" aria-label="Company highlights">
+      <div class="container">
+        <div class="stats-card">
+          <div class="stat"><strong>55+</strong><span>years of transportation experience</span></div>
+          <div class="stat"><strong>20+</strong><span>school partners across Ontario</span></div>
+          <div class="stat"><strong>3</strong><span>vehicle classes for groups of all sizes</span></div>
+          <div class="stat"><strong>100%</strong><span>safety-first operating mindset</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container about-grid">
+        <div class="image-stack" aria-hidden="true">
+          <div class="image-card primary">
+            <img src="https://www.transtario.com/assets/images/school_bus_800.jpg" alt="" loading="lazy" />
+          </div>
+          <div class="image-card secondary">
+            <img src="https://www.transtario.com/assets/images/sprinter_van_800.jpg" alt="" loading="lazy" />
+          </div>
+          <div class="experience-badge"><span><strong>55+</strong> Years of experience</span></div>
+        </div>
+
+        <div>
+          <span class="eyebrow">About Transtario</span>
+          <h2 id="about-title">Motorcoach charters throughout North America.</h2>
+          <p class="lead">For more than five decades, Transtario Inc. has supported schools, sports teams, executives, tour companies, faith groups, conventions and community organizations with dependable group transportation.</p>
+          <p class="muted">The redesigned experience keeps the company’s most important promises front and centre: safety, reliability, clear trip planning and a fleet that can support everything from a local shuttle to a multi-day charter.</p>
+
+          <div class="feature-list">
+            <article class="feature-item">
+              <div class="icon" aria-hidden="true">1</div>
+              <div><h3>Built around safety</h3><p>Trained professional drivers, maintained vehicles and trip planning that puts passengers first.</p></div>
+            </article>
+            <article class="feature-item">
+              <div class="icon" aria-hidden="true">2</div>
+              <div><h3>Flexible for any group</h3><p>School trips, weddings, employee shuttles, religious retreats, sports travel, festivals and tours.</p></div>
+            </article>
+            <article class="feature-item">
+              <div class="icon" aria-hidden="true">3</div>
+              <div><h3>Simple quote process</h3><p>Clear form fields collect the route, date, vehicle type, duration and special requirements upfront.</p></div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section services" id="services" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="eyebrow">Charter bus services</span>
+            <h2 id="services-title">Transportation for the way groups actually travel.</h2>
+          </div>
+          <p class="lead">A focused service grid helps buyers quickly find their use case, understand the fit and request the right vehicle.</p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card"><div class="service-icon" aria-hidden="true">⛷</div><h3>Ski trips & winter excursions</h3><p>Reliable transportation to winter destinations with room for groups and gear.</p></article>
+          <article class="service-card"><div class="service-icon" aria-hidden="true">💍</div><h3>Weddings</h3><p>Comfortable guest and wedding-party transportation with dependable timing.</p></article>
+          <article class="service-card"><div class="service-icon" aria-hidden="true">🏕</div><h3>Camp transportation</h3><p>Daily or weekly routes for campers and staff with flexible scheduling.</p></article>
+          <article class="service-card"><div class="service-icon" aria-hidden="true">🎓</div><h3>College & university groups</h3><p>Campus tours, athletic travel, field trips and club outings.</p></article>
+          <article class="service-card"><div class="service-icon" aria-hidden="true">🚌</div><h3>After-school programs</h3><p>Scheduled student transportation with safe pickup and drop-off coordination.</p></article>
+          <article class="service-card"><div class="service-icon" aria-hidden="true">⛪</div><h3>Religious organizations</h3><p>Retreats, services and community outreach transportation for groups of all sizes.</p></article>
+          <article class="service-card"><div class="service-icon" aria-hidden="true">🎪</div><h3>Large events & festivals</h3><p>Shuttle plans and coordinated group movements for major event logistics.</p></article>
+          <article class="service-card"><div class="service-icon" aria-hidden="true">💼</div><h3>Corporate event rentals</h3><p>Conference, retreat and team-building travel with a polished passenger experience.</p></article>
+          <article class="service-card"><div class="service-icon" aria-hidden="true">🏢</div><h3>Employee shuttles</h3><p>Recurring employee transportation that can reduce parking pressure and improve commuting.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="fleet" aria-labelledby="fleet-title">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="eyebrow">Our fleet</span>
+            <h2 id="fleet-title">The right vehicle for every itinerary.</h2>
+          </div>
+          <p class="lead">Clean comparison cards make capacity, amenities and best-use cases easy to scan before a quote request.</p>
+        </div>
+
+        <div class="fleet-grid">
+          <article class="fleet-card">
+            <div class="fleet-image"><img src="https://www.transtario.com/assets/images/school_bus_800.jpg" alt="Large yellow school bus" loading="lazy" /></div>
+            <div class="fleet-body">
+              <h3>School Bus</h3>
+              <p class="muted">Cost-effective group transportation for schools, camps, local outings and event shuttles.</p>
+              <div class="fleet-meta"><span class="pill">44–58 seats</span><span class="pill">No WiFi</span><span class="pill">No restroom</span></div>
+              <ul><li>School field trips and after-school programs</li><li>Corporate and community events</li><li>Camp and wedding transportation</li></ul>
+            </div>
+          </article>
+
+          <article class="fleet-card">
+            <div class="fleet-image"><img src="https://www.transtario.com/assets/images/sprinter_van_800.jpg" alt="Passenger sprinter van" loading="lazy" /></div>
+            <div class="fleet-body">
+              <h3>Passenger & Sprinter Van</h3>
+              <p class="muted">Compact, comfortable transportation for smaller groups and point-to-point moves.</p>
+              <div class="fleet-meta"><span class="pill">10 seats</span><span class="pill">No WiFi</span><span class="pill">No restroom</span></div>
+              <ul><li>Corporate shuttle services</li><li>Social outings and sporting events</li><li>Airport transportation</li></ul>
+            </div>
+          </article>
+
+          <article class="fleet-card">
+            <div class="fleet-image"><img src="https://www.transtario.com/assets/images/coach_bus_800.jpg" alt="Luxury charter coach on the highway" loading="lazy" /></div>
+            <div class="fleet-body">
+              <h3>Luxury Charter Coach</h3>
+              <p class="muted">Premium charter travel for longer routes, tours and comfort-focused group transportation.</p>
+              <div class="fleet-meta"><span class="pill">50 seats</span><span class="pill">WiFi equipped</span><span class="pill">Restroom</span></div>
+              <ul><li>Reclining seats with footrests</li><li>Entertainment systems</li><li>Climate control and luggage space</li></ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section process" aria-labelledby="process-title">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="eyebrow">Trip planning</span>
+            <h2 id="process-title">A clearer path from request to departure.</h2>
+          </div>
+          <p class="lead">The redesign emphasizes the buying journey, giving charter customers confidence before they pick up the phone.</p>
+        </div>
+        <div class="process-grid">
+          <article class="process-card"><span class="step">1</span><h3>Share trip details</h3><p>Date, pickup, destination, group size and special requirements.</p></article>
+          <article class="process-card"><span class="step">2</span><h3>Match the vehicle</h3><p>Choose from school buses, sprinter vans and luxury charter coaches.</p></article>
+          <article class="process-card"><span class="step">3</span><h3>Confirm logistics</h3><p>Finalize route timing, stops, passenger needs and driver coordination.</p></article>
+          <article class="process-card"><span class="step">4</span><h3>Travel with confidence</h3><p>Professional transportation managed by an experienced operations team.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="safety" aria-labelledby="safety-title">
+      <div class="container safety-grid">
+        <article class="safety-card">
+          <span class="eyebrow">Safety & reliability</span>
+          <h2 id="safety-title">A safety-first story that reassures schools, companies and families.</h2>
+          <p class="lead">Customers choosing group transportation need to know the operator is dependable. This section converts that concern into a clear promise.</p>
+          <div class="check-grid" aria-label="Safety commitments">
+            <div class="check">Licensed professional drivers</div>
+            <div class="check">Maintained fleet</div>
+            <div class="check">Route and timing coordination</div>
+            <div class="check">Passenger comfort focus</div>
+            <div class="check">School and youth-group experience</div>
+            <div class="check">Responsive trip support</div>
+          </div>
+        </article>
+        <aside class="quote-callout">
+          <div>
+            <h3>Need a quote quickly?</h3>
+            <p>Call Transtario or send the route details, date, vehicle type and trip duration. The form below is ready for a static site and can be connected to a CRM or email service later.</p>
+          </div>
+          <a class="btn btn-secondary" href="tel:+19057751010">Call (905) 775-1010</a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section contact" id="quote" aria-labelledby="quote-title">
+      <div class="container contact-grid">
+        <aside class="contact-card">
+          <span class="eyebrow">Get in touch</span>
+          <h2 id="quote-title">Plan your next trip.</h2>
+          <p class="lead">Tell us where you are going, how many people are travelling and what kind of vehicle you need.</p>
+          <div class="contact-methods">
+            <a class="contact-method" href="tel:+19057751010"><span class="icon" aria-hidden="true">☎</span><span><span>Phone</span><strong>(905) 775-1010</strong></span></a>
+            <a class="contact-method" href="mailto:transtario@hotmail.com"><span class="icon" aria-hidden="true">✉</span><span><span>Email</span><strong>transtario@hotmail.com</strong></span></a>
+            <div class="contact-method"><span class="icon" aria-hidden="true">⏱</span><span><span>Hours</span><strong>Monday–Friday, 8 AM – 6 PM</strong></span></div>
+          </div>
+        </aside>
+
+        <form class="form-card" data-quote-form>
+          <div class="form-grid">
+            <div class="field"><label for="name">Name</label><input id="name" name="name" autocomplete="name" required /></div>
+            <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required /></div>
+            <div class="field"><label for="phone">Phone number</label><input id="phone" name="phone" type="tel" autocomplete="tel" /></div>
+            <div class="field"><label for="date">Trip date</label><input id="date" name="date" type="date" /></div>
+            <div class="field"><label for="vehicle">Vehicle</label><select id="vehicle" name="vehicle" required><option value="">Select vehicle type</option><option>Charter Coach</option><option>School Bus</option><option>Sprinter Van</option></select></div>
+            <div class="field"><label for="duration">Trip duration</label><select id="duration" name="duration"><option>Single Day (No Overnight)</option><option>Multi-Day Trip</option></select></div>
+            <div class="field hidden" id="nights-field"><label for="nights">Number of nights</label><input id="nights" name="nights" type="number" min="1" inputmode="numeric" /></div>
+            <div class="field"><label for="passengers">Passengers</label><input id="passengers" name="passengers" type="number" min="1" inputmode="numeric" /></div>
+            <div class="field"><label for="pickup">Pickup location</label><input id="pickup" name="pickup" /></div>
+            <div class="field"><label for="dropoff">Drop-off location</label><input id="dropoff" name="dropoff" /></div>
+            <div class="field full"><label for="message">Additional information</label><textarea id="message" name="message" placeholder="Tell us about timing, stops, accessibility needs, luggage, equipment or special instructions."></textarea></div>
+          </div>
+          <div class="form-foot">
+            <p class="form-note">Static demo: submission opens an addressed email draft.</p>
+            <button class="btn btn-primary" type="submit">Submit Quote Request</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="brand footer-brand" href="#home"><span class="brand-mark" aria-hidden="true"><span>TR</span></span><span>Transtario</span></a>
+          <p>School bus, sprinter van and luxury charter coach transportation for groups throughout Ontario and North America.</p>
+        </div>
+        <div>
+          <h3>Quick links</h3>
+          <ul><li><a href="#about">About Us</a></li><li><a href="#services">Services</a></li><li><a href="#fleet">Our Fleet</a></li><li><a href="#quote">Contact Us</a></li></ul>
+        </div>
+        <div>
+          <h3>Services</h3>
+          <ul><li>School Bus Charters</li><li>Corporate Transportation</li><li>Wedding Transportation</li><li>Sports Team Transportation</li><li>Religious Group Transport</li></ul>
+        </div>
+        <div>
+          <h3>Contact</h3>
+          <ul><li><a href="tel:+19057751010">(905) 775-1010</a></li><li><a href="mailto:transtario@hotmail.com">transtario@hotmail.com</a></li><li>Monday–Friday, 8 AM – 6 PM</li></ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Transtario Inc. All rights reserved.</span>
+        <span>Static HTML redesign concept.</span>
+      </div>
+    </div>
+  </footer>
+
+  <a class="btn btn-primary floating-cta" href="#quote">Get a Quote</a>
+
+  <script>
+    const menuButton = document.querySelector('.menu-button');
+    const navLinks = document.querySelector('#nav-links');
+
+    if (menuButton && navLinks) {
+      menuButton.addEventListener('click', () => {
+        const isOpen = navLinks.classList.toggle('open');
+        menuButton.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      navLinks.addEventListener('click', (event) => {
+        if (event.target.matches('a')) {
+          navLinks.classList.remove('open');
+          menuButton.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+
+    const durationSelect = document.querySelector('#duration');
+    const nightsField = document.querySelector('#nights-field');
+
+    if (durationSelect && nightsField) {
+      const toggleNights = () => {
+        nightsField.classList.toggle('hidden', durationSelect.value !== 'Multi-Day Trip');
+      };
+      durationSelect.addEventListener('change', toggleNights);
+      toggleNights();
+    }
+
+    const quoteForms = document.querySelectorAll('[data-quote-form]');
+    quoteForms.forEach((form) => {
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const data = new FormData(form);
+        const subject = encodeURIComponent('Quote request for Transtario charter');
+        const lines = [];
+        data.forEach((value, key) => {
+          if (String(value).trim()) {
+            const label = key.replace(/-/g, ' ').replace(/\b\w/g, (letter) => letter.toUpperCase());
+            lines.push(`${label}: ${value}`);
+          }
+        });
+        const body = encodeURIComponent(lines.join('\n'));
+        window.location.href = `mailto:transtario@hotmail.com?subject=${subject}&body=${body}`;
+      });
+    });
+  </script>
+</body>
+</html>

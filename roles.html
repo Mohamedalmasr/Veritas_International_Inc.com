@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Services – Roles</title>
+
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="roles.css"/>
+</head>
+<body class="services">
+
+  <!-- Navbar -->
+  <header class="app-header" role="navigation" aria-label="Primary">
+    <div class="app-brand">
+      <span class="logo" aria-hidden="true"></span>
+      <span class="brand-name">Veritas International Inc</span>
+
+      <!-- Status + Help (dynamic) -->
+      <div class="status-area" id="statusArea" hidden>
+        <span id="statusChip" class="status-chip" aria-live="polite"></span>
+        <button id="helpBtn" class="help-circle" type="button" title="Help" aria-label="Help">?</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Layout -->
+  <main class="svc-wrap svc-transfer">
+
+    <!-- الشمال (في الديزاين بعد القلب): Roles -->
+    <section class="svc-col left" aria-labelledby="unassigned-title">
+      <!-- صف العنوان + Back على اليمين -->
+      <div class="head-row">
+        <h2 id="unassigned-title" class="col-title">Unassigned roles</h2>
+        <a href="services.html" class="back-btn" aria-label="Back to Services">← Back</a>
+      </div>
+
+      <div class="box-head">
+        <div class="hint muted">Select one or more, then use arrows</div>
+      </div>
+
+      <select id="unassignedList" class="listbox" multiple size="16" aria-label="Unassigned roles">
+        <!-- JS injects -->
+      </select>
+    </section>
+
+    <!-- المنتصف: الأسهم -->
+    <section class="controls" aria-label="Transfer controls">
+      <button id="toGroupBtn" class="big-arrow" title="Assign to group" aria-label="Assign to group">←</button>
+      <button id="toPoolBtn"  class="big-arrow" title="Remove from group" aria-label="Remove from group">→</button>
+    </section>
+
+    <!-- اليمين (بعد القلب): Roles -->
+    <section class="svc-col right" aria-labelledby="groups-title">
+      <h2 id="groups-title" class="col-title">Teams - Assigned roles</h2>
+
+      <button id="groupsToggle" class="dropdown-toggle" aria-expanded="false" aria-controls="groupsPanel">
+        <span id="currentGroupLabel">Select group…</span>
+        <span class="chev" aria-hidden="true"></span>
+      </button>
+
+      <div id="groupsPanel" class="list collapsed" role="listbox" aria-label="Groups list">
+        <!-- JS injects (FIN فقط) -->
+      </div>
+
+      <!-- روستر الأدوار -->
+      <div id="groupRoster" class="roster" aria-label="Group roles">
+        <!-- JS injects -->
+      </div>
+
+      <!-- معلومات الجروب -->
+      <div class="meta-form" aria-label="Group information">
+        <div class="field">
+          <div class="meta-title">Code</div>
+          <input id="groupCode" type="text" maxlength="8" disabled />
+        </div>
+
+        <div class="field">
+          <div class="meta-title">Name</div>
+          <input id="groupName" type="text" maxlength="64" disabled />
+        </div>
+
+        <div class="field">
+          <div class="meta-title">Description</div>
+          <textarea id="groupDesc" rows="4" disabled></textarea>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="roles.js"></script>
+</body>
+</html>

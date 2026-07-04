@@ -1,0 +1,370 @@
+/* ===== متغيرات و سكوب خاص بالـ CRM ===== */
+#crmApp{
+  --navy:#0b2e6f;
+
+  /* Left pane */
+  --left-w: 300px;
+  --left-min: 300px;
+  --handle-w: 6px;
+
+  /* Dashboard tiles */
+  --tile-size: 96px;
+  --tile-gap: 12px;
+  --tile-icon-box: 36px;
+  --tile-icon-svg: 18px;
+  --tile-label-fs: .82rem;
+
+  /* Temp tile */
+  --temp-size: 132px;
+  --temp-gap: 12px;
+  --temp-label-fs: .80rem;
+
+  /* Tabs */
+  --tabs-h: 44px;
+
+  /* Dashboard grid */
+  --dash-tile: 112px;
+  --dash-gap: 12px;
+  --dash-icon-box: 34px;
+  --dash-icon: 16px;
+  --dash-label-fs: .80rem;
+}
+
+/* ===== إطار عام ===== */
+#crmApp .acc-wrap{ max-width:1200px; margin:16px auto; padding:0 16px 24px; }
+#crmApp .acc-card{ background:var(--card); border:1px solid var(--border); border-radius:14px; box-shadow:var(--shadow); padding:12px; }
+
+#crmApp .acc-body{ display:grid; gap:24px; padding:8px; align-items:stretch; }
+#crmApp .acc-body.work-mode{ grid-template-columns:1fr; }
+#crmApp .acc-body.work-mode .work-area{
+  position:relative;
+  display:grid;
+  grid-template-columns: var(--left-w) var(--handle-w) minmax(0,1fr);
+  gap:24px; align-items:stretch;
+}
+
+/* ===== القائمة الشمال ===== */
+#crmApp .pane-left{ overflow:hidden; min-width:0; }
+#crmApp .menu-list{
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:#fff;
+  min-height:420px; overflow:hidden; display:block;
+}
+#crmApp .menu-link{
+  width:100%;
+  display:flex; align-items:center; justify-content:space-between; gap:10px;
+  padding:14px 16px;
+  background:transparent; border:0; color:var(--text);
+  font-weight:800; cursor:pointer; user-select:none;
+  transition: background .18s ease, color .18s ease;
+  border-bottom:1px solid var(--border);
+}
+#crmApp .menu-link:hover{ background: rgba(11,46,111,.06); }
+#crmApp .menu-link.is-active{ background: var(--navy); color:#fff; box-shadow:none; }
+#crmApp .menu-link .chev{ opacity:.5; transition:opacity .18s ease, transform .18s ease; }
+#crmApp .menu-link.is-active .chev{ opacity:1; color:#fff; transform:rotate(90deg); }
+
+/* ===== يمين ===== */
+#crmApp .pane-right{ display:flex; flex-direction:column; min-width:0; }
+#crmApp .content-head{ padding:2px 0 10px 0; }
+#crmApp .content-title{ color:var(--navy); font-size:1.15rem; font-weight:800; }
+
+/* 1) اسكوب الـ overflow على الـ contentArea بس */
+#crmApp #contentArea{
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:#fff;
+  padding:16px 18px;
+  width:100%;
+  max-width:none;
+  flex:1 1 auto;
+  overflow:auto;
+  min-height:0;
+}
+
+/* صناديق المحتوى الداخلية */
+#crmApp .content-box{
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:#fff;
+  padding:16px 18px;
+  width:100%;
+  max-width:none;
+  overflow:visible;
+}
+
+#crmApp #contentArea .content-box{ flex:1 1 auto; min-height:0; }
+
+/* Iframe host */
+#crmApp .iframe-host{ width:100%; height:68vh; background:#fff; border:1px solid var(--border); border-radius:12px; overflow:hidden; }
+#crmApp .iframe-host iframe{ width:100%; height:100%; border:0; }
+
+/* ===== Tabs ===== */
+#crmApp .tab-bar{
+  display:flex; align-items:flex-end; gap:8px;
+  margin:10px 0 12px;
+  padding:6px 8px 0;
+  min-height: var(--tabs-h);
+  border-bottom: 1px solid var(--border);
+  overflow-x:auto; overflow-y:visible;
+  scrollbar-width: thin;
+}
+#crmApp .tab{
+  flex:0 0 auto; display:inline-flex; align-items:center; gap:8px;
+  height:34px; padding:0 10px; background:#f8fafc; color:var(--text);
+  font-weight:800; cursor:pointer;
+  border:1px solid var(--border);
+  border-bottom-color: transparent;
+  border-radius:10px 10px 0 0;
+  margin-bottom:-1px;
+  transition: background .2s, border-color .2s, color .2s, transform .12s;
+  max-width:200px; min-width:72px;
+}
+#crmApp .tab:hover{ transform: translateY(-1px); background:#eef5ff; }
+#crmApp .tab[aria-selected="true"]{ background:var(--navy); color:#fff; border-color:var(--navy); border-bottom-color:transparent; }
+#crmApp .tab .tab-title{ display:block; min-width:0; max-width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+
+/* زر الإغلاق */
+#crmApp .tab .close{
+  flex:0 0 18px; width:18px; height:18px; border-radius:6px;
+  display:inline-flex; align-items:center; justify-content:center; margin-left:2px;
+  font-weight:800; line-height:1; cursor:pointer;
+  background:#fff; color:var(--text); border:1px solid var(--border);
+}
+#crmApp .tab .close:hover{ background:#fee2e2; border-color:#fecaca; color:#7f1d1d; }
+#crmApp .tab[data-key="dashboard"] .close,
+#crmApp .tab[data-fixed="true"] .close{ display:none !important; pointer-events:none; }
+
+@media (max-width:900px){ #crmApp .tab{ max-width:140px; }}
+
+/* ===== Dashboard ===== */
+#crmApp .dash-wrap{ display:grid; gap:18px; }
+#crmApp .group-card{ background:#fff; border:1px solid var(--border); border-radius:14px; padding:14px; }
+#crmApp .group-title{ margin:0 0 10px; font-size:1rem; font-weight:900; color:var(--navy); }
+#crmApp .tile-grid{ display:grid; grid-template-columns: repeat(auto-fill, minmax(var(--tile-size), 1fr)); gap: var(--tile-gap); }
+
+#crmApp .tile-wrap{ position:relative; display:block; }
+#crmApp .tile{
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;
+  border:1px solid var(--border); border-radius:14px;
+  padding:12px 12px 14px; background:#fff;
+  cursor:pointer; user-select:none; text-align:center;
+  transition: transform .12s, border-color .12s, background .12s;
+  min-height: 120px;
+}
+#crmApp .tile:hover{ transform: translateY(-2px); border-color: rgba(11,46,111,.25); background:linear-gradient(180deg, #fff, #f7fbff); }
+#crmApp .tile-icon{
+  width:var(--tile-icon-box); height:var(--tile-icon-box); border-radius:12px; display:grid; place-items:center; color:var(--navy);
+  background:#eef3fb;
+}
+#crmApp .tile-icon svg{ width:var(--tile-icon-svg); height:var(--tile-icon-svg); }
+#crmApp .tile-label{
+  font-weight:700; color:var(--text); font-size:var(--tile-label-fs); line-height:1.2;
+  margin: 0 6px; text-align:center; word-break: break-word; hyphens:auto;
+  display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; line-clamp:3; overflow:hidden; text-overflow:ellipsis;
+  max-height: calc(1.2em * 3);
+}
+
+/* أزرار التحكم داخل التايل */
+#crmApp .tile-ctl{
+  position:absolute; top:6px; right:6px;
+  width:18px; height:18px; border-radius:999px; border:0;
+  color:#fff; font-weight:800; line-height:18px; text-align:center; font-size:12px; cursor:pointer;
+}
+#crmApp .tile-ctl-add{ background:#16a34a; }
+#crmApp .tile-ctl-indicator{ background:#f59e0b; cursor:default; }
+#crmApp .tile-ctl-remove{ background:#dc2626; }
+
+/* ===== GL / Services ===== */
+#crmApp .gl-wrap{ display:grid; gap:16px; }
+#crmApp .gl-head{ display:flex; align-items:center; gap:10px; margin:0 0 2px; }
+#crmApp .gl-head .tile-icon{ background:rgba(11,46,111,.12); }
+#crmApp .gl-title{ margin:0; font-size:1.08rem; color:var(--navy); font-weight:900; letter-spacing:.2px; }
+
+#crmApp .gl-acc{ border:1px solid var(--border); border-radius:12px; background:#fff; }
+#crmApp .gl-item + .gl-item{ border-top:1px solid var(--border); }
+
+#crmApp .gl-toggle{
+  display:grid; grid-template-columns:auto 1fr auto; align-items:center;
+  gap:12px; padding:12px 14px; cursor:default;
+}
+#crmApp .gl-toggle .ico{
+  width:30px; height:30px; color:var(--navy);
+  display:grid; place-items:center; border-radius:10px;
+  background: rgba(11,46,111,.08);
+}
+
+/* أزرار الأسهم */
+#crmApp .chev-btn, 
+#crmApp .chev-btn-sm{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:0; line-height:0; margin:0;
+  background:#fff; color:var(--navy); border:1px solid var(--border);
+  border-radius:8px; cursor:pointer; transition:background .15s, border-color .15s, transform .15s;
+  justify-self:end;
+}
+#crmApp .chev-btn{ width:28px; height:28px; }
+#crmApp .chev-btn-sm{ width:24px; height:24px; border-radius:7px; }
+#crmApp .chev-btn:hover, 
+#crmApp .chev-btn-sm:hover{ background:#f7fbff; border-color:rgba(11,46,111,.35); }
+#crmApp .chev-btn svg, 
+#crmApp .chev-btn-sm svg{ display:block; width:14px; height:14px; transition:transform .15s ease; }
+
+#crmApp .gl-body{ display:none; padding:10px 14px 14px; }
+#crmApp .gl-item[aria-expanded="true"]{ border-left:3px solid var(--navy); background:linear-gradient(180deg,#fff, #f8fbff); }
+#crmApp .gl-item[aria-expanded="true"] .gl-body{ display:block; }
+#crmApp .gl-item[aria-expanded="true"] .chev-btn svg{ transform:rotate(90deg); }
+#crmApp .gl-item[aria-expanded="false"] .chev-btn svg{ transform:rotate(0deg); }
+
+/* شبكة البلوكات */
+#crmApp .gl-list{
+  display:grid; gap:12px; grid-template-columns:1fr;
+  align-items:start;
+  --gl-row: 8px;
+  grid-auto-rows: var(--gl-row);
+}
+#crmApp .gl-list[data-lock="cols"]{ grid-auto-flow: row dense; }
+@media (min-width: 900px){ #crmApp .gl-list{ grid-template-columns:1fr 1fr; } }
+@media (min-width:1200px){ #crmApp .gl-list{ grid-template-columns:1fr 1fr 1fr; } }
+
+#crmApp .gl-sub{ border:1px solid var(--border); border-radius:10px; background:#fff; align-self:start; }
+#crmApp .gl-sub[aria-expanded="false"] .gl-sub-body{ display:none; }
+#crmApp .gl-sub-head{ display:grid; grid-template-columns:1fr auto; align-items:center; gap:8px; padding:10px 12px; cursor:default; }
+#crmApp .gl-sub-title{ margin:0; font-weight:800; color:var(--navy); font-size:.95rem; }
+#crmApp .gl-sub[aria-expanded="true"] .chev-btn-sm svg{ transform:rotate(90deg); }
+#crmApp .gl-sub[aria-expanded="false"] .chev-btn-sm svg{ transform:rotate(0deg); }
+#crmApp .gl-sub-body{ padding:8px 12px 12px; }
+
+/* روابط العناصر */
+#crmApp .gl-links{ display:grid; gap:6px; }
+#crmApp .gl-link{
+  display:flex; align-items:center; gap:10px;
+  padding:8px 10px; border:1px solid var(--border); border-radius:10px;
+  background:#fff; color:var(--text); font-weight:700; cursor:pointer; text-align:left;
+  transition: background .15s, border-color .15s, transform .12s;
+}
+#crmApp .gl-link:hover{ background:#f7fbff; border-color:rgba(11,46,111,.25); transform:translateY(-1px); }
+#crmApp .gl-link .dot{
+  flex:0 0 18px; width:18px; height:18px; line-height:18px; text-align:center;
+  margin-inline-end:8px; border-radius:50%;
+  display:inline-grid; place-items:center;
+  background:rgba(11,46,111,.12); color:var(--navy);
+  font-size:.72rem; font-weight:900;
+}
+#crmApp .gl-link .txt{ flex:1 1 auto; min-width:0; white-space:normal; }
+
+/* ===== Collapse / Resizer ===== */
+#crmApp .work-area.is-collapsed{ grid-template-columns: 0 var(--handle-w) minmax(0,1fr) !important; }
+#crmApp .work-area.is-collapsed .pane-left{ width:0 !important; opacity:0; visibility:hidden; pointer-events:none; }
+#crmApp .pane-toggle{
+  position:absolute; top:50%; left:-12px; transform:translateY(-50%);
+  width:24px; height:44px; display:inline-flex; align-items:center; justify-content:center;
+  border:1px solid var(--border); background:#fff; border-radius:10px;
+  box-shadow:0 2px 8px rgba(0,0,0,.06); cursor:pointer; z-index:20;
+  transition:background .15s, border-color .15s;
+}
+#crmApp .pane-toggle:hover{ background:#f7fbff; border-color:var(--primary-100); }
+#crmApp .work-area.is-collapsed .pane-toggle svg{ transform:rotate(180deg); }
+#crmApp .pane-resizer{
+  grid-column:2; cursor:col-resize;
+  background:linear-gradient(to bottom, transparent, rgba(0,0,0,0.05), transparent);
+  border-radius:4px; position:relative;
+}
+#crmApp .pane-resizer::after{
+  content:""; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+  width:2px; height:24px; background:var(--border-soft, rgba(0,0,0,.08)); border-radius:2px; opacity:.9;
+}
+#crmApp .work-area.resizing .pane-resizer{ background:rgba(20,118,242,0.15); }
+
+@media (max-width:900px){
+  #crmApp .acc-body.work-mode .work-area{ grid-template-columns:0 var(--handle-w) 1fr; }
+  #crmApp .pane-resizer{ display:none; }
+  #crmApp .pane-toggle{ left:-12px; }
+  #crmApp #contentArea{ min-height:320px; }
+}
+
+/* ===== Temp section ===== */
+#crmApp .gl-item[data-temp="true"] .tile-grid{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(var(--temp-size), var(--temp-size)));
+  gap: var(--temp-gap);
+  justify-content:start;
+}
+#crmApp .gl-item[data-temp="true"] .tile-wrap{ width: var(--temp-size); height: var(--temp-size); position: relative; }
+#crmApp .gl-item[data-temp="true"] .tile{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:8px; padding: 12px; border-radius:12px; min-height:0; }
+#crmApp .gl-item[data-temp="true"] .tile-icon{ width:32px; height:32px; border-radius:10px; }
+#crmApp .gl-item[data-temp="true"] .tile-icon svg{ width:16px; height:16px; }
+#crmApp .gl-item[data-temp="true"] .tile-label{ font-size: var(--temp-label-fs); -webkit-line-clamp:2; line-clamp:2; max-height:calc(1.2em * 2); }
+#crmApp .gl-item[data-temp="true"] .tile-ctl-indicator{ width:14px; height:14px; line-height:14px; top:6px; right:6px; border-radius:999px; }
+#crmApp .tile-wrap .tile-ctl{ display:inline-flex; align-items:center; justify-content:center; line-height:1; padding:0; }
+#crmApp .gl-item[data-temp="true"] .tile-ctl-add{ width:16px; height:16px; font-size:12px; }
+
+/* ===== Dashboard: 5 مربعات ===== */
+#crmApp .dash-wrap .tile-grid{ display:grid; grid-template-columns: repeat(5, 1fr); gap: var(--dash-gap); }
+#crmApp .dash-wrap .tile{ width:100%; aspect-ratio:1 / 1; min-height:0; padding:10px; border-radius:12px; }
+#crmApp .dash-wrap .tile-icon{ width:var(--dash-icon-box); height:var(--dash-icon-box); border-radius:10px; }
+#crmApp .dash-wrap .tile-icon svg{ width:var(--dash-icon); height:var(--dash-icon); }
+#crmApp .dash-wrap .tile-label{ font-size:var(--dash-label-fs); -webkit-line-clamp:2; line-clamp:2; max-height:calc(1.2em * 2); }
+#crmApp .dash-wrap .tile-ctl-remove{ width:16px; height:16px; line-height:16px; font-size:12px; top:6px; right:6px; display:inline-flex; align-items:center; justify-content:center; padding:0; }
+
+/* ===== Toast ===== */
+#crmApp .toast-stack{
+  position: fixed;
+  right: calc(16px + env(safe-area-inset-right, 0px));
+  bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  display: grid;
+  gap: 10px;
+  z-index: 9999;
+  pointer-events: none;
+  max-height: 100vh;
+  overflow: visible;
+}
+#crmApp .toast{
+  position: relative;
+  background: #1f2937;
+  color: #fff;
+  font-weight: 700;
+  font-size: .85rem;
+  min-width: 220px;
+  max-width: min(320px, 90vw);
+  padding: 10px 40px 10px 12px;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.18);
+  animation: toastIn .18s ease-out both;
+  will-change: transform, opacity;
+  pointer-events: auto;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+}
+#crmApp .toast.error{ background:#dc2626; }
+#crmApp .toast.info{ background:#0b3d91; }
+#crmApp .toast.success{ background:#16a34a; }
+#crmApp .toast.warn{ background:#d97706; }
+@keyframes toastIn { from{ transform: translateY(6px); opacity:0; } to{ transform: translateY(0); opacity:1; } }
+#crmApp .toast .toast-close{
+  position: absolute;
+  top: 6px; right: 6px;
+  width: 22px; height: 22px;
+  border-radius: 8px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: rgba(255,255,255,.12);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.45);
+  font-weight: 900; line-height: 1; cursor: pointer;
+  transition: background .18s ease, transform .12s ease, border-color .18s;
+}
+#crmApp .toast .toast-close:hover{ background: rgba(255,255,255,.2); transform: scale(1.05); }
+#crmApp .toast .toast-close:active{ transform: scale(0.98); }
+#crmApp .toast .toast-close:focus-visible{ outline: 2px solid #fff; outline-offset: 2px; }
+
+/* ارتفاع كامل للسلسلة */
+html, body { height:100%; }
+#crmApp .acc-wrap{ min-height:100dvh; display:flex; }
+#crmApp .acc-card{ flex:1 1 auto; display:flex; flex-direction:column; min-height:0; }
+#crmApp .acc-body{ flex:1 1 auto; min-height:0; }
+#crmApp .acc-body.work-mode .work-area{ height:100%; min-height:0; }
+#crmApp .pane-right{ display:flex; flex-direction:column; min-height:0; }
+
+/* Fix */
+#crmApp .gl-acc > .gl-item:first-child .gl-list{ grid-auto-rows: auto !important; }

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  />
+  <meta name="theme-color" content="#0b3d91" />
+  <title>Select Portal</title>
+  <link rel="stylesheet" href="choose.css" />
+</head>
+<body>
+
+  <div class="bg-blob bg-blob-1" aria-hidden="true"></div>
+  <div class="bg-blob bg-blob-2" aria-hidden="true"></div>
+
+  <main class="auth-wrap">
+    <section class="auth-card" aria-labelledby="title">
+      <header class="auth-head">
+        <h1 id="title">Credentials Sign In</h1>
+        <p class="subtitle">Enter Your Credentials.</p>
+      </header>
+
+      <form class="form" id="portalForm" novalidate>
+
+        <!-- SECTION I -->
+        <div class="field">
+          <label for="portal">Section I</label>
+
+          <div class="select-wrapper">
+            <select id="portal" class="select">
+              <option value="" selected>Select an option</option>
+              <option value="onboarding">admin.veritasinternational.com</option>
+              <option value="client">client.veritasinternational.com</option>
+              <option value="team">admin.oneklient.com</option>
+              <option value="mri">mri.com</option>
+            </select>
+
+            <button type="button" id="clearPortal" class="clear-btn">
+              ✕
+            </button>
+          </div>
+
+          <small id="portalError" class="error-msg">
+            Please select an option.
+          </small>
+        </div>
+
+        <!-- SECTION II -->
+        <div class="field">
+          <label for="section2">Section II</label>
+
+          <div class="select-wrapper">
+            <select id="section2" class="select">
+              <option value="" selected>Select an option</option>
+
+              <option value="tourism">
+                tourism.com
+              </option>
+
+              <option value="transtario">
+                transtario-redesign.com
+              </option>
+
+              <option value="genesis">
+                genesis_bus_line.com
+              </option>
+            </select>
+
+            <button type="button" id="clearSection2" class="clear-btn">
+              ✕
+            </button>
+          </div>
+
+          <small class="error-msg">
+            Please select an option.
+          </small>
+        </div>
+
+        <div
+          class="field status-field hidden-field"
+          id="statusField"
+        >
+          <div class="status-inline-row">
+            <label
+              for="statusSelect"
+              class="status-inline-label"
+            >
+              Status =
+            </label>
+
+            <select
+              id="statusSelect"
+              class="select status-inline-select"
+            >
+              <option value="" selected disabled>
+                Select
+              </option>
+              <option value="new">NEW</option>
+              <option value="init">INIT</option>
+              <option value="ready">READY</option>
+              <option value="active">ACTIVE</option>
+              <option value="crtcl">CRTCL</option>
+              <option value="fatall">FATALL</option>
+              <option value="grace">GRACE</option>
+              <option value="suspnd">SUSPND</option>
+              <option value="deltd">DELTD</option>
+            </select>
+          </div>
+
+          <small id="statusError" class="error-msg">
+            Please select status.
+          </small>
+        </div>
+
+        <button type="submit" class="btn-primary">
+          Continue
+        </button>
+
+      </form>
+    </section>
+  </main>
+
+  <script src="choose.js"></script>
+</body>
+</html>

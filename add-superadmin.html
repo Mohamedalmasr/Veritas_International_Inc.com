@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Add New SuperAdmin</title>
+  <link rel="stylesheet" href="style1.css"/>
+  <link rel="stylesheet" href="add-superadmin.css"/>
+</head>
+<body>
+  <header class="app-header" role="navigation" aria-label="Primary">
+    <div class="app-brand">
+      <span class="logo" aria-hidden="true"></span>
+      <span class="brand-name">ONEklient Solutions Inc.</span>
+    </div>
+  </header>
+
+  <main class="ip-wrap">
+    <a href="superadmin-manager.html" class="back-btn" aria-label="Back">← Back</a>
+
+    <section class="ip-card" aria-labelledby="ip-title">
+      <header class="ip-head">
+        <h1 id="ip-title">SuperAdmin Form</h1>
+      </header>
+
+      <form id="superAdminForm" class="ip-form" novalidate autocomplete="off">
+        <fieldset class="section">
+          <legend>SuperAdmin</legend>
+
+          <label class="field">
+            <span class="meta-title">Organization</span>
+            <input id="organizationNameView" type="text" readonly tabindex="-1" />
+          </label>
+
+          <div class="superadmin-name-row">
+            <label class="field field-title">
+              <span class="meta-title">Title</span>
+              <select id="indTitle" required>
+                <option value="">Select…</option>
+                <option>Mr</option>
+                <option>Mrs</option>
+                <option>Ms</option>
+                <option>Dr</option>
+                <option>Prof</option>
+              </select>
+            </label>
+
+            <label class="field field-first-name">
+              <span class="meta-title">First Name</span>
+              <input id="indFirst" type="text" placeholder="First name" required autocomplete="given-name" />
+            </label>
+
+            <label class="field field-middle-name">
+              <span class="meta-title">Middle Name</span>
+              <input id="indMiddle" type="text" placeholder="Middle name" autocomplete="additional-name" />
+            </label>
+
+            <label class="field field-last-name">
+              <span class="meta-title">Last Name</span>
+              <input id="indLast" type="text" placeholder="Last name" required autocomplete="family-name" />
+            </label>
+          </div>
+
+          <div class="superadmin-date-row">
+            <label class="field">
+              <span class="meta-title">Date of Birth</span>
+              <input id="indDob" type="date" autocomplete="bday" />
+            </label>
+
+            <label class="field field-sin-full">
+              <span class="meta-title">SIN</span>
+              <input id="indSin" type="text" inputmode="numeric" placeholder="123456789" maxlength="12" />
+            </label>
+          </div>
+
+          <div class="contact-block">
+            <div class="contact-head">
+              <div class="subhead subhead--phone">Phone</div>
+              <button type="button" class="icon-btn add-line-btn" data-target="indPhones" data-type="phone" aria-label="Add phone line">+</button>
+            </div>
+            <div id="indPhones" class="lines phone-list">
+              <div class="line phone-line" data-root="true">
+                <label class="field compact">
+                  <span class="meta-title">Type</span>
+                  <select class="phone-type" required>
+                    <option value="">Select…</option>
+                    <option>Phone</option>
+                    <option>Fax</option>
+                    <option>Mobile</option>
+                  </select>
+                </label>
+
+                <label class="field grow">
+                  <span class="meta-title">Phone Number</span>
+                  <input class="phone-input" type="tel" placeholder="(506) 452-1342" required autocomplete="tel" />
+                </label>
+
+                <label class="field compact ext-col">
+                  <span class="meta-title">Ext</span>
+                  <input class="ext-input" type="text" placeholder="Ext" maxlength="7" />
+                </label>
+                <button type="button" class="icon-btn remove-line" aria-label="Remove phone">✕</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-block">
+            <div class="contact-head">
+              <div class="subhead subhead--email">Email</div>
+              <button type="button" class="icon-btn add-line-btn" data-target="indEmails" data-type="email" aria-label="Add email line">+</button>
+            </div>
+            <div id="indEmails" class="lines email-list">
+              <div class="line email-line" data-root="true">
+                <label class="field compact">
+                  <span class="meta-title">Type</span>
+                  <select class="email-type" required>
+                    <option value="">Select…</option>
+                    <option>Office</option>
+                    <option>Home</option>
+                    <option>School</option>
+                  </select>
+                </label>
+
+                <label class="field grow">
+                  <span class="meta-title">Email</span>
+                  <input class="email-input" type="email" placeholder="name@example.com" required autocomplete="email" />
+                </label>
+                <button type="button" class="icon-btn remove-line" aria-label="Remove email">✕</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-block">
+            <div class="contact-head">
+              <div class="subhead subhead--url">URL</div>
+              <button type="button" class="icon-btn add-line-btn" data-target="indUrls" data-type="url" aria-label="Add URL line">+</button>
+            </div>
+            <div id="indUrls" class="lines url-list">
+              <div class="line url-line" data-root="true">
+                <label class="field grow">
+                  <span class="meta-title">URL</span>
+                  <input class="url-input" type="url" placeholder="https://example.com" autocomplete="url" />
+                </label>
+                <button type="button" class="icon-btn remove-line" aria-label="Remove URL">✕</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="subhead subhead--address mt-lg">Address</div>
+
+          <div class="grid-4">
+            <label class="field">
+              <span class="meta-title">Street Number</span>
+              <input id="addrStreetNo" type="text" placeholder="123" />
+            </label>
+
+            <label class="field">
+              <span class="meta-title">Unit/Appt</span>
+              <input id="addrUnit" type="text" placeholder="5B" />
+            </label>
+
+            <label class="field">
+              <span class="meta-title">Street Name</span>
+              <input id="addrStreetName" type="text" placeholder="Main St" />
+            </label>
+
+            <label class="field">
+              <span class="meta-title">Direction</span>
+              <select id="addrDirection">
+                <option value="">—</option>
+                <option>N</option>
+                <option>NE</option>
+                <option>E</option>
+                <option>SE</option>
+                <option>S</option>
+                <option>SW</option>
+                <option>W</option>
+                <option>NW</option>
+              </select>
+            </label>
+          </div>
+
+          <label class="field">
+            <span class="meta-title">City</span>
+            <input id="addrCity" type="text" placeholder="City" />
+          </label>
+
+          <div class="grid-3">
+            <label class="field">
+              <span class="meta-title">Province/State</span>
+              <input id="addrProvince" type="text" placeholder="Province" />
+            </label>
+
+            <label class="field">
+              <span class="meta-title">Postal Code</span>
+              <input id="addrPostal" type="text" placeholder="A1A 1A1" />
+            </label>
+
+            <label class="field">
+              <span class="meta-title">Country</span>
+              <input id="addrCountry" type="text" placeholder="Country" />
+            </label>
+          </div>
+
+          <div class="subhead subhead--password mt-lg">Password</div>
+          <label class="field password-wrap">
+            <div class="password-control">
+              <input id="ipPassword" type="password" placeholder="Enter password" required autocomplete="new-password" />
+              <button type="button" id="pwToggle" class="pw-btn eye-off" aria-label="Show password">
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                  <path fill="currentColor" d="M12 5c5.5 0 9.5 4.5 10.5 6-1 1.5-5 6-10.5 6S2.5 12.5 1.5 11C2.5 9.5 6.5 5 12 5zm0 3a4 4 0 100 8 4 4 0 000-8z"/>
+                </svg>
+              </button>
+            </div>
+          </label>
+        </fieldset>
+
+        <p id="formError" class="form-error" hidden></p>
+
+        <div class="form-actions">
+          <button id="saveBtn" type="submit" class="btn primary">Save</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <div id="toastAreaRight" class="toast-area right" aria-live="assertive" aria-atomic="true"></div>
+
+  <script src="superadmin-data.js"></script>
+  <script src="add-superadmin.js"></script>
+</body>
+</html>

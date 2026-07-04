@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ONBOARDING - ONEklient Solutions Inc.</title>
+  <link rel="stylesheet" href="admin-oneklient.css" />
+  <link rel="stylesheet" href="int_navbar.css" />
+  <link rel="stylesheet" href="add_organization.css" />
+</head>
+<body>
+
+  <div id="navbar-container"></div> 
+
+  <main class="page-shell">
+    <a href="admin-oneklient.html" class="back-btn" aria-label="Back">← Back</a>
+
+    <div class="onboarding-container">
+      <div class="form-section" data-step="1">
+        <div class="form-header">
+          <div>
+            <h1 class="form-title">ONBoarding a New Organization</h1>
+          </div>
+          <div class="step-number">001</div>
+        </div>
+
+        <div class="org-info-head-row">
+          <h2 class="section-title org-info-title-inline" id="org-info-title">
+            <span>ORGANIZATION INFO</span>
+            <span class="question-icon" title="Click" data-code="1000010">?</span>
+          </h2>
+
+          <div class="form-group field-client-card-top">
+            <label>Client Card Number <span class="required">*</span></label>
+            <input type="text" id="client-card" placeholder="Client card number" />
+          </div>
+        </div>
+
+        <div class="form-grid form-grid-org">
+          <div class="form-group field-organization-name">
+            <label>Organization Name <span class="required">*</span></label>
+            <input type="text" id="organization-name" placeholder="Enter organization name" />
+          </div>
+
+          <div class="form-group field-trade-name">
+            <label>Trade Name</label>
+            <input type="text" id="trade-name" placeholder="Enter trade name" />
+          </div>
+
+          <div class="form-group field-legal-structure-main">
+            <label>Legal Structure <span class="required">*</span></label>
+            <select id="legal-structure">
+              <option value="">Select legal structure</option>
+              <option value="corporation">Corporation</option>
+              <option value="llc">Limited Liability Company (LLC)</option>
+              <option value="partnership">Partnership</option>
+              <option value="sole-proprietorship">Sole Proprietorship</option>
+            </select>
+          </div>
+
+          <div class="form-group field-org-legal-status">
+            <label>Legal Status <span class="required">*</span></label>
+            <select id="organization-legal-status">
+              <option value="">Select legal status</option>
+              <option value="active">Active</option>
+              <option value="dissolved">Dissolved</option>
+              <option value="ammalgamated">Amalgamated</option>
+              <option value="inactive">Inactive</option>
+              <option value="pending">Pending</option>
+            </select>
+          </div>
+
+          <div class="form-group field-sector">
+            <label>Sector <span class="required">*</span></label>
+            <select id="sector">
+              <option value="">Select sector</option>
+              <option value="agriculture">Agriculture, Forestry, Fishing and Hunting</option>
+              <option value="mining">Mining, Quarrying, and Oil and Gas Extraction</option>
+              <option value="utilities">Utilities</option>
+            </select>
+          </div>
+
+          <div class="form-group field-organization-type">
+            <label>Organization Type <span class="required">*</span></label>
+            <select id="organization-type">
+              <option value="">Select organization type</option>
+              <option value="non-profit">Non-Profit Organization</option>
+              <option value="for-profit">For-Profit Company</option>
+              <option value="government">Government Entity</option>
+              <option value="educational">Educational Institution</option>
+            </select>
+          </div>
+
+          <div class="form-group field-country-prov">
+            <label>Country <span class="required">*</span></label>
+            <select id="country-prov">
+              <option value="">Select country</option>
+              <option value="canada">Canada</option>
+              <option value="usa">United States</option>
+              <option value="uk">United Kingdom</option>
+              <option value="australia">Australia</option>
+            </select>
+          </div>
+
+          <div class="form-group field-prov">
+            <label>Prov <span class="required">*</span></label>
+            <select id="prov">
+              <option value="">Select province</option>
+              <option value="ON">Ontario</option>
+              <option value="QC">Quebec</option>
+              <option value="BC">British Columbia</option>
+              <option value="AB">Alberta</option>
+              <option value="NS">Nova Scotia</option>
+              <option value="MB">Manitoba</option>
+            </select>
+          </div>
+
+          <div class="form-group field-legal-doc">
+            <label>Legal Doc #</label>
+            <input type="text" placeholder="Legal Doc #" />
+          </div>
+
+          <div class="form-group field-date-established">
+            <label>Date Established</label>
+            <input type="date" id="date-established" />
+          </div>
+
+          <div class="form-group field-fiscal-label">
+            <label>Fiscal Year End</label>
+            <div class="fiscal-year-end-row">
+              <select class="fiscal-month">
+                <option value="">Month</option>
+                <option value="01">Jan</option>
+                <option value="02">Feb</option>
+                <option value="03">Mar</option>
+                <option value="04">Apr</option>
+                <option value="05">May</option>
+                <option value="06">Jun</option>
+                <option value="07">Jul</option>
+                <option value="08">Aug</option>
+                <option value="09">Sep</option>
+                <option value="10">Oct</option>
+                <option value="11">Nov</option>
+                <option value="12">Dec</option>
+              </select>
+              <select class="fiscal-day">
+                <option value="">Day</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group field-date-dissolved">
+            <label>Date Dissolved</label>
+            <input type="date" id="date-dissolved" />
+          </div>
+
+          <div class="form-group field-business-number">
+            <label>Business Number</label>
+            <input type="text" placeholder="Business Number" />
+          </div>
+
+          <div class="form-group field-hst">
+            <label>HST/GST</label>
+            <input type="text" placeholder="HST/GST" />
+          </div>
+
+          <div class="form-group field-payroll">
+            <label>Payroll</label>
+            <input type="text" placeholder="Payroll" />
+          </div>
+        </div>
+
+        <h2 class="section-title">Legal Address</h2>
+
+        <div class="address-grid form-grid">
+          <div class="form-group"><label>Unit/Apt</label><input type="text" /></div>
+          <div class="form-group"><label>Street #</label><input type="text" /></div>
+          
+          <div class="form-group">
+            <label>Direction</label>
+            <select id="street-direction">
+              <option value="">Select</option>
+              <option value="N">North (N)</option>
+              <option value="S">South (S)</option>
+              <option value="E">East (E)</option>
+              <option value="W">West (W)</option>
+              <option value="NE">Northeast (NE)</option>
+              <option value="NW">Northwest (NW)</option>
+              <option value="SE">Southeast (SE)</option>
+              <option value="SW">Southwest (SW)</option>
+            </select>
+          </div>
+          
+          <div class="form-group"><label>Street Name</label><input type="text" /></div>
+          <div class="form-group"><label>City</label><input type="text" /></div>
+          <div class="form-group"><label>Province</label><input type="text" placeholder="Enter province" /></div>
+        </div>
+
+        <div class="contact-header">
+          <h2 class="section-title contact-title">
+            Contact Information <span class="required">*</span>
+          </h2>
+          <button type="button" class="add-btn add-contact-btn-header">+</button>
+        </div>
+
+        <div class="contact-list main-contact-list">
+          <div class="contact-row">
+            <select class="contact-type-label">
+              <option>Home...</option>
+            </select>
+
+            <select class="contact-method">
+              <option value="Phone">Phone</option>
+              <option value="Cell">Cell</option>
+              <option value="Mobile">Mobile</option>
+              <option value="Email">Email</option>
+              <option value="Url">Url</option>
+            </select>
+
+            <input type="text" placeholder="Enter contact information" class="contact-input" />
+
+            <button type="button" class="remove-contact-btn" aria-label="Remove contact row">&times;</button>
+          </div>
+        </div>
+
+        <div class="btn-container section-btn-container">
+          <button type="button" class="btn btn-save save-submit-btn">SAVE & SUBMIT</button>
+          <button type="button" class="btn btn-save save-exit-btn">SAVE & EXIT</button>
+          <button type="button" class="btn btn-edit edit-btn hidden">EDIT</button>
+          <button type="button" class="btn btn-cancel cancel-btn">CANCEL</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="int_navbar.js"></script>
+  <script src="add_organization.js"></script>
+</body>
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Edit Individual</title>
+
+  <!-- نفس الثيم الأساسي بتاعك -->
+  <link rel="stylesheet" href="style1.css"/>
+  
+  <!-- إضافات خفيفة لوضع التعديل -->
+  <link rel="stylesheet" href="ip-edit.css"/>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="app-header" role="navigation" aria-label="Primary">
+    <div class="app-brand">
+      <span class="logo" aria-hidden="true"></span>
+      <span class="brand-name">Veritas International Inc</span>
+      <div class="status-area" id="statusArea" hidden>
+        <span id="statusChip" class="status-chip" aria-live="polite"></span>
+        <button id="helpBtn" class="help-circle" type="button" title="Help" aria-label="Help">?</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="ip-wrap">
+    <a href="entities.html" class="back-btn" aria-label="Back">← Back</a>
+
+    <section class="ip-card" aria-labelledby="ip-title">
+      <header class="ip-head">
+        <h1 id="ip-title">Edit Individual</h1>
+        <div class="flag-controls" aria-label="Field visibility controls">
+          <label class="flag" title="Date of Birth">
+            <span>DOB</span>
+            <select id="cfgDob">
+              <option value="0">0</option>
+              <option value="1" selected>1</option>
+              <option value="2">2</option>
+            </select>
+          </label>
+          <label class="flag" title="Date of Death">
+            <span>DOD</span>
+            <select id="cfgDod">
+              <option value="0" selected>0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+            </select>
+          </label>
+          <label class="flag" title="Social Insurance Number">
+            <span>SIN</span>
+            <select id="cfgSin">
+              <option value="0">0</option>
+              <option value="1" selected>1</option>
+              <option value="2">2</option>
+            </select>
+          </label>
+          <label class="flag" title="Image">
+            <span>IMG</span>
+            <select id="cfgImg">
+              <option value="0">0</option>
+              <option value="1" selected>1</option>
+              <option value="2">2</option>
+            </select>
+          </label>
+        </div>
+      </header>
+
+      <form id="ipForm" class="ip-form" novalidate>
+        <fieldset id="indSection" class="section">
+          <legend>Individual</legend>
+
+          <div class="grid-identity identity-rows">
+            <label class="field">
+              <span class="meta-title">Title</span>
+              <select id="indTitle" autocomplete="honorific-prefix" required>
+                <option value="">Select…</option>
+                <option>Mr</option><option>Mrs</option><option>Ms</option>
+                <option>Dr</option><option>Prof</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span class="meta-title">First Name</span>
+              <input id="indFirst" type="text" placeholder="First name" autocomplete="given-name" required/>
+            </label>
+
+            <label class="field">
+              <span class="meta-title">Middle Name</span>
+              <input id="indMiddle" type="text" placeholder="Middle name" autocomplete="additional-name" required/>
+            </label>
+
+            <label class="field last-full">
+              <span class="meta-title">Last Name</span>
+              <input id="indLast" type="text" placeholder="Last name" autocomplete="family-name" required/>
+            </label>
+          </div>
+
+          <div class="stack">
+            <label id="fldDob" class="field">
+              <span class="meta-title">Date of Birth <span id="badgeDob" class="req-badge" hidden>required</span></span>
+              <input id="indDob" type="date" autocomplete="bday"/>
+            </label>
+
+            <label id="fldDod" class="field">
+              <span class="meta-title">Date of Death <span id="badgeDod" class="req-badge" hidden>required</span></span>
+              <input id="indDod" type="date"/>
+            </label>
+
+            <label id="fldSin" class="field">
+              <span class="meta-title">SIN <span id="badgeSin" class="req-badge" hidden>required</span></span>
+              <input id="indSin" type="text" inputmode="numeric" placeholder="123456789" maxlength="12"/>
+            </label>
+
+            <label id="fldImg" class="field">
+              <span class="meta-title">Image <span id="badgeImg" class="req-badge" hidden>required</span></span>
+              <div class="upload-control">
+                <input id="indImg" type="file" accept="image/*" hidden />
+                <span id="imgFileName" class="upload-filename">No file chosen</span>
+                <button type="button" id="imgTrigger" class="upload-btn" aria-controls="indImg" aria-label="Upload image">
+                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                    <path fill="currentColor" d="M12 3l4 4h-3v6h-2V7H8l4-4zm-7 14v2h14v-2H5z"/>
+                  </svg>
+                </button>
+              </div>
+            </label>
+          </div>
+
+          <!-- Phones -->
+          <div class="contact-block">
+            <div class="contact-head">
+              <div class="subhead subhead--phone">Phone</div>
+              <button type="button" class="icon-btn addline-btn" data-target="indPhones" aria-label="Add phone">+</button>
+            </div>
+            <div id="indPhones" class="lines phone-list">
+              <div class="line phone-line" data-root="true">
+                <label class="field compact">
+                  <span class="meta-title">Type</span>
+                  <select class="phone-type" required>
+                    <option value="">Select…</option>
+                    <option>Phone</option><option>Fax</option><option>Mobile</option>
+                  </select>
+                </label>
+                <label class="field grow">
+                  <span class="meta-title">Phone Number</span>
+                  <input class="phone-input" type="tel" placeholder="(506) 452-1342" inputmode="tel" maxlength="18" autocomplete="tel" required/>
+                </label>
+                <label class="field compact ext-col">
+                  <span class="meta-title">Ext</span>
+                  <input class="ext-input" type="text" placeholder="Ext" inputmode="numeric" maxlength="7"/>
+                </label>
+                <button type="button" class="icon-btn x-btn remove-line" title="Remove">×</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Emails -->
+          <div class="contact-block">
+            <div class="contact-head">
+              <div class="subhead subhead--email">Email</div>
+              <button type="button" class="icon-btn addline-btn" data-target="indEmails" aria-label="Add email">+</button>
+            </div>
+            <div id="indEmails" class="lines email-list">
+              <div class="line email-line" data-root="true">
+                <label class="field compact">
+                  <span class="meta-title">Type</span>
+                  <select class="email-type" required>
+                    <option value="">Select…</option>
+                    <option>Office</option><option>Home</option><option>School</option>
+                  </select>
+                </label>
+                <label class="field grow">
+                  <span class="meta-title">Email</span>
+                  <input class="email-input" type="email" placeholder="name@example.com" autocomplete="email" required/>
+                </label>
+                <button type="button" class="icon-btn x-btn remove-line" title="Remove">×</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- URLs -->
+          <div class="contact-block">
+            <div class="contact-head">
+              <div class="subhead subhead--url">URL</div>
+              <button type="button" class="icon-btn addline-btn" data-target="indUrls" aria-label="Add URL">+</button>
+            </div>
+            <div id="indUrls" class="lines url-list">
+              <div class="line url-line" data-root="true">
+                <label class="field grow">
+                  <span class="meta-title">URL</span>
+                  <input class="url-input" type="url" placeholder="https://example.com" inputmode="url" autocomplete="url" required/>
+                </label>
+                <button type="button" class="icon-btn x-btn remove-line" title="Remove">×</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Address -->
+          <div class="subhead subhead--address mt-lg">Address</div>
+          <div class="grid-4">
+            <label class="field">
+              <span class="meta-title">Street Number</span>
+              <input id="addrStreetNo" type="text" placeholder="123" inputmode="numeric" pattern="[0-9]*" maxlength="6" autocomplete="address-line1" required/>
+            </label>
+            <label class="field">
+              <span class="meta-title">Unit/Appt</span>
+              <input id="addrUnit" type="text" placeholder="5B" maxlength="3" autocomplete="address-line2"/>
+            </label>
+            <label class="field">
+              <span class="meta-title">Street Name</span>
+              <input id="addrStreetName" type="text" placeholder="Main St" required/>
+            </label>
+            <label class="field">
+              <span class="meta-title">Direction</span>
+              <select id="addrDirection">
+                <option value="">—</option>
+                <option>N</option><option>NE</option><option>E</option><option>SE</option>
+                <option>S</option><option>SW</option><option>W</option><option>NW</option>
+              </select>
+            </label>
+          </div>
+          <label class="field">
+            <span class="meta-title">City</span>
+            <input id="addrCity" type="text" placeholder="City" autocomplete="address-level2" required/>
+          </label>
+          <div class="grid-3">
+            <label class="field">
+              <span class="meta-title">Province/State</span>
+              <select id="addrProvince" required>
+                <option value="">Select…</option>
+              </select>
+            </label>
+            <label class="field">
+              <span class="meta-title">Postal Code</span>
+              <input id="addrPostal" type="text" placeholder="A1A 1A1" autocomplete="postal-code" required/>
+            </label>
+            <label class="field">
+              <span class="meta-title">Country</span>
+              <input id="addrCountry" type="text" placeholder="Country" autocomplete="country-name" required/>
+            </label>
+          </div>
+
+          <!-- Password -->
+          <div class="subhead subhead--password mt-lg">Password</div>
+          <label id="fldPassword" class="field password-wrap">
+            <span class="meta-title sr-only">Password</span>
+            <div class="password-control">
+              <input id="ipPassword" type="password" placeholder="Enter a strong password" autocomplete="new-password"/>
+              <button type="button" id="pwToggle" class="pw-btn eye-off" aria-label="Show password">
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                  <path fill="currentColor" d="M12 5c5.5 0 9.5 4.5 10.5 6-1 1.5-5 6-10.5 6S2.5 12.5 1.5 11C2.5 9.5 6.5 5 12 5zm0 3a4 4 0 100 8 4 4 0 000-8z"/>
+                </svg>
+              </button>
+            </div>
+          </label>
+        </fieldset>
+
+        <fieldset id="orgSection" class="section" hidden>
+          <legend>Organization</legend>
+          <label class="field">
+            <span class="meta-title">Name of Organization</span>
+            <input id="orgName" type="text" placeholder="Organization name"/>
+          </label>
+        </fieldset>
+
+        <p id="ipErr" class="form-error" hidden></p>
+
+        <div class="form-actions">
+          <button id="ipSubmit" type="submit" class="btn primary">Save changes</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <!-- Toast (يمين تحت) -->
+  <div id="toastAreaRight" class="toast-area right" aria-live="assertive" aria-atomic="true"></div>
+
+  <script src="ip-edit.js"></script>
+</body>
+</html>

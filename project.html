@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Project</title>
+  <link rel="stylesheet" href="project.css"/>
+</head>
+<body>
+  <main class="page-wrap">
+    <!-- ===== New Project ===== -->
+    <section class="card" aria-labelledby="newProjectTitle">
+      <header class="card-head">
+        <h1 id="newProjectTitle" class="title">Start a New Project</h1>
+      </header>
+
+      <form id="projectForm" class="proj-form" novalidate>
+        <!-- Row: Project Name + Code Name -->
+        <div class="grid two-70-30">
+          <label class="fld">
+            <span class="lbl">Project Name</span>
+            <input type="text" name="projectName" autocomplete="off" />
+          </label>
+
+          <label class="fld">
+            <span class="lbl">Code Name</span>
+            <input type="text" name="codeName" autocomplete="off" />
+          </label>
+        </div>
+
+        <!-- Project Info (textarea, full width) -->
+        <label class="fld wide">
+          <span class="lbl">Project Info</span>
+          <textarea name="projectInfo" rows="6" placeholder="Text"></textarea>
+        </label>
+
+        <!-- Project Lead (full width) -->
+        <label class="fld wide">
+          <span class="lbl">Project Lead</span>
+          <input type="text" name="projectLead" autocomplete="off" />
+        </label>
+
+        <!-- Row: Start / Due Date / Budget -->
+        <div class="grid three">
+          <label class="fld">
+            <span class="lbl">Start</span>
+            <input type="date" name="startDate" />
+          </label>
+
+          <label class="fld">
+            <span class="lbl">Due Date</span>
+            <input type="date" name="dueDate" />
+          </label>
+
+          <label class="fld">
+            <span class="lbl">Budget</span>
+            <input id="budget" class="money" type="text" name="budget" inputmode="decimal" placeholder="0.00"/>
+          </label>
+        </div>
+      </form>
+    </section>
+
+    <!-- ===== Project Documents ===== -->
+    <section class="card" aria-labelledby="docsTitle">
+      <header class="card-head">
+        <h2 id="docsTitle" class="title sm">Project Documents</h2>
+      </header>
+
+      <div class="docs-actions">
+        <button type="button" class="btn" id="btnLoadDocs">Load Project Documents</button>
+        <button type="button" class="btn" id="btnLinkDocs">Link to existing Documents</button>
+      </div>
+    </section>
+
+    <!-- ===== Tasks ===== -->
+    <section class="card" aria-labelledby="tasksTitle">
+      <header class="card-head">
+        <h2 id="tasksTitle" class="title sm">Tasks</h2>
+      </header>
+
+      <form id="taskForm" class="proj-form" novalidate>
+        <!-- Row: Task Name + Due -->
+        <div class="grid two-70-30">
+          <label class="fld">
+            <span class="lbl">Task Name</span>
+            <input type="text" name="taskName" autocomplete="off"/>
+          </label>
+
+          <label class="fld">
+            <span class="lbl">Due</span>
+            <input type="date" name="taskDue"/>
+          </label>
+        </div>
+
+        <!-- Start (single small field) -->
+        <div class="grid one-300">
+          <label class="fld">
+            <span class="lbl">Start</span>
+            <input type="date" name="taskStart"/>
+          </label>
+        </div>
+
+        <!-- Task Details (textarea, full width) -->
+        <label class="fld wide">
+          <span class="lbl">Task Details</span>
+          <textarea name="taskDetails" rows="6" placeholder="Text"></textarea>
+        </label>
+
+        <!-- Assigned to (full width) -->
+        <label class="fld wide">
+          <span class="lbl">Assigned to</span>
+          <input type="text" name="taskAssignee" autocomplete="off"/>
+        </label>
+      </form>
+    </section>
+  </main>
+
+  <!-- Toast area (used by the JS helpers) -->
+  <div id="toastArea" class="toast-area" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="project.js"></script>
+</body>
+</html>

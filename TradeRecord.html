@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sales Activity Listing</title>
+    <link rel="stylesheet" href="TradeRecord.css" />
+  </head>
+  <body>
+    <div class="sal-container">
+      <header class="sal-header">
+        <h1>Sales Activity Listing</h1>
+        <p class="sal-subtitle">
+          Maintain a sequential listing of all sales transactions or trades
+          opened during the period of inspection.
+        </p>
+        <div class="sal-field-row">
+          <label class="sal-field-label">Current Status</label>
+          <div class="sal-value sal-value-wide sal-value-placeholder">
+            Current status
+          </div>
+        </div>
+        <div class="sal-header-grid">
+          <div class="sal-field-row">
+            <label class="sal-field-label">Brokerage Name</label>
+            <div class="sal-value sal-value-wide sal-value-placeholder">
+              Brokerage name
+            </div>
+          </div>
+          <div class="sal-field-row">
+            <label class="sal-field-label">Period From</label>
+            <div class="sal-value sal-value-date sal-value-placeholder">
+              mm/dd/yyyy
+            </div>
+            <label class="sal-field-label sal-inline-label">To</label>
+            <div class="sal-value sal-value-date sal-value-placeholder">
+              mm/dd/yyyy
+            </div>
+          </div>
+          <div class="sal-field-row">
+            <label class="sal-field-label">Prepared By</label>
+            <div class="sal-value sal-value-wide sal-value-placeholder">
+              Preparer name
+            </div>
+            <label class="sal-field-label sal-inline-label">Date</label>
+            <div class="sal-value sal-value-date sal-value-placeholder">
+              mm/dd/yyyy
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section class="sal-section">
+        <!-- Top line: Sales Activity info (static text) -->
+        <div class="sal-topline">
+          <div class="sal-topline-field">
+            <label class="sal-topline-label">Sales Activity No</label>
+            <div class="sal-value sal-value-sm sal-value-placeholder">
+              000001
+            </div>
+          </div>
+          <div class="sal-topline-field">
+            <label class="sal-topline-label">Sales File No</label>
+            <div class="sal-value sal-value-sm sal-value-placeholder">
+              SF-00001
+            </div>
+          </div>
+          <div class="sal-topline-field">
+            <label class="sal-topline-label">Date File Opened</label>
+            <div class="sal-value sal-value-date sal-value-placeholder">
+              mm/dd/yyyy
+            </div>
+          </div>
+          <div class="sal-topline-field">
+            <label class="sal-topline-label">MLS Number</label>
+            <div class="sal-value sal-value-sm sal-value-placeholder">
+              MLS 000000
+            </div>
+          </div>
+        </div>
+
+        <!-- Property Address (static text) -->
+        <div class="sal-address-section">
+          <div class="sal-address-title">Property Address</div>
+          <div class="sal-address-grid">
+            <div class="sal-address-item">
+              <span class="sal-sub-label">Unit</span>
+              <div class="sal-value sal-value-placeholder">00000</div>
+            </div>
+            <div class="sal-address-item">
+              <span class="sal-sub-label">Street Number</span>
+              <div class="sal-value sal-value-placeholder">00000</div>
+            </div>
+            <div class="sal-address-item">
+              <span class="sal-sub-label">Street Name</span>
+              <div class="sal-value sal-value-placeholder">Street Name</div>
+            </div>
+            <div class="sal-address-item">
+              <span class="sal-sub-label">City</span>
+              <div class="sal-value sal-value-placeholder">City</div>
+            </div>
+            <div class="sal-address-item">
+              <span class="sal-sub-label">Prov</span>
+              <div class="sal-value sal-value-placeholder">Prov</div>
+            </div>
+            <div class="sal-address-item">
+              <span class="sal-sub-label">Postal Code</span>
+              <div class="sal-value sal-value-placeholder">E5L 1R1</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vendor / Purchaser (static text rows) -->
+        <div class="sal-party-section">
+          <div class="srs-field-row">
+            <span class="srs-label srs-vendor-label">Vendor(s) Names</span>
+            <div class="srs-vendor-stack">
+              <div class="srs-display-row">
+                <span class="srs-chip">Org</span>
+                <span class="srs-chip">Name</span>
+                <span class="srs-chip srs-chip-main">Vendor name</span>
+                <div class="srs-display-actions">
+                  <button
+                    type="button"
+                    class="srs-icon-btn srs-icon-edit"
+                    aria-label="Edit vendor"
+                  >
+                    <svg viewBox="0 0 20 20" aria-hidden="true">
+                      <path
+                        d="M4 13.5V17h3.5l7.29-7.29-3.5-3.5L4 13.5zm9.71-9.71l3.5 3.5 1.29-1.29a1 1 0 000-1.42l-2.08-2.08a1 1 0 00-1.42 0l-1.29 1.29z"
+                      ></path>
+                    </svg>
+                  </button>
+                  <button
+                    type="button"
+                    class="srs-icon-btn srs-icon-delete"
+                    aria-label="Delete vendor"
+                  >
+                    <svg viewBox="0 0 20 20" aria-hidden="true">
+                      <path
+                        d="M6 5l1-2h6l1 2h4v2H2V5h4zm2 12c-1.1 0-2-.9-2-2V9h2v6h2V9h2v6h2V9h2v6c0 1.1-.9 2-2 2H8z"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <!-- duplicate .srs-display-row for additional vendors -->
+            </div>
+          </div>
+
+          <div class="srs-field-row">
+            <span class="srs-label srs-purchaser-label"
+              >Purchaser(s) Names</span
+            >
+            <div class="srs-vendor-stack">
+              <div class="srs-display-row">
+                <span class="srs-chip">Org</span>
+                <span class="srs-chip">Name</span>
+                <span class="srs-chip srs-chip-main">Purchaser name</span>
+                <div class="srs-display-actions">
+                  <button
+                    type="button"
+                    class="srs-icon-btn srs-icon-edit"
+                    aria-label="Edit purchaser"
+                  >
+                    <svg viewBox="0 0 20 20" aria-hidden="true">
+                      <path
+                        d="M4 13.5V17h3.5l7.29-7.29-3.5-3.5L4 13.5zm9.71-9.71l3.5 3.5 1.29-1.29a1 1 0 000-1.42l-2.08-2.08a1 1 0 00-1.42 0l-1.29 1.29z"
+                      ></path>
+                    </svg>
+                  </button>
+                  <button
+                    type="button"
+                    class="srs-icon-btn srs-icon-delete"
+                    aria-label="Delete purchaser"
+                  >
+                    <svg viewBox="0 0 20 20" aria-hidden="true">
+                      <path
+                        d="M6 5l1-2h6l1 2h4v2H2V5h4zm2 12c-1.1 0-2-.9-2-2V9h2v6h2V9h2v6h2V9h2v6c0 1.1-.9 2-2 2H8z"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <!-- duplicate .srs-display-row for additional purchasers -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Listing / Co-operating agent (static text) -->
+        <div class="sal-inline-pair">
+          <div class="sal-inline-field">
+            <label class="sal-inline-label-strong">Listing Agent</label>
+            <div class="sal-value sal-value-wide sal-value-placeholder">
+              Listing agent name
+            </div>
+          </div>
+          <div class="sal-inline-field">
+            <label class="sal-inline-label-strong"
+              >Co-operating Brokerage/Agent</label
+            >
+            <div class="sal-value sal-value-wide sal-value-placeholder">
+              Co-operating brokerage / agent
+            </div>
+          </div>
+        </div>
+        <div class="sal-inline-pair">
+          <div class="sal-inline-field">
+            <label class="sal-inline-label-strong">APS Date</label>
+            <div class="sal-value sal-value-date sal-value-placeholder">
+              mm/dd/yyyy
+            </div>
+          </div>
+          <div class="sal-inline-field">
+            <label class="sal-inline-label-strong">Original Closing Date</label>
+            <div class="sal-value sal-value-date sal-value-placeholder">
+              mm/dd/yyyy
+            </div>
+          </div>
+          <div class="sal-inline-field">
+            <label class="sal-inline-label-strong"
+              >Deposit Required (Y/N)</label
+            >
+            <div class="sal-value sal-value-sm sal-value-placeholder">Y/N</div>
+          </div>
+          <div class="sal-inline-field">
+            <label class="sal-inline-label-strong">Deposit Amount</label>
+            <div class="sal-value sal-value-sm sal-value-placeholder">0.00</div>
+          </div>
+        </div>
+        <div class="sal-inline-pair">
+          <div class="sal-inline-field">
+            <label class="sal-inline-label-strong">Deposit Due Date</label>
+            <div class="sal-value sal-value-date sal-value-placeholder">
+              mm/dd/yyyy
+            </div>
+          </div>
+          <div class="sal-inline-field">
+            <label class="sal-inline-label-strong">Date Deposit Received</label>
+            <div class="sal-value sal-value-date sal-value-placeholder">
+              mm/dd/yyyy
+            </div>
+          </div>
+          <div class="sal-inline-field">
+            <label class="sal-inline-label-strong">Deposit Method</label>
+            <div class="sal-value sal-value-sm sal-value-placeholder">
+              Method
+            </div>
+          </div>
+          <div class="sal-inline-field">
+            <label class="sal-inline-label-strong"
+              >Date Deposit Deposited to Trust</label
+            >
+            <div class="sal-value sal-value-date sal-value-placeholder">
+              mm/dd/yyyy
+            </div>
+          </div>
+        </div>
+        <div class="sal-inline-pair">
+          <div class="sal-inline-field">
+            <label class="sal-inline-label-strong"
+              >Trust Receipt/Reference No</label
+            >
+            <div class="sal-value sal-value-wide sal-value-placeholder">
+              Reference
+            </div>
+          </div>
+          <div class="sal-inline-field">
+            <label class="sal-inline-label-strong">Trust File Status</label>
+            <div class="sal-value sal-value-sm sal-value-placeholder">
+              Status
+            </div>
+          </div>
+        </div>
+        <div class="sal-inline-pair">
+          <div class="sal-inline-field">
+            <label class="sal-inline-label-strong"
+              >Listing Agreement Date</label
+            >
+            <div class="sal-value sal-value-date sal-value-placeholder">
+              mm/dd/yyyy
+            </div>
+          </div>
+          <div class="sal-inline-field">
+            <label class="sal-inline-label-strong">Listing Expiry Date</label>
+            <div class="sal-value sal-value-date sal-value-placeholder">
+              mm/dd/yyyy
+            </div>
+          </div>
+          <div class="sal-inline-field">
+            <label class="sal-inline-label-strong">Sale Price</label>
+            <div class="sal-value sal-value-sm sal-value-placeholder">0.00</div>
+          </div>
+        </div>
+        <div class="sal-inline-pair">
+          <div class="sal-inline-field">
+            <label class="sal-inline-label-strong">Commission Rate (%)</label>
+            <div class="sal-value sal-value-sm sal-value-placeholder">0.00</div>
+          </div>
+          <div class="sal-inline-field">
+            <label class="sal-inline-label-strong"
+              >Gross Commission Amount</label
+            >
+            <div class="sal-value sal-value-sm sal-value-placeholder">0.00</div>
+          </div>
+          <div class="sal-inline-field">
+            <label class="sal-inline-label-strong"
+              >Commission Paid Date</label
+            >
+            <div class="sal-value sal-value-sm sal-value-placeholder">mm/dd/yyyy</div>
+          </div>
+        </div>
+        <div class="sal-inline-pair">
+          <div class="sal-inline-field">
+            <label class="sal-inline-label-strong">Vendor's Lawyer</label>
+            <div class="sal-value sal-value-wide sal-value-placeholder">
+              Vendor lawyer name
+            </div>
+          </div>
+          <div class="sal-inline-field">
+            <label class="sal-inline-label-strong">Purchaser's Lawyer</label>
+            <div class="sal-value sal-value-wide sal-value-placeholder">
+              Purchaser lawyer name
+            </div>
+          </div>
+        </div>
+        <div class="sal-inline-pair">
+          <div class="sal-inline-field sal-inline-field-wide">
+            <label class="sal-inline-label-strong">Notes/Exceptions</label>
+            <div class="sal-value sal-value-message sal-value-placeholder">
+              Enter notes or exceptions here
+            </div>
+          </div>
+        </div>
+        <p class="sal-note">
+          Note: Each transaction should be assigned a sequential
+          <strong>Sales Activity No</strong>. This listing should be kept up to
+          date and used as the master reference for inspection sampling and
+          internal review.
+        </p>
+      </section>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>General Journal</title>
+  <link rel="stylesheet" href="general-journal.css"/>
+</head>
+<body>
+
+  <!-- ===== Top Tab Panel: General Journal ===== -->
+  <section id="tab-general" class="tab-panel active" role="tabpanel" aria-labelledby="tabbtn-general">
+
+    <!-- ===== Sub Tabs Bar (inside General Journal) ===== -->
+    <nav class="subtabs-bar" role="tablist" aria-label="General Journal Sections">
+      <button class="subtab-btn active" role="tab" aria-selected="true"
+              aria-controls="subtab-journal" id="subtabbtn-journal">Journal</button>
+      <button class="subtab-btn" role="tab" aria-selected="false"
+              aria-controls="subtab-versions" id="subtabbtn-versions">Versions</button>
+      <button class="subtab-btn" role="tab" aria-selected="false"
+              aria-controls="subtab-document" id="subtabbtn-document">Document (3)</button>
+    </nav>
+
+    <!-- ===== Sub Tab Panels ===== -->
+
+    <!-- Journal -->
+    <section id="subtab-journal" class="subtab-panel active" role="tabpanel" aria-labelledby="subtabbtn-journal">
+      <main class="acc-wrap">
+        <section class="acc-card">
+          <header class="content-head">
+            <h2 class="content-title">General Journal : 123456 .08</h2>
+
+            <!-- Currency: native select with flags (default closed) -->
+            <div class="currency-inline">
+              <label class="sr-only" for="gjCurrency">Currency</label>
+              <select id="gjCurrency" class="curr-select" aria-label="Currency">
+                <option value="CAD" data-symbol="$">🇨🇦</option>
+                <option value="GBP" data-symbol="£">🇬🇧</option>
+                <option value="USD" data-symbol="$">🇺🇸</option>
+              </select>
+            </div>
+          </header>
+
+          <div id="contentArea" class="content-box">
+            <!-- Top Form -->
+            <div class="gj-head">
+              <div class="gj-fields">
+                <div class="gj-field">
+                  <label for="gjSource">Reference</label>
+                  <input id="gjSource" type="text" placeholder="Enter Reference ..."/>
+                </div>
+
+                <div class="gj-field">
+                  <label for="gjSource2">Source</label>
+                  <input id="gjSource2" type="text" placeholder="Enter source..."/>
+                </div>
+
+                <div class="gj-field">
+                  <label for="gjDate">Date</label>
+                  <input id="gjDate" type="date"/>
+                </div>
+
+                <div class="gj-field" style="grid-column:1 / -1;">
+                  <label for="gjComment">Comment</label>
+                  <textarea id="gjComment" class="resizable-both" placeholder="Add a general comment…"></textarea>
+                </div>
+              </div>
+            </div>
+
+            <!-- Table -->
+            <div class="gj-grid">
+              <table class="gj-table" id="gjTable">
+                <colgroup>
+                  <col class="col-account">
+                  <col class="col-debit">
+                  <col class="col-credit">
+                  <col class="col-comment">
+                  <col class="col-allo">
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>Account</th>
+                    <th>Debits</th>
+                    <th>Credits</th>
+                    <th>Comment</th>
+                    <th>Allo</th>
+                  </tr>
+                </thead>
+                <tbody id="gjTbody"></tbody>
+              </table>
+            </div>
+
+            <!-- Totals -->
+            <div class="totals-grid" aria-live="polite">
+              <div class="totals-label">Total</div>
+
+              <label class="money-wrap is-total" aria-label="Total Debits">
+                <span class="money-prefix">$</span>
+                <div id="tfDebit" class="total-amount">0.00</div>
+              </label>
+
+              <label class="money-wrap is-total" aria-label="Total Credits">
+                <span class="money-prefix">$</span>
+                <div id="tfCredit" class="total-amount">0.00</div>
+              </label>
+
+              <div></div>
+              <div></div>
+            </div>
+
+            <!-- Footer -->
+            <div class="gj-footer">
+              <div></div>
+              <div class="right">
+                <button class="btn primary process-btn" type="button" id="processBtn" disabled>Batch</button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </section>
+
+    <!-- Versions -->
+    <section id="subtab-versions" class="subtab-panel" role="tabpanel" aria-labelledby="subtabbtn-versions">
+      <main class="acc-wrap">
+        <section class="acc-card">
+          <header class="content-head">
+            <h2 class="content-title">Versions</h2>
+          </header>
+          <div class="content-box">
+            <div class="v-controls">
+              <input id="vSearch" class="ctrl" type="text" placeholder="Search by TXN / user…"/>
+              <select id="vSort" class="ctrl">
+                <option value="newest">Newest first</option>
+                <option value="oldest">Oldest first</option>
+                <option value="version">Highest version</option>
+              </select>
+            </div>
+            <div id="versionsList" class="versions-list" aria-live="polite"></div>
+          </div>
+        </section>
+      </main>
+    </section>
+
+    <!-- Document -->
+    <section id="subtab-document" class="subtab-panel" role="tabpanel" aria-labelledby="subtabbtn-document">
+      <main class="acc-wrap">
+        <section class="acc-card">
+          <header class="content-head">
+            <h2 class="content-title">Document</h2>
+          </header>
+          <div class="content-box">
+            <div id="docsList" class="docs-list" aria-live="polite"></div>
+          </div>
+        </section>
+      </main>
+    </section>
+
+  </section>
+
+  <script src="general-journal.js" defer></script>
+</body>
+</html>

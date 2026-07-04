@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deposit Details</title>
+
+  <link rel="stylesheet" href="admin-oneklient.css" />
+  <link rel="stylesheet" href="Sales_Record_Sheet_Template.css" />
+</head>
+<body>
+  <main class="srs-page-shell">
+    <section class="srs-top-summary" aria-label="File quick summary">
+      <div class="srs-top-summary-left">
+        <div class="srs-person-line">Jane Goodard</div>
+        <div class="srs-person-line">Terry Hunter</div>
+      </div>
+
+      <div class="srs-top-summary-right">
+        <div class="srs-company-name">Midgard Solutions Inc</div>
+        <div class="srs-office-row">
+          <span class="srs-office-name">Fredericton Office</span>
+          <span class="srs-office-code">001</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="srs-container">
+      <header class="srs-header">
+        <h1>Deposit Details</h1>
+        <p class="srs-subtitle">
+          Record each deposit related to this file.
+        </p>
+      </header>
+
+      <main>
+        <section class="srs-section">
+          <h2>Deposit Details</h2>
+          <p class="srs-hint">
+            Record each deposit related to this file. Add additional rows as needed.
+          </p>
+
+          <table class="srs-table srs-table-deposits">
+            <thead>
+              <tr>
+                <th>Deposit #</th>
+                <th>Amount</th>
+                <th>Date Received</th>
+                <th>Payment Method<br />(Cash / Cheque / EMT / Other)</th>
+                <th>Date Deposited to Trust</th>
+                <th>Bank Deposit Ref #</th>
+                <th>Trust Receipt #</th>
+                <th>Trust Ledger Ref</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="depositRows"></tbody>
+          </table>
+
+          <template id="depositRowTemplate">
+            <tr class="srs-deposit-row">
+              <td><input type="text" class="srs-input" data-role="depositNo" /></td>
+              <td>
+                <div class="srs-currency">
+                  <span>$</span>
+                  <input type="number" class="srs-input srs-input-num" step="0.01" data-role="amount" />
+                </div>
+              </td>
+              <td><input type="date" class="srs-input" data-role="dateReceived" /></td>
+              <td>
+                <select class="srs-input" data-role="method">
+                  <option value="Cash">Cash</option>
+                  <option value="Cheque">Cheque</option>
+                  <option value="EMT">EMT</option>
+                  <option value="Other">Other</option>
+                </select>
+              </td>
+              <td><input type="date" class="srs-input" data-role="dateToTrust" /></td>
+              <td><input type="text" class="srs-input" data-role="bankRef" /></td>
+              <td><input type="text" class="srs-input" data-role="trustReceipt" /></td>
+              <td><input type="text" class="srs-input" data-role="ledgerRef" /></td>
+              <td class="srs-deposit-actions">
+                <button type="button" class="srs-icon-btn srs-icon-delete" data-action="delete-row" aria-label="Delete deposit row">
+                  <svg viewBox="0 0 20 20" aria-hidden="true">
+                    <path d="M6 5l1-2h6l1 2h4v2H2V5h4zm2 12c-1.1 0-2-.9-2-2V9h2v6h2V9h2v6h2V9h2v6c0 1.1-.9 2-2 2H8z"></path>
+                  </svg>
+                </button>
+                <button type="button" class="srs-icon-btn srs-icon-add" data-action="add-row" aria-label="Add deposit row">
+                  <svg viewBox="0 0 20 20" aria-hidden="true">
+                    <path d="M9 3h2v6h6v2h-6v6H9v-6H3V9h6z"></path>
+                  </svg>
+                </button>
+              </td>
+            </tr>
+          </template>
+        </section>
+      </main>
+    </div>
+  </main>
+
+  <script src="Sales_Record_Sheet_Template1.js"></script>
+</body>
+</html>

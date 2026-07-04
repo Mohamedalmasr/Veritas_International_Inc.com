@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Customer Details</title>
+  <link rel="stylesheet" href="customer-details.css"/>
+</head>
+<body>
+  <div class="page-wrap">
+    <!-- Header / name + account -->
+    <header class="page-head">
+      <h1 id="custName" class="title">Customer</h1>
+      <span id="custAcc" class="chip acc-chip" title="Account Number">—</span>
+    </header>
+
+    <!-- Summary strip (kept visible) -->
+    <section class="card summary-card" aria-label="Customer summary">
+      <div class="summary-grid">
+        <div class="sum-item">
+          <div class="sum-k">Balance Owing</div>
+          <div id="sumBalance" class="sum-v">0.00</div>
+          <div class="sum-s">As of last posting</div>
+        </div>
+
+        <div class="sum-item">
+          <div class="sum-k">Credit Limit</div>
+          <div id="sumLimit" class="sum-v">—</div>
+          <div class="sum-s">Terms: <span id="sumTerms">—</span></div>
+        </div>
+
+        <div class="sum-item">
+          <div class="sum-k">Avg Days to Pay</div>
+          <div id="sumAvgDays" class="sum-v">—</div>
+          <div class="sum-s">Risk: <span id="sumRisk">—</span></div>
+        </div>
+
+        <div class="sum-item">
+          <div class="sum-k">Open Orders</div>
+          <div id="sumOpenOrders" class="sum-v">0</div>
+          <div class="sum-s"><span id="sumAttach">0</span> attachments</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tabs -->
+    <section class="tabs-card card" aria-label="Customer details">
+      <div class="tabs" role="tablist" aria-label="Customer tabs">
+        <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="tab-address" id="t-address">Address</button>
+        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-options" id="t-options">Options</button>
+        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-taxes" id="t-taxes">Taxes</button>
+        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-deposit" id="t-deposit">Direct Deposit</button>
+        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-stats" id="t-stats">Statistics</button>
+        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-memo" id="t-memo">Memo</button>
+        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-io" id="t-io">Import/Export</button>
+        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-additional" id="t-additional">Additional Info</button>
+        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-forms" id="t-forms">T4A & T5018</button>
+      </div>
+
+      <!-- Panels -->
+      <div class="tab-panels">
+        <!-- Address -->
+        <section class="tab-panel active" id="tab-address" role="tabpanel" aria-labelledby="t-address">
+          <div class="form-grid two">
+            <div class="fg">
+              <label>Contact</label>
+              <input id="fContact" type="text" readonly>
+            </div>
+            <div class="fg">
+              <label>Phone 1</label>
+              <input id="fPhone1" type="text" readonly>
+            </div>
+
+            <div class="fg">
+              <label>Street 1</label>
+              <input id="fStreet1" type="text" readonly>
+            </div>
+            <div class="fg">
+              <label>Phone 2</label>
+              <input id="fPhone2" type="text" readonly>
+            </div>
+
+            <div class="fg">
+              <label>Street 2</label>
+              <input id="fStreet2" type="text" readonly>
+            </div>
+            <div class="fg">
+              <label>Fax</label>
+              <input id="fFax" type="text" readonly>
+            </div>
+
+            <div class="fg">
+              <label>City</label>
+              <input id="fCity" type="text" readonly>
+            </div>
+            <div class="fg">
+              <label>Tax ID</label>
+              <input id="fTaxId" type="text" readonly>
+            </div>
+
+            <div class="fg">
+              <label>Province / State</label>
+              <input id="fProv" type="text" readonly>
+            </div>
+            <div class="fg">
+              <label>Email</label>
+              <input id="fEmail" type="text" readonly>
+            </div>
+
+            <div class="fg">
+              <label>Postal Code</label>
+              <input id="fPostal" type="text" readonly>
+            </div>
+            <div class="fg">
+              <label>Website</label>
+              <input id="fWeb" type="text" readonly>
+            </div>
+
+            <div class="fg">
+              <label>Country</label>
+              <input id="fCountry" type="text" readonly>
+            </div>
+            <div class="fg">
+              <label>Department</label>
+              <input id="fDept" type="text" readonly>
+            </div>
+
+            <div class="fg">
+              <label>Customer Since</label>
+              <input id="fSince" type="text" readonly>
+            </div>
+          </div>
+        </section>
+
+        <!-- Options -->
+        <section class="tab-panel" id="tab-options" role="tabpanel" aria-labelledby="t-options">
+          <div class="options-wrap">
+            <label class="ck"><input type="checkbox" disabled> Inactive Customer</label>
+            <label class="ck"><input type="checkbox" disabled> On Credit Hold</label>
+            <label class="ck"><input type="checkbox" disabled> Consolidated Statements</label>
+            <label class="ck"><input type="checkbox" disabled> Use E-Invoicing</label>
+          </div>
+
+          <div class="form-grid two tight">
+            <div class="fg"><label>Price List</label><input type="text" value="Retail A" readonly></div>
+            <div class="fg"><label>Preferred Delivery</label><input type="text" value="Courier – Next Day" readonly></div>
+            <div class="fg"><label>Default Location</label><input type="text" value="Main Warehouse" readonly></div>
+            <div class="fg"><label>Salesperson</label><input type="text" value="J. McKenzie" readonly></div>
+          </div>
+        </section>
+
+        <!-- Taxes -->
+        <section class="tab-panel" id="tab-taxes" role="tabpanel" aria-labelledby="t-taxes">
+          <p class="muted">Indicate which taxes this customer does <b>not</b> charge you by entering Yes for Tax Exempt.</p>
+          <div class="table-wrap">
+            <table class="mini-table">
+              <thead><tr><th>Tax</th><th>Tax Exempt</th></tr></thead>
+              <tbody id="taxRows">
+                <!-- rows injected -->
+              </tbody>
+            </table>
+          </div>
+
+          <div class="fg mt16">
+            <label>Choose the tax code that includes the taxes that this customer normally charges you:</label>
+            <select disabled>
+              <option>GP - GST 5%, PST 7%</option>
+            </select>
+          </div>
+        </section>
+
+        <!-- Direct Deposit -->
+        <section class="tab-panel" id="tab-deposit" role="tabpanel" aria-labelledby="t-deposit">
+          <label class="ck"><input type="checkbox" disabled> Allow direct deposits for this customer</label>
+          <fieldset class="fieldset">
+            <legend>Customer Bank Account Details</legend>
+            <div class="form-grid two tight">
+              <div class="fg"><label>Currency and Location</label><input type="text" value="CAD bank account in Canada" readonly></div>
+              <div class="fg"></div>
+              <div class="fg"><label>Branch Number</label><input type="text" value="—" readonly></div>
+              <div class="fg"><label>Institution Number</label><input type="text" value="—" readonly></div>
+              <div class="fg"><label>Account Number</label><input type="text" value="—" readonly></div>
+            </div>
+          </fieldset>
+
+          <div class="bar-stats">
+            <div>Balance Owing in CAD <b id="barBal">0.00</b></div>
+            <div>Date of Last Purchase: <b id="barLast">—</b></div>
+          </div>
+        </section>
+
+        <!-- Statistics -->
+        <section class="tab-panel" id="tab-stats" role="tabpanel" aria-labelledby="t-stats">
+          <div class="stats-grid">
+            <div class="row">
+              <div>Year-to-Date Purchases:</div>
+              <div id="statYTD" class="num">0.00</div>
+            </div>
+            <div class="row">
+              <div>Last Year’s Purchases:</div>
+              <div id="statLY" class="num">0.00</div>
+            </div>
+
+            <h3 class="sub">Payments Excluding Taxes:</h3>
+            <div class="row">
+              <div id="year1L">2025:</div>
+              <div class="num" id="payExcY1">0.00</div>
+              <button class="mini" disabled>Recalculate</button>
+            </div>
+            <div class="row">
+              <div id="year2L">2024:</div>
+              <div class="num" id="payExcY2">0.00</div>
+              <button class="mini" disabled>Recalculate</button>
+            </div>
+
+            <h3 class="sub">Payments Including Taxes:</h3>
+            <div class="row">
+              <div>2025:</div>
+              <div class="num" id="payIncY1">0.00</div>
+              <button class="mini" disabled>Recalculate</button>
+            </div>
+            <div class="row">
+              <div>2024:</div>
+              <div class="num" id="payIncY2">0.00</div>
+              <button class="mini" disabled>Recalculate</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Memo -->
+        <section class="tab-panel" id="tab-memo" role="tabpanel" aria-labelledby="t-memo">
+          <div class="fg">
+            <label>Memo</label>
+            <textarea rows="5" readonly placeholder="No memo on file."></textarea>
+          </div>
+          <div class="memo-row">
+            <div class="fg">
+              <label>To-Do Date</label>
+              <input type="text" readonly value="">
+            </div>
+            <button class="btn ghost" type="button" disabled>Clear Memo</button>
+          </div>
+          <label class="ck disabled"><input type="checkbox" disabled> Display this memo in the Daily Business Manager</label>
+        </section>
+
+        <!-- Import / Export -->
+        <section class="tab-panel" id="tab-io" role="tabpanel" aria-labelledby="t-io">
+          <div class="io-grid">
+            <button class="btn" disabled>Import from CSV</button>
+            <button class="btn" disabled>Export to CSV</button>
+            <button class="btn" disabled>Download Template</button>
+          </div>
+          <p class="muted">These actions are disabled in demo mode.</p>
+        </section>
+
+        <!-- Additional Info -->
+        <section class="tab-panel" id="tab-additional" role="tabpanel" aria-labelledby="t-additional">
+          <div class="form-grid two">
+            <div class="fg"><label>AR Control Account</label><input type="text" value="1100-Accounts Receivable" readonly></div>
+            <div class="fg"><label>Statement Cycle</label><input type="text" value="Monthly (End of Month)" readonly></div>
+            <div class="fg"><label>Delivery Method</label><input type="text" value="Email PDF" readonly></div>
+            <div class="fg"><label>Language</label><input type="text" value="English (Canada)" readonly></div>
+          </div>
+        </section>
+
+        <!-- T4A / T5018 -->
+        <section class="tab-panel" id="tab-forms" role="tabpanel" aria-labelledby="t-forms">
+          <div class="form-grid two">
+            <div class="fg"><label>T4A Required</label><input type="text" value="No" readonly></div>
+            <div class="fg"><label>T5018 Required</label><input type="text" value="No" readonly></div>
+            <div class="fg"><label>Reporting Country</label><input type="text" value="Canada" readonly></div>
+            <div class="fg"><label>Business Number</label><input id="fBN" type="text" value="—" readonly></div>
+          </div>
+        </section>
+      </div>
+    </section>
+  </div>
+
+  <script src="customer-details.js"></script>
+</body>
+</html>

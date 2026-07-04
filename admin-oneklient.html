@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>admin.oneklient</title>
+  <link rel="stylesheet" href="admin-oneklient.css" />
+</head>
+<body>
+
+  <header class="app-header" role="banner">
+    <div class="app-brand">
+      <span class="logo" aria-hidden="true"></span>
+      <span class="brand-text">ONEklient Solutions Inc.</span>
+      <span class="status-chip">Status = NEW</span>
+      <button
+        type="button"
+        class="question-icon"
+        id="statusInfoBtn"
+        title="Click for more info"
+        aria-label="Click for more info"
+        data-code="1000100"
+      >?</button>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <section class="admin-card" aria-label="Admin actions">
+
+      <!-- Fields Section -->
+      <div class="fields-section">
+
+        <!-- Left Column -->
+        <div class="fields-col">
+          <div class="field-row">
+            <label class="field-label">Account Number</label>
+            <input type="text" class="field-input" placeholder="Text" />
+          </div>
+          <div class="field-row">
+            <label class="field-label">Super Admin Identification Number</label>
+            <input type="text" class="field-input" placeholder="Text" />
+          </div>
+          <div class="field-row">
+            <label class="field-label">Licence Number</label>
+            <input type="text" class="field-input" placeholder="Text" />
+          </div>
+          <div class="field-row">
+            <label class="field-label">Key Code</label>
+            <input type="text" class="field-input" placeholder="Text" />
+          </div>
+          <div class="field-row">
+            <label class="field-label">Pass Key</label>
+            <input type="text" class="field-input" placeholder="Text" />
+          </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="fields-col">
+          <div class="not-trusted-row">
+            <span class="not-trusted-text">System is NOT Trusted</span>
+            <button
+              type="button"
+              class="question-icon"
+              id="notTrustedInfoBtn"
+              title="Click for more info"
+              aria-label="Click for more info"
+              data-code="1000200"
+            >?</button>
+          </div>
+          <div class="field-row">
+            <label class="field-label">Maximum Numbers of Users</label>
+            <input type="text" class="field-input" placeholder="Text" />
+          </div>
+          <div class="field-row">
+            <label class="field-label">Maximum Numbers of Documents</label>
+            <input type="text" class="field-input" placeholder="Text" />
+          </div>
+          <div class="field-row">
+            <label class="field-label">Maximum Numbers of Journals</label>
+            <input type="text" class="field-input" placeholder="Text" />
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Divider -->
+      <div class="section-divider"></div>
+
+      <!-- Tiles Section -->
+      <div class="admin-actions">
+        <a class="admin-tile" href="onboarding.html" id="onboardBtn">
+          <div class="tile-title">ONBOARDING</div>
+          <div class="tile-meta">Add new organization</div>
+        </a>
+        <a class="admin-tile" href="superadmin-manager.html" id="addSuperAdminBtn">
+          <div class="tile-title">ADD NEW SUPERADMIN</div>
+          <div class="tile-meta">Create super admin account</div>
+        </a>
+      </div>
+
+    </section>
+  </main>
+
+  <script src="admin-oneklient.js"></script>
+</body>
+</html>

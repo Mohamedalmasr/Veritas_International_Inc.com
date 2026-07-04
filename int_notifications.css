@@ -1,0 +1,19 @@
+/* notifications.css */
+body {
+  font-family: sans-serif;
+  padding: 20px;
+  color: #334155;
+}
+
+h2 {
+  color: #0b3d91;
+}
+
+.notif-item {
+  padding: 15px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.notif-item:hover {
+  background: #f8fafc;
+}

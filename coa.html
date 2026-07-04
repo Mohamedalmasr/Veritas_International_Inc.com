@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chart of Account</title>
+
+  <!-- الثيم العام -->
+  <link rel="stylesheet" href="style1.css"/>
+  <!-- تنسيقات صفحة COA -->
+  <link rel="stylesheet" href="coa.css"/>
+</head>
+<body>
+
+  <main class="acc-wrap">
+    <section class="acc-card">
+      <div class="coa-work">
+        <!-- العمود الشمال -->
+        <aside class="coa-left" aria-label="COA categories">
+          <div class="coa-titlebar">
+            <button id="btn-all" class="coa-all-btn" type="button" role="button" aria-selected="true" title="Show all categories">
+              Chart of Account
+            </button>
+          </div>
+
+          <div class="coa-list" id="leftList">
+            <!-- الأزرار تتبني ديناميك من الجافاسكريبت -->
+          </div>
+        </aside>
+
+        <!-- يمين -->
+        <section class="coa-right">
+          <header class="content-head">
+            <h2 class="content-title" id="rightTitle">All Accounts</h2>
+          </header>
+
+          <!-- يظهر فقط في وضع التركيز على جروب معين -->
+          <div id="focusBar" class="focus-bar hidden">
+            <button id="exitFocusBtn" class="chip-btn" type="button">← Show all</button>
+            <span id="focusCrumbs" class="focus-crumbs"></span>
+          </div>
+
+          <div class="content-box" id="rightBox"></div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <!-- زر الرجوع -->
+ 
+
+  <!-- ================== MODAL (Edit Item) ================== -->
+  <div id="editModal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-backdrop" data-close="1"></div>
+    <div class="modal-card">
+      <div class="modal-head">
+        <div class="modal-crumbs" id="modalCrumbs"></div>
+        <button class="close-x" type="button" title="Close" data-close="1">×</button>
+      </div>
+
+      <div class="modal-body">
+        <label class="fld">
+          <input id="editInput" type="text" placeholder="Rename item…"/>
+        </label>
+
+        <label class="fld">
+          <span class="lbl">Level</span>
+          <select id="levelSelect">
+            <option value="Detailed">Detailed</option>
+            <option value="Summary">Summary</option>
+          </select>
+        </label>
+
+        <div class="fld">
+          <div class="flags-row">
+            <div class="flag">
+              <span class="lbl">Tangible Assets</span>
+              <label class="circle-check" title="Toggle Tangible Assets">
+                <input id="tangibleToggle" type="checkbox"/>
+                <span class="dot" aria-hidden="true"></span>
+              </label>
+            </div>
+
+            <div class="flag amort-flag hidden">
+              <span class="lbl">Amortization</span>
+              <label class="circle-check" title="Toggle amortization">
+                <input id="amortize" type="checkbox"/>
+                <span class="dot" aria-hidden="true"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- حقول الإهلاك (تظهر عند التفعيل) -->
+        <div id="amortFields" class="amort-fields hidden">
+          <div class="form-row">
+            <label class="form-label">Assets name</label>
+            <input id="afName" type="text" placeholder="Enter text"/>
+          </div>
+          <div class="form-row">
+            <label class="form-label">Acquisition Date</label>
+            <input id="afDate" type="date" placeholder="Enter date"/>
+          </div>
+          <div class="form-row">
+            <label class="form-label">Acquisition Cost</label>
+            <input id="afCost" type="number" step="0.01" placeholder="Enter amount"/>
+          </div>
+          <div class="form-row">
+            <label class="form-label">Amortization standard</label>
+            <select id="afStandard">
+              <option value="" selected disabled>Select…</option>
+              <option>Straight-line</option>
+              <option>Declining balance</option>
+              <option>Units of production</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label class="form-label">Address</label>
+            <input id="afAddress" type="text" placeholder="Enter address" autocomplete="street-address"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-foot">
+        <button class="icon-btn cancel" type="button" id="modalCancel" aria-label="Cancel">❌</button>
+        <button class="icon-btn save"   type="button" id="modalSave"   aria-label="Save">✔</button>
+      </div>
+    </div>
+  </div>
+  <!-- ================== /MODAL ================== -->
+
+  <!-- ================== MODAL (Add Item) ================== -->
+  <div id="addModal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-backdrop" data-close="1"></div>
+    <div class="modal-card">
+      <div class="modal-head">
+        <div class="modal-crumbs" id="addCrumbs"></div>
+        <button class="close-x" type="button" title="Close" data-close="1">×</button>
+      </div>
+
+      <div class="modal-body">
+        <label class="fld">
+          <span class="lbl">New item name</span>
+          <input id="addInput" type="text" placeholder="Enter item name…"/>
+        </label>
+      </div>
+
+      <div class="modal-foot">
+        <button class="icon-btn cancel" type="button" id="addCancel" aria-label="Cancel">❌</button>
+        <!-- تم تغيير النص من Add إلى ✔ -->
+        <button class="icon-btn save"   type="button" id="addConfirm" aria-label="Add">✔</button>
+      </div>
+    </div>
+  </div>
+  <!-- ================== /MODAL ================== -->
+
+  <script src="coa.js"></script>
+</body>
+</html>

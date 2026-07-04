@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Entities</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="entities.css"/>
+  <link rel="stylesheet" href="int_navbar.css"/>
+</head>
+<body>
+
+  <div id="global-header"></div>
+
+  <main class="page-wrap">
+    <a href="home.html" id="pageBack" class="back-btn" aria-label="Back to previous page">← Back</a>
+
+    <section class="main-card" aria-labelledby="pageTitle">
+      <header class="card-head">
+        <h1 id="pageTitle" class="card-title">Choose what you want to manage.</h1>
+      </header>
+
+      <div class="tiles-grid" role="list">
+        <article class="tile-card" data-entity="organization" role="listitem" tabindex="0" aria-labelledby="orgTitle">
+          <div class="home-tile" role="button" aria-describedby="orgMeta">
+            <div class="tile-visual" aria-hidden="true">
+              <svg class="tile-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="currentColor" d="M3 21V9l9-6 9 6v12h-7v-6H10v6H3z"/>
+              </svg>
+            </div>
+            <div class="tile-content">
+              <div id="orgTitle" class="tile-title">Organization</div>
+              <div id="orgMeta" class="tile-meta">Veritas International Inc.</div>
+            </div>
+          </div>
+          <div class="action-list" role="group" aria-label="Organization actions">
+            <button class="action-btn" data-action="edit" aria-label="Edit organization">Edit</button>
+          </div>
+        </article>
+
+        <article class="tile-card" data-entity="individual" role="listitem" tabindex="0" aria-labelledby="indTitle">
+          <div class="home-tile" role="button" aria-describedby="indMeta">
+            <div class="tile-visual" aria-hidden="true">
+              <svg class="tile-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="currentColor" d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0 2c-5 0-9 2.5-9 5.5V22h18v-2.5C21 16.5 17 14 12 14z"/>
+              </svg>
+            </div>
+            <div class="tile-content">
+              <div id="indTitle" class="tile-title">Individual</div>
+              <div id="indMeta" class="tile-meta">Create &amp; manage individuals</div>
+            </div>
+          </div>
+          <div class="action-list" role="group" aria-label="Individual actions">
+            <button class="action-btn" data-action="add" aria-label="Add individual">Add</button>
+            <button class="action-btn" data-action="edit" aria-label="Edit individual">Edit</button>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <section class="sheet" id="editSheet" role="dialog" aria-modal="true" aria-label="Search & Edit">
+    <header class="sheet-head">
+      <div class="sheet-title">Find & Edit</div>
+      <button class="sheet-close" id="closeSheet" aria-label="Close">×</button>
+    </header>
+    <div class="sheet-body">
+      <form class="search-bar" id="editFindForm" autocomplete="off">
+        <div class="field select-wrap has-caret"><select id="editBy"></select></div>
+        <div class="field input-wrap has-leading-icon">
+          <input id="editQ" type="text" placeholder="Search..."/>
+        </div>
+        <button class="btn btn-find" type="submit">Search</button>
+      </form>
+      <div id="editResults" class="results-list"></div>
+    </div>
+  </section>
+
+  <script src="int_navbar.js"></script>
+  <script src="entities.js"></script>
+</body>
+</html>

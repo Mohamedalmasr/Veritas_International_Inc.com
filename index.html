@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign in</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Background blobs -->
+  <div class="bg-blob bg-blob-1"></div>
+  <div class="bg-blob bg-blob-2"></div>
+
+  <!-- Auth Card -->
+  <main class="auth-wrap">
+    <section class="auth-card" aria-labelledby="signin-title">
+      <header class="auth-head">
+        <h1 id="signin-title">Credentials Sign In</h1>
+        <p class="subtitle">Enter Your Credentials.</p>
+      </header>
+
+      <form class="auth-form" id="loginForm" action="#" method="post" novalidate>
+        <!-- Org ID -->
+        <div class="field">
+          <label for="orgid">Org ID</label>
+          <input id="orgid" name="orgid" type="text" placeholder="Enter your Org ID" required />
+        </div>
+
+        <div class="field">
+          <label for="license">License Number</label>
+          <input id="license" name="license" type="text" placeholder="Enter text" required />
+        </div>
+
+        <div class="field">
+          <label for="key">Key Code</label>
+          <input id="key" name="key" type="text" placeholder="Enter text" required />
+        </div>
+
+        <!-- Client Card Number (يظهر مع سيناريو 15 وقبل الباسورد) -->
+        <div class="field hidden" id="clientCardField">
+          <label for="ccn">Client Card Number</label>
+          <input id="ccn" name="ccn" type="text" placeholder="Enter Client Card Number"/>
+        </div>
+
+        <!-- Password (يظهر مع سيناريو 15) -->
+        <div class="field hidden" id="passwordField">
+          <label for="pwd">Password</label>
+          <input id="pwd" name="pwd" type="password" placeholder="Enter password"/>
+        </div>
+
+        <button type="submit" class="btn-primary">Sign in</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Toast Container -->
+  <div id="toast-container"></div>
+
+  <!-- External JS -->
+  <script src="site.js"></script>
+</body>
+</html>

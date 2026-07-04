@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Address Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #0f1220;
+      --panel: #161a2b;
+      --ink: #e9ecf1;
+      --muted: #a6adbb;
+      --accent: #6ea8fe;
+      --danger: #ff6b6b;
+      --ring: rgba(110, 168, 254, .45);
+      --radius: 12px;
+      --gap: 14px;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      background: radial-gradient(1200px 600px at 80% -10%, #1b2040 0%, #0f1220 40%, #0b0e1a 100%);
+      font-family: var(--font);
+      color: var(--ink);
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+
+    .card {
+      width: min(720px, 100%);
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius);
+      box-shadow:
+        0 20px 60px rgba(0,0,0,.35),
+        inset 0 1px 0 rgba(255,255,255,.06);
+      padding: clamp(18px, 3vw, 28px);
+      backdrop-filter: blur(6px);
+    }
+
+    h1 {
+      margin: 0 0 6px;
+      font-size: clamp(20px, 3.4vw, 28px);
+      letter-spacing: 0.2px;
+    }
+    p.lead {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--gap);
+    }
+    .row-span-2 { grid-column: span 2; }
+
+    label {
+      display: block;
+      font-size: 0.9rem;
+      margin: 2px 0 8px;
+      color: var(--muted);
+    }
+
+    .field {
+      position: relative;
+    }
+
+    input, select, button, textarea {
+      width: 100%;
+      padding: 12px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: var(--panel);
+      color: var(--ink);
+      outline: none;
+      font-size: 1rem;
+      transition: border-color .15s, box-shadow .15s, background .15s, transform .03s;
+    }
+    textarea { resize: vertical; min-height: 86px; }
+
+    input::placeholder { color: #7b8292; }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 6px var(--ring);
+    }
+
+    .error {
+      margin-top: 6px;
+      font-size: 0.85rem;
+      color: var(--danger);
+      min-height: 1.1em;
+    }
+
+    .inline {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--gap);
+    }
+
+    .actions {
+      grid-column: span 2;
+      display: flex;
+      justify-content: space-between;
+      gap: var(--gap);
+      margin-top: 6px;
+    }
+
+    .btn {
+      cursor: pointer;
+      font-weight: 600;
+      letter-spacing: .2px;
+    }
+    .btn-primary {
+      background: linear-gradient(180deg, #6ea8fe, #4a82f0);
+      border: none;
+      color: #0a0e1a;
+    }
+    .btn-primary:active { transform: translateY(1px); }
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,.18);
+    }
+
+    .hint {
+      font-size: .85rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .sr-only {
+      position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden;
+    }
+
+    @media (max-width: 720px) {
+      form { grid-template-columns: 1fr; }
+      .inline { grid-template-columns: 1fr; }
+      .actions { grid-column: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="card" role="region" aria-label="Address form">
+    <h1>Shipping Address</h1>
+    <p class="lead">Fast, strict, and user-friendly. We validate as you type.</p>
+
+    <form id="addressForm" novalidate>
+      <div class="field row-span-2">
+        <label for="fullName">Full name</label>
+        <input id="fullName" name="fullName" type="text" placeholder="Jane Doe"
+               autocomplete="name" required maxlength="80"
+               aria-describedby="nameErr" />
+        <div id="nameErr" class="error" aria-live="polite"></div>
+      </div>
+
+      <div class="field row-span-2">
+        <label for="address1">Address line 1</label>
+        <input id="address1" name="address1" type="text" placeholder="123 Main St"
+               autocomplete="address-line1" required maxlength="100"
+               aria-describedby="addr1Err" />
+        <div id="addr1Err" class="error" aria-live="polite"></div>
+        <div class="hint">No P.O. boxes if item is oversized.</div>
+      </div>
+
+      <div class="field row-span-2">
+        <label for="address2">Address line 2 <span class="hint">(Apt, suite, unit — optional)</span></label>
+        <input id="address2" name="address2" type="text" placeholder="Apt 4B"
+               autocomplete="address-line2" maxlength="100" />
+      </div>
+
+      <div class="field">
+        <label for="country">Country/Region</label>
+        <select id="country" name="country" autocomplete="country-name" required aria-describedby="countryErr">
+          <option value="" selected disabled>Choose…</option>
+          <option value="CA">Canada</option>
+          <option value="US">United States</option>
+          <option value="OTHER">Other</option>
+        </select>
+        <div id="countryErr" class="error" aria-live="polite"></div>
+      </div>
+
+      <div class="field">
+        <label for="city">City</label>
+        <input id="city" name="city" type="text" placeholder="Moncton"
+               autocomplete="address-level2" required maxlength="80"
+               aria-describedby="cityErr" />
+        <div id="cityErr" class="error" aria-live="polite"></div>
+      </div>
+
+      <div class="field">
+        <label for="region"><span id="regionLabel">State/Province</span></label>
+        <input id="region" name="region" type="text" placeholder="NB"
+               autocomplete="address-level1" required maxlength="50"
+               aria-describedby="regionErr" />
+        <div id="regionErr" class="error" aria-live="polite"></div>
+      </div>
+
+      <div class="field">
+        <label for="postal"><span id="postalLabel">ZIP/Postal code</span></label>
+        <input id="postal" name="postal" type="text" inputmode="text" placeholder="E1C 1A1"
+               autocomplete="postal-code" required maxlength="10"
+               aria-describedby="postalErr" />
+        <div id="postalErr" class="error" aria-live="polite"></div>

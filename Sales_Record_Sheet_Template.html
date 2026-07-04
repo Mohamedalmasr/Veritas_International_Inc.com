@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sales Record Sheet</title>
+
+  <link rel="stylesheet" href="admin-oneklient.css" />
+  <link rel="stylesheet" href="Sales_Record_Sheet_Template.css" />
+</head>
+<body>
+  <header class="app-header" role="banner">
+    <div class="app-brand">
+      <span class="logo" aria-hidden="true"></span>
+      <span class="brand-text">ONEklient Solutions Inc.</span>
+    </div>
+  </header>
+
+  <main class="srs-page-shell">
+    <a href="Real Estate Brokerage.html" class="back-btn" aria-label="Back">← Back</a>
+
+    <section class="srs-top-summary" aria-label="File quick summary">
+      <div class="srs-top-summary-left">
+        <div class="srs-person-line">Jane Goodard</div>
+        <div class="srs-person-line">Terry Hunter</div>
+      </div>
+
+      <div class="srs-top-summary-right">
+        <div class="srs-company-name">Midgard Solutions Inc</div>
+        <div class="srs-office-row">
+          <span class="srs-office-name">Fredericton Office</span>
+          <span class="srs-office-code">001</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="srs-container">
+      <header class="srs-header">
+        <h1>Sales Record Sheet</h1>
+        <p class="srs-subtitle">
+          Use this sheet to capture key details for each sales transaction,
+          including file information, parties, deposits, status and
+          disbursement. One sheet per sales file.
+        </p>
+      </header>
+
+      <main>
+        <section class="srs-section">
+          <h2>File Information</h2>
+          <div class="srs-grid srs-grid-3col">
+            <div class="srs-field-row">
+              <label for="dealStatus" class="srs-label">Deal Status</label>
+              <select id="dealStatus" name="dealStatus" class="srs-input">
+                <option value="Firm">Firm</option>
+                <option value="Collapsed">Collapsed</option>
+                <option value="Not Proceeded">Not Proceeded</option>
+              </select>
+            </div>
+
+            <div class="srs-field-row">
+              <label for="salesFileNo" class="srs-label">Sales File #</label>
+              <input type="text" id="salesFileNo" name="salesFileNo" class="srs-input" />
+            </div>
+
+            <div class="srs-field-row">
+              <label for="mlsNo" class="srs-label">MLS #</label>
+              <input type="text" id="mlsNo" name="mlsNo" class="srs-input" />
+            </div>
+          </div>
+        </section>
+
+        <section class="srs-section">
+          <h2>Parties</h2>
+          <div class="srs-grid srs-grid-2col">
+            <div class="srs-field-row srs-full srs-vendor-field">
+              <label for="vendorName_0" class="srs-label srs-vendor-label">Vendor(s) Names</label>
+              <div class="srs-vendor-stack">
+                <div id="vendorList" class="srs-vendor-list"></div>
+
+                <template id="vendorEntryTemplate">
+                  <div class="srs-vendor-entry">
+                    <select class="srs-input srs-vendor-select" data-role="entityType">
+                      <option value="org">Org</option>
+                      <option value="individual">Individual</option>
+                    </select>
+
+                    <select class="srs-input srs-vendor-select" data-role="identifierType">
+                      <option value="name">Name</option>
+                      <option value="vendorId">Vendor ID</option>
+                    </select>
+
+                    <input
+                      type="text"
+                      class="srs-input srs-vendor-name"
+                      data-role="vendorName"
+                      placeholder="Vendor name"
+                    />
+
+                    <div class="srs-vendor-actions">
+                      <button
+                        type="button"
+                        class="srs-icon-btn"
+                        data-action="edit"
+                        aria-label="Save vendor"
+                      ></button>
+
+                      <button
+                        type="button"
+                        class="srs-icon-btn srs-icon-delete"
+                        data-action="delete"
+                        aria-label="Delete vendor"
+                      >
+                        <svg viewBox="0 0 20 20" aria-hidden="true">
+                          <path d="M6 5l1-2h6l1 2h4v2H2V5h4zm2 12c-1.1 0-2-.9-2-2V9h2v6h2V9h2v6h2V9h2v6c0 1.1-.9 2-2 2H8z"></path>
+                        </svg>
+                      </button>
+
+                      <button
+                        type="button"
+                        class="srs-icon-btn srs-icon-add"
+                        data-action="add"
+                        aria-label="Add vendor"
+                      >
+                        <svg viewBox="0 0 20 20" aria-hidden="true">
+                          <path d="M9 3h2v6h6v2h-6v6H9v-6H3V9h6z"></path>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </template>
+              </div>
+            </div>
+
+            <div class="srs-field-row srs-full">
+              <label for="vendorContact" class="srs-label">Vendor Contact Info</label>
+              <div class="srs-contact-inline">
+                <div class="srs-contact-item">
+                  <label for="vendorTel" class="srs-label-inline">Tel</label>
+                  <input
+                    type="tel"
+                    id="vendorTel"
+                    name="vendorTel"
+                    class="srs-input srs-input-compact"
+                    placeholder="+1 (555) 123-4567"
+                  />
+                </div>
+
+                <div class="srs-contact-item">
+                  <label for="vendorEmail" class="srs-label-inline">Email</label>
+                  <input
+                    type="email"
+                    id="vendorEmail"
+                    name="vendorEmail"
+                    class="srs-input srs-input-compact"
+                    placeholder="name@example.com"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="srs-field-row srs-full srs-vendor-field">
+              <label for="purchaserName_0" class="srs-label srs-purchaser-label">Purchaser(s) Names</label>
+              <div class="srs-vendor-stack">
+                <div id="purchaserList" class="srs-vendor-list"></div>
+
+                <template id="purchaserEntryTemplate">
+                  <div class="srs-vendor-entry">
+                    <select class="srs-input srs-vendor-select" data-role="entityType">
+                      <option value="org">Org</option>
+                      <option value="individual">Individual</option>
+                    </select>
+
+                    <select class="srs-input srs-vendor-select" data-role="identifierType">
+                      <option value="name">Name</option>
+                      <option value="purchaserId">Purchaser ID</option>
+                    </select>
+
+                    <input
+                      type="text"
+                      class="srs-input srs-vendor-name"
+                      data-role="vendorName"
+                      placeholder="Purchaser name"
+                    />
+
+                    <div class="srs-vendor-actions">
+                      <button
+                        type="button"
+                        class="srs-icon-btn"
+                        data-action="edit"
+                        aria-label="Save purchaser"
+                      ></button>
+
+                      <button
+                        type="button"
+                        class="srs-icon-btn srs-icon-delete"
+                        data-action="delete"
+                        aria-label="Delete purchaser"
+                      >
+                        <svg viewBox="0 0 20 20" aria-hidden="true">
+                          <path d="M6 5l1-2h6l1 2h4v2H2V5h4zm2 12c-1.1 0-2-.9-2-2V9h2v6h2V9h2v6h2V9h2v6c0 1.1-.9 2-2 2H8z"></path>
+                        </svg>
+                      </button>
+
+                      <button
+                        type="button"
+                        class="srs-icon-btn srs-icon-add"
+                        data-action="add"
+                        aria-label="Add purchaser"
+                      >
+                        <svg viewBox="0 0 20 20" aria-hidden="true">
+                          <path d="M9 3h2v6h6v2h-6v6H9v-6H3V9h6z"></path>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </template>
+              </div>
+            </div>
+
+            <div class="srs-field-row srs-full srs-contact-row">
+              <label for="purchaserContact" class="srs-label">Purchaser Contact Info</label>
+              <div class="srs-contact-inline">
+                <div class="srs-contact-item">
+                  <label for="purchaserTel" class="srs-label-inline">Tel</label>
+                  <input
+                    type="tel"
+                    id="purchaserTel"
+                    name="purchaserTel"
+                    class="srs-input srs-input-compact"
+                    placeholder="+1 (555) 123-4567"
+                  />
+                </div>
+
+                <div class="srs-contact-item">
+                  <label for="purchaserEmail" class="srs-label-inline">Email</label>
+                  <input
+                    type="email"
+                    id="purchaserEmail"
+                    name="purchaserEmail"
+                    class="srs-input srs-input-compact"
+                    placeholder="name@example.com"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="srs-section">
+          <div class="srs-grid srs-grid-2col">
+            <div class="srs-field-row srs-full srs-address-block">
+              <label class="srs-label">Property Address</label>
+              <div class="srs-address-grid">
+                <div class="srs-address-item">
+                  <label for="unitNumber" class="srs-sub-label">Unit</label>
+                  <input type="text" id="unitNumber" name="unitNumber" class="srs-input" inputmode="numeric" pattern="\d{5}" maxlength="5" placeholder="00000" title="Enter exactly 5 digits for unit" />
+                </div>
+
+                <div class="srs-address-item">
+                  <label for="streetNumber" class="srs-sub-label">Street Number</label>
+                  <input type="text" id="streetNumber" name="streetNumber" class="srs-input" inputmode="numeric" pattern="\d{5}" maxlength="5" placeholder="00000" title="Enter exactly 5 digits for street number" />
+                </div>
+
+                <div class="srs-address-item srs-address-wide">
+                  <label for="streetName" class="srs-sub-label">Street Name</label>
+                  <input type="text" id="streetName" name="streetName" class="srs-input" maxlength="50" placeholder="Street Name" title="Maximum 50 characters" />
+                </div>
+
+                <div class="srs-address-item">
+                  <label for="city" class="srs-sub-label">City</label>
+                  <select id="city" name="city" class="srs-input">
+                    <option value="">City</option>
+                    <option value="Toronto">Toronto</option>
+                    <option value="Ottawa">Ottawa</option>
+                    <option value="Montreal">Montreal</option>
+                    <option value="Vancouver">Vancouver</option>
+                    <option value="Calgary">Calgary</option>
+                    <option value="Edmonton">Edmonton</option>
+                    <option value="Winnipeg">Winnipeg</option>
+                    <option value="Halifax">Halifax</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+
+                <div class="srs-address-item">
+                  <label for="province" class="srs-sub-label">Prov</label>
+                  <select id="province" name="province" class="srs-input">
+                    <option value="">Prov</option>
+                    <option value="ON">ON</option>
+                    <option value="QC">QC</option>
+                    <option value="BC">BC</option>
+                    <option value="AB">AB</option>
+                    <option value="SK">SK</option>
+                    <option value="MB">MB</option>
+                    <option value="NS">NS</option>
+                    <option value="NB">NB</option>
+                    <option value="PE">PE</option>
+                    <option value="NL">NL</option>
+                    <option value="YT">YT</option>
+                    <option value="NT">NT</option>
+                    <option value="NU">NU</option>
+                  </select>
+                </div>
+
+                <div class="srs-address-item">
+                  <label for="postalCode" class="srs-sub-label">Postal Code</label>
+                  <input type="text" id="postalCode" name="postalCode" class="srs-input" pattern="[A-Za-z]\d[A-Za-z] \d[A-Za-z]\d" maxlength="7" placeholder="E5L 1R1" title="Format: A1A 1A1" />
+                </div>
+              </div>
+            </div>
+
+            <div class="srs-field-row">
+              <label for="listingSide" class="srs-label">Listing Side (L/S/Both)</label>
+              <select id="listingSide" name="listingSide" class="srs-input">
+                <option value="L">L</option>
+                <option value="S">S</option>
+                <option value="Both">Both</option>
+              </select>
+            </div>
+
+            <div class="srs-field-row">
+              <label for="purchasePrice" class="srs-label">Purchase Price</label>
+              <div class="srs-currency">
+                <span>$</span>
+                <input type="text" id="purchasePrice" name="purchasePrice" class="srs-input srs-input-num" step="0.01" />
+              </div>
+            </div>
+
+            <div class="srs-field-row srs-full srs-commission-row">
+              <label for="commissionType" class="srs-label">Commission</label>
+              <div class="srs-commission-inline">
+                <select id="commissionType" name="commissionType" class="srs-input srs-commission-type">
+                  <option value="rate" selected>Rate (%)</option>
+                  <option value="amount">Amount</option>
+                </select>
+
+                <div class="srs-commission-field srs-commission-rate">
+                  <label for="commissionRate" class="srs-sub-label">Rate (%)</label>
+                  <div class="srs-unit-input">
+                    <input type="text" id="commissionRate" name="commissionRate" class="srs-input srs-input-num" step="0.01" min="0" max="100" />
+                    <span>%</span>
+                  </div>
+                </div>
+
+                <div class="srs-commission-field srs-commission-amount" hidden>
+                  <label for="commissionAmount" class="srs-sub-label">Amount</label>
+                  <div class="srs-currency">
+                    <span>$</span>
+                    <input type="text" id="commissionAmount" name="commissionAmount" class="srs-input srs-input-num" inputmode="decimal" pattern="^\d+(\.\d{1,2})?$" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="srs-field-row srs-full srs-dates-row">
+              <span class="srs-label">Dates</span>
+              <div class="srs-dates-inline">
+                <div class="srs-date-item">
+                  <label for="listingAgreementDate" class="srs-sub-label">Listing Agreement Date</label>
+                  <input type="date" id="listingAgreementDate" name="listingAgreementDate" class="srs-input" />
+                </div>
+
+                <div class="srs-date-item">
+                  <label for="apsDate" class="srs-sub-label">APS Date</label>
+                  <input type="date" id="apsDate" name="apsDate" class="srs-input" />
+                </div>
+
+                <div class="srs-date-item">
+                  <label for="scheduledClosingDate" class="srs-sub-label">Scheduled Closing Date</label>
+                  <input type="date" id="scheduledClosingDate" name="scheduledClosingDate" class="srs-input" />
+                </div>
+              </div>
+            </div>
+
+            <div class="srs-field-row srs-full">
+              <label for="revisedClosingNotes" class="srs-label">Revised Closing Dates / Notes</label>
+              <textarea id="revisedClosingNotes" name="revisedClosingNotes" class="srs-input srs-textarea"></textarea>
+            </div>
+          </div>
+        </section>
+
+        <section class="srs-section">
+          <h2>Deposit Details</h2>
+          <p class="srs-hint">
+            Record each deposit related to this file. Add additional rows as
+            needed.
+          </p>
+
+          <table class="srs-table srs-table-deposits">
+            <thead>
+              <tr>
+                <th>Deposit #</th>
+                <th>Amount</th>
+                <th>Date Received</th>
+                <th>Payment Method<br />(Cash / Cheque / EMT / Other)</th>
+                <th>Date Deposited to Trust</th>
+                <th>Bank Deposit Ref #</th>
+                <th>Trust Receipt #</th>
+                <th>Trust Ledger Ref</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="depositRows"></tbody>
+          </table>
+
+          <template id="depositRowTemplate">
+            <tr class="srs-deposit-row">
+              <td><input type="text" class="srs-input" data-role="depositNo" /></td>
+              <td>
+                <div class="srs-currency">
+                  <span>$</span>
+                  <input type="number" class="srs-input srs-input-num" step="0.01" data-role="amount" />
+                </div>
+              </td>
+              <td><input type="date" class="srs-input" data-role="dateReceived" /></td>
+              <td>
+                <select class="srs-input" data-role="method">
+                  <option value="Cash">Cash</option>
+                  <option value="Cheque">Cheque</option>
+                  <option value="EMT">EMT</option>
+                  <option value="Other">Other</option>
+                </select>
+              </td>
+              <td><input type="date" class="srs-input" data-role="dateToTrust" /></td>
+              <td><input type="text" class="srs-input" data-role="bankRef" /></td>
+              <td><input type="text" class="srs-input" data-role="trustReceipt" /></td>
+              <td><input type="text" class="srs-input" data-role="ledgerRef" /></td>
+              <td class="srs-deposit-actions">
+                <button type="button" class="srs-icon-btn srs-icon-delete" data-action="delete-row" aria-label="Delete deposit row">
+                  <svg viewBox="0 0 20 20" aria-hidden="true">
+                    <path d="M6 5l1-2h6l1 2h4v2H2V5h4zm2 12c-1.1 0-2-.9-2-2V9h2v6h2V9h2v6h2V9h2v6c0 1.1-.9 2-2 2H8z"></path>
+                  </svg>
+                </button>
+                <button type="button" class="srs-icon-btn srs-icon-add" data-action="add-row" aria-label="Add deposit row">
+                  <svg viewBox="0 0 20 20" aria-hidden="true">
+                    <path d="M9 3h2v6h6v2h-6v6H9v-6H3V9h6z"></path>
+                  </svg>
+                </button>
+              </td>
+            </tr>
+          </template>
+        </section>
+
+        <section class="srs-section srs-section-inline">
+          <div class="srs-grid srs-grid-2col">
+            <div class="srs-field-row srs-full">
+              <label for="conditions" class="srs-label">Conditions (e.g. Financing, Inspection)</label>
+              <textarea id="conditions" name="conditions" class="srs-input srs-textarea"></textarea>
+            </div>
+
+            <div class="srs-field-row">
+              <label for="conditionsMetDate" class="srs-label">Conditions Met Date</label>
+              <input type="date" id="conditionsMetDate" name="conditionsMetDate" class="srs-input" />
+            </div>
+
+            <div class="srs-field-row">
+              <label for="trustDisbursementDate" class="srs-label">Trust Disbursement Date</label>
+              <input type="date" id="trustDisbursementDate" name="trustDisbursementDate" class="srs-input" />
+            </div>
+
+            <div class="srs-field-row srs-full">
+              <label for="disbursedTo" class="srs-label">Disbursed To</label>
+              <input type="text" id="disbursedTo" name="disbursedTo" class="srs-input" />
+            </div>
+
+            <div class="srs-field-row">
+              <label for="fileClosedDate" class="srs-label">File Closed Date</label>
+              <input type="date" id="fileClosedDate" name="fileClosedDate" class="srs-input" />
+            </div>
+          </div>
+        </section>
+
+        <section class="srs-section">
+          <h2>Prepared &amp; Review</h2>
+          <div class="srs-grid srs-grid-2col srs-grid-tight">
+            <div class="srs-field-row">
+              <label for="preparedBy" class="srs-label">Prepared By</label>
+              <input type="text" id="preparedBy" name="preparedBy" class="srs-input" />
+            </div>
+
+            <div class="srs-field-row">
+              <label for="preparedDate" class="srs-label">Prepared Date</label>
+              <input type="date" id="preparedDate" name="preparedDate" class="srs-input" />
+            </div>
+
+            <div class="srs-field-row">
+              <label for="managerReviewBy" class="srs-label">Manager Review By</label>
+              <input type="text" id="managerReviewBy" name="managerReviewBy" class="srs-input" />
+            </div>
+
+            <div class="srs-field-row">
+              <label for="reviewDate" class="srs-label">Review Date</label>
+              <input type="date" id="reviewDate" name="reviewDate" class="srs-input" />
+            </div>
+          </div>
+
+          <div class="srs-field-row srs-full srs-mt-small">
+            <label for="managerNotes" class="srs-label">Manager Review Notes</label>
+            <textarea id="managerNotes" name="managerNotes" class="srs-input srs-textarea"></textarea>
+          </div>
+        </section>
+      </main>
+    </div>
+  </main>
+
+  <script src="Sales_Record_Sheet_Template.js"></script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Documents</title>
+  <link rel="stylesheet" href="documents.css"/>
+</head>
+<body>
+  <div class="page-wrap">
+    <header class="page-head">
+      <h1 class="title">Documents</h1>
+      <span class="chip">Manage files, folders & tags</span>
+    </header>
+
+    <section class="doc-grid">
+      <!-- Defaults -->
+      <section class="card" aria-label="Defaults">
+        <h2 class="card-title">Defaults</h2>
+        <div class="form-grid">
+          <div class="fg">
+            <label>Default Library</label>
+            <select id="defLibrary">
+              <option value="Company Drive">Company Drive</option>
+              <option value="Accounting - AR">Accounting - AR</option>
+              <option value="Accounting - AP">Accounting - AP</option>
+              <option value="Projects">Projects</option>
+            </select>
+          </div>
+
+          <div class="fg">
+            <label>File Naming Template</label>
+            <input id="defTemplate" type="text" placeholder="e.g. {date}_{module}_{name}">
+            <p class="hint">Placeholders: <code>{date}</code>, <code>{module}</code>, <code>{name}</code></p>
+          </div>
+
+          <div class="fg two">
+            <div>
+              <label>Retention Period</label>
+              <select id="defRetention">
+                <option value="None">None</option>
+                <option value="1 Year">1 Year</option>
+                <option value="3 Years">3 Years</option>
+                <option value="7 Years">7 Years</option>
+              </select>
+            </div>
+            <label class="ck">
+              <input id="defRequireKW" type="checkbox">
+              Require keywords before upload
+            </label>
+          </div>
+
+          <div class="row-end">
+            <button id="saveDefaultsBtn" class="btn" type="button">Save Defaults</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Keywords -->
+      <section class="card" aria-label="Keywords">
+        <h2 class="card-title">Keywords</h2>
+        <div class="kw-top">
+          <div class="field">
+            <input id="kwInput" type="text" placeholder="Add a keyword and hit Enter">
+            <button id="addKwBtn" class="btn ghost" type="button">Add</button>
+          </div>
+          <p class="hint">Use keywords to improve search and organize documents.</p>
+        </div>
+        <div id="kwList" class="kw-list" aria-live="polite"></div>
+      </section>
+
+      <!-- Folder (browser) -->
+      <section class="card span-2" aria-label="Folder browser">
+        <h2 class="card-title">Folder</h2>
+
+        <div class="folder-actions">
+          <div class="crumbs" id="crumbs"></div>
+          <div class="act">
+            <button id="newFolderBtn" class="btn ghost" type="button">New Folder</button>
+          </div>
+        </div>
+
+        <div class="folder-grid">
+          <aside class="tree-wrap">
+            <ul id="tree" class="tree" role="tree" aria-label="Folders"></ul>
+          </aside>
+
+          <main class="files-wrap">
+            <table class="files" id="filesTable">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Type</th>
+                  <th class="num">Size</th>
+                  <th class="num">Modified</th>
+                </tr>
+              </thead>
+              <tbody id="filesBody">
+                <!-- rows -->
+              </tbody>
+            </table>
+            <div id="emptyState" class="empty">No files yet. Use Upload below.</div>
+          </main>
+        </div>
+      </section>
+
+      <!-- Upload -->
+      <section class="card span-2" aria-label="Upload">
+        <h2 class="card-title">Upload</h2>
+        <div id="dropZone" class="drop-zone" tabindex="0" aria-label="Drop files here">
+          <div class="dz-inner">
+            <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7 7-7z"/></svg>
+            <div class="dz-title">Drop files or folders here</div>
+            <div class="dz-sub">They will be added to the current folder</div>
+          </div>
+        </div>
+
+        <div class="upload-row">
+          <label class="btn">
+            Upload Folder
+            <input id="folderInput" type="file" webkitdirectory directory multiple hidden>
+          </label>
+          <label class="btn">
+            Upload File
+            <input id="fileInput" type="file" multiple hidden>
+          </label>
+        </div>
+
+        <div id="uploadList" class="upload-list"></div>
+      </section>
+    </section>
+  </div>
+
+  <div id="toastArea" class="toast-area"></div>
+  <script src="documents.js"></script>
+</body>
+</html>

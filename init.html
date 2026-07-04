@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home</title>
+
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="init.css"/>
+</head>
+<body>
+
+  <header class="app-header" role="navigation" aria-label="Primary">
+    <div class="app-brand">
+      <span class="logo" aria-hidden="true"></span>
+      <span class="brand-name">Veritas International Inc</span>
+
+      <div class="status-area" id="statusArea" hidden>
+        <span id="statusChip" class="status-chip" aria-live="polite"></span>
+        <button id="helpBtn" class="help-circle" type="button" title="Help" aria-label="Help">?</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="home-card" aria-labelledby="homeTitle">
+      <header class="home-head">
+        <h1 id="homeTitle" class="home-title">Welcome</h1>
+        <p class="home-sub">Pick a module to get started.</p>
+      </header>
+
+      <div class="home-grid" id="homeGrid" role="list">
+        <a class="home-tile" href="defaults.html" role="listitem" aria-label="Open Defaults">
+          <div class="tile-visual" aria-hidden="true">
+            <svg class="tile-icon" viewBox="0 0 24 24">
+              <path fill="currentColor" d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/>
+            </svg>
+          </div>
+          <div class="tile-title">Defaults</div>
+          <div class="tile-meta">Open Defaults</div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <script src="site.js"></script>
+  <script src="init.js"></script>
+</body>
+</html>

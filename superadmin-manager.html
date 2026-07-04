@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manage SuperAdmins</title>
+  <link rel="stylesheet" href="admin-oneklient.css" />
+  <link rel="stylesheet" href="superadmin-manager.css" />
+</head>
+<body>
+  <header class="app-header" role="banner">
+    <div class="app-brand">
+      <span class="logo" aria-hidden="true"></span>
+      <span class="brand-text">ONEklient Solutions Inc.</span>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <a href="admin-oneklient.html" class="back-btn" aria-label="Back">← Back</a>
+
+    <div class="manager-layout">
+      <aside class="organizations-panel">
+        <div class="panel-head">
+          <h2>Organizations</h2>
+          <p>Choose an organization to manage its SuperAdmins</p>
+        </div>
+
+        <div class="search-wrap">
+          <input
+            id="organizationSearch"
+            class="organization-search"
+            type="text"
+            placeholder="Search organization..."
+            aria-label="Search organization"
+          />
+        </div>
+
+        <div id="organizationList" class="organization-list"></div>
+      </aside>
+
+      <section class="details-panel">
+        <div class="details-head">
+          <div>
+            <h1 id="selectedOrganizationName">Select an organization</h1>
+            <p id="selectedOrganizationMeta">Choose an organization from the left side</p>
+          </div>
+
+          <button id="addSuperAdminBtn" type="button" class="btn btn-save" disabled>
+            Add New SuperAdmin
+          </button>
+        </div>
+
+        <div id="adminsContainer" class="admins-container">
+          <div class="empty-state">
+            Select an organization from the left side to view its SuperAdmins.
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div id="deleteModal" class="modal-overlay hidden" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="deleteModalTitle">
+      <div class="modal-header">
+        <div class="modal-icon-wrap">
+          <div class="modal-icon">!</div>
+        </div>
+        <h3 id="deleteModalTitle">Delete SuperAdmin</h3>
+      </div>
+
+      <div class="modal-body">
+        <p id="deleteModalText">Are you sure you want to delete this SuperAdmin?</p>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" id="deleteCancelBtn" class="btn btn-modal-secondary">Cancel</button>
+        <button type="button" id="deleteConfirmBtn" class="btn btn-danger">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="superadmin-data.js"></script>
+  <script src="superadmin-manager.js"></script>
+</body>
+</html>

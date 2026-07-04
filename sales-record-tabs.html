@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sales Record Form</title>
+
+  <link rel="stylesheet" href="admin-oneklient.css" />
+  <link rel="stylesheet" href="sales-record-tabs.css" />
+</head>
+<body>
+  <header class="app-header" role="banner">
+    <div class="app-brand">
+      <span class="logo" aria-hidden="true"></span>
+      <span class="brand-text">ONEklient Solutions Inc.</span>
+    </div>
+  </header>
+
+  <main class="srt-page-shell">
+    <a href="Real Estate Brokerage.html" class="back-btn" aria-label="Back">← Back</a>
+
+    <div class="srt-page-card">
+      <div class="srt-head">
+        <div>
+          <h1 class="srt-title">Sales Record Form</h1>
+          <p class="srt-subtitle">Switch between the fixed sections below.</p>
+        </div>
+      </div>
+
+      <div class="srt-tabs-wrap">
+        <div id="tabsBar" class="srt-tabs-bar" role="tablist" aria-label="Sales Record tabs">
+          <button class="srt-tab active pinned" role="tab" aria-selected="true" data-key="file-info" id="tab-file-info" type="button">
+            <span class="label">File Information</span>
+          </button>
+
+          <button class="srt-tab pinned" role="tab" aria-selected="false" data-key="deposit-details" id="tab-deposit-details" type="button">
+            <span class="label">Deposit Details</span>
+          </button>
+
+          <button class="srt-tab pinned" role="tab" aria-selected="false" data-key="prepared-review" id="tab-prepared-review" type="button">
+            <span class="label">Prepared &amp; Review</span>
+          </button>
+        </div>
+      </div>
+
+      <div id="tabsViews" class="srt-tabs-views">
+        <section class="srt-tab-view active" data-key="file-info" role="tabpanel" aria-labelledby="tab-file-info">
+          <iframe
+            class="srt-tab-frame"
+            src="sales-file-information.html"
+            title="File Information"
+            loading="lazy"
+          ></iframe>
+        </section>
+
+        <section class="srt-tab-view" data-key="deposit-details" role="tabpanel" aria-labelledby="tab-deposit-details">
+          <iframe
+            class="srt-tab-frame"
+            src="sales-deposit-details.html"
+            title="Deposit Details"
+            loading="lazy"
+          ></iframe>
+        </section>
+
+        <section class="srt-tab-view" data-key="prepared-review" role="tabpanel" aria-labelledby="tab-prepared-review">
+          <iframe
+            class="srt-tab-frame"
+            src="sales-prepared-review.html"
+            title="Prepared & Review"
+            loading="lazy"
+          ></iframe>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <script src="sales-record-tabs.js"></script>
+</body>
+</html>

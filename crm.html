@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>CRM</title>
+
+  <!-- ستايلات عامة للموقع -->
+  <link rel="stylesheet" href="style1.css"/>
+
+  <!-- ستايل CRM -->
+  <link rel="stylesheet" href="crm.css"/>
+</head>
+<body>
+
+  <!-- سكوب الـ CRM -->
+  <div id="crmApp">
+    <main class="acc-wrap">
+      <section class="acc-card" aria-labelledby="crm-title">
+        <h1 id="crm-title" class="content-title" style="margin:0 0 12px">CRM</h1>
+
+        <div id="crmBody" class="acc-body work-mode">
+          <div class="work-area">
+            <!-- زر طي العمود الشمال -->
+            <button id="paneToggle" class="pane-toggle" aria-label="إظهار/إخفاء القائمة" aria-expanded="true" title="Toggle menu">
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                <path fill="currentColor" d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+              </svg>
+            </button>
+
+            <!-- العمود الشمال -->
+            <aside class="pane-left" aria-label="قائمة CRM">
+              <nav class="menu-list" role="tree">
+                <button class="menu-link is-active" role="treeitem" id="btn-dashboard" aria-current="page">
+                  <span class="link-title">Dashboard</span>
+                  <svg class="chev" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+                    <path fill="currentColor" d="M9 6l6 6-6 6"/>
+                  </svg>
+                </button>
+
+                <button class="menu-link" role="treeitem" id="btn-services">
+                  <span class="link-title">Services</span>
+                  <svg class="chev" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+                    <path fill="currentColor" d="M9 6l6 6-6 6"/>
+                  </svg>
+                </button>
+
+                <!-- رابط Open a New Account -->
+                <button class="menu-link" role="treeitem" id="btn-open-account">
+                  <span class="link-title">Open A New Account</span>
+                  <svg class="chev" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+                    <path fill="currentColor" d="M9 6l6 6-6 6"/>
+                  </svg>
+                </button>
+
+                <!-- Customer Docs كزرار يفتح تاب جوّه الـCRM -->
+                <button class="menu-link" role="treeitem" id="btn-customer-docs">
+                  <span class="link-title">Customer Docs</span>
+                  <svg class="chev" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+                    <path fill="currentColor" d="M9 6l6 6-6 6"/>
+                  </svg>
+                </button>
+              </nav>
+            </aside>
+
+            <!-- مقبض التحجيم -->
+            <div id="paneResizer" class="pane-resizer" role="separator" aria-orientation="vertical" aria-label="Resize menu" tabindex="0"></div>
+
+            <!-- يمين المحتوى -->
+            <div class="pane-right">
+              <header class="content-head">
+                <h2 class="content-title" id="paneTitle" style="margin:0">Dashboard</h2>
+                <div id="tabBar" class="tab-bar" role="tablist" aria-label="Open pages"></div>
+              </header>
+
+              <div id="contentArea" class="content-box" role="region" aria-live="polite"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="crm.js"></script>
+</body>
+</html>

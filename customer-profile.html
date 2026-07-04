@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Customer Profile</title>
+
+  <!-- لو عندك reset أو theme عام -->
+  <link rel="stylesheet" href="style1.css"/>
+  <!-- ملف التنسيق الأساسي لهذه الصفحة -->
+  <link rel="stylesheet" href="customer-profile.css"/>
+</head>
+<body>
+  <div class="page-wrap">
+    <h1 id="pageTitle" class="title">—</h1>
+
+    <div class="card" id="ownersCard">
+      <h2 class="section-title">Owners</h2>
+      <div id="ownersList" class="owners-list"></div>
+    </div>
+
+    <div class="card" id="authCard" hidden>
+      <h2 class="section-title">Authorized</h2>
+      <div id="authList" class="owners-list"></div>
+    </div>
+
+    <div class="card grid-stack" id="detailsCard" hidden>
+      <div class="block full-span">
+        <label class="field-label" for="accNo">Account Number</label>
+        <div class="field input-wrap">
+          <input id="accNo" name="accNo" type="text" inputmode="numeric" placeholder="e.g. 10023456789"/>
+        </div>
+      </div>
+
+      <div class="block full-span" id="uploadBlock">
+        <label class="field-label" for="docInput">Upload Documents</label>
+        <div class="uploader" id="uploader">
+          <input id="docInput" type="file" multiple hidden />
+          <div id="dropZone" class="dropzone" tabindex="0" role="button" aria-label="Upload documents">
+            <div class="dz-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M19 15v4a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-4h2v4h10v-4h2Zm-7-1l-5-5 1.41-1.41L11 10.17V3h2v7.17l2.59-2.58L17 9l-5 5Z"/></svg>
+            </div>
+            <div class="dz-text">
+              <strong>Drag & drop</strong> files here or
+              <button type="button" class="linklike" id="browseBtn">browse</button>
+            </div>
+            <div class="dz-hint">PDF, Images, Word, Excel, Zip … up to 25MB each</div>
+          </div>
+        </div>
+        <div class="file-list" id="fileList"></div>
+      </div>
+
+      <div class="block">
+        <label class="field-label" for="creditLimit">Credit limit</label>
+        <div class="field input-wrap"><input id="creditLimit" type="text" placeholder="e.g. 50,000"/></div>
+      </div>
+
+      <div class="block">
+        <label class="field-label" for="termsTxt">Terms</label>
+        <div class="field input-wrap"><input id="termsTxt" type="text" placeholder="e.g. Net 30"/></div>
+      </div>
+
+      <div class="block full-span">
+        <label class="field-label" for="noteTxt">Note</label>
+        <div class="field textarea-wrap"><textarea id="noteTxt" placeholder="Write any notes here..."></textarea></div>
+      </div>
+    </div>
+
+    <!-- ===== Payable only ===== -->
+    <div class="card" id="payableCard" hidden>
+      <!-- Expense Account (AP only) -->
+      <div class="block" id="expAccBlock">
+        <label class="field-label" for="expAccount">Expense Account</label>
+        <div class="field select-wrap">
+          <select id="expAccount">
+            <option value="" selected disabled>Select…</option>
+            <option value="6000">6000 — Office Supplies</option>
+            <option value="6100">6100 — Utilities</option>
+            <option value="6200">6200 — Rent Expense</option>
+            <option value="6300">6300 — Advertising</option>
+            <option value="6400">6400 — Travel & Meals</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="dd-top">
+        <label class="chk-wrap">
+          <input type="checkbox" id="allowDD"/>
+          <span>Allow direct deposits for this supplier</span>
+        </label>
+
+        <!-- بديل الرابط: آيقونة ? داخل دايرة باللون الكُحلي -->
+        <button id="ddHelp" class="help-ico" type="button" title="What is Direct Deposit?">?</button>
+      </div>
+
+      <fieldset id="ddFields" class="dd-fieldset" disabled aria-disabled="true">
+        <legend class="dd-legend">Supplier Bank Account Details</legend>
+
+        <!-- شبكة واحدة بصفين:
+             الصف الأول: يسار Bank (يمتد عمودين) + يمين Currency (عمود واحد أصغر)
+             الصف الثاني: Branch + Institution + Account (٣ أعمدة متساوية) -->
+        <div class="dd-grid">
+          <!-- الصف الأول -->
+          <div class="block dd-bank">
+            <label for="ddBank" class="field-label">Bank</label>
+            <div class="field select-wrap">
+              <select id="ddBank">
+                <option value="" selected disabled>Select…</option>
+                <option value="Royal Bank">Royal Bank</option>
+                <option value="Bank of Montreal">Bank of Montreal</option>
+                <option value="Scotia Bank">Scotia Bank</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="block dd-currency">
+            <label for="ddCurrency" class="field-label">Currency and Location</label>
+            <div class="field select-wrap">
+              <select id="ddCurrency">
+                <option value="CAD-CA">CAD bank account in Canada</option>
+                <option value="USD-US">USD bank account in United States</option>
+                <option value="GBP-UK">GBP bank account in United Kingdom</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- الصف الثاني -->
+          <div class="block dd-branch">
+            <label for="ddBranch" class="field-label">Branch Number</label>
+            <div class="field input-wrap">
+              <input id="ddBranch" type="text" inputmode="numeric" placeholder="e.g. 12345"/>
+            </div>
+          </div>
+
+          <div class="block dd-inst">
+            <label for="ddInstitution" class="field-label">Institution Number</label>
+            <div class="field input-wrap">
+              <input id="ddInstitution" type="text" inputmode="numeric" placeholder="e.g. 001"/>
+            </div>
+          </div>
+
+          <div class="block dd-acc">
+            <label for="ddAccount" class="field-label">Account Number</label>
+            <div class="field input-wrap">
+              <input id="ddAccount" type="text" inputmode="numeric" placeholder="e.g. 123456789"/>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+    <!-- ===== /Payable only ===== -->
+
+    <div class="page-actions" id="pageActions" hidden>
+      <button id="btnProcess" class="btn" type="button">Process</button>
+      <button id="btnDelete" class="btn" type="button">Delete</button>
+    </div>
+  </div>
+
+  <div class="final-actions">
+    <button id="btnCreate" class="btn" type="button" disabled>Create</button>
+  </div>
+
+  <!-- Toast area -->
+  <div id="toastArea" class="toast-area" aria-live="assertive" aria-atomic="true"></div>
+
+  <script src="customer-profile.js" defer></script>
+</body>
+</html>

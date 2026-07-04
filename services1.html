@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Services Transfer</title>
+
+  <link rel="stylesheet" href="style1.css"/>
+  <link rel="stylesheet" href="services1.css"/>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="app-header" role="navigation" aria-label="Primary">
+    <div class="app-brand">
+      <span class="logo" aria-hidden="true"></span>
+      <span>ONEklient</span>
+    </div>
+    <nav class="app-nav">
+      <a href="services.html" class="nav-link active" aria-current="page">Services</a>
+    </nav>
+  </header>
+
+  <!-- Layout -->
+  <main class="svc-wrap">
+    <div class="svc-transfer">
+
+      <!-- العمود الشمال -->
+      <div class="svc-col left">
+        <!-- ✅ زر Back -->
+        <a href="home1.html" class="back-btn" aria-label="Back to Home">
+          ← <span>Back</span>
+        </a>
+
+        <h3 class="col-title">Unassigned</h3>
+        <div class="box-head">
+          <span class="hint muted">Users not in groups</span>
+        </div>
+        <div class="listbox">
+          <!-- عناصر ليستة المستخدمين -->
+        </div>
+      </div>
+
+      <!-- العمود الأوسط (الأسهم) -->
+      <div class="controls">
+        <button class="big-arrow" aria-label="Move Right">›</button>
+        <button class="big-arrow" aria-label="Move Left">‹</button>
+      </div>
+
+      <!-- العمود اليمين -->
+      <div class="svc-col right">
+        <h3 class="col-title">Groups</h3>
+        <button class="dropdown-toggle" aria-expanded="false">
+          <span>Select Group</span>
+          <span class="chev"></span>
+        </button>
+        <div class="list collapsed">
+          <!-- عناصر المجموعات -->
+        </div>
+        <div class="section-gap"></div>
+        <div class="roster">
+          <!-- أعضاء الجروب -->
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+</body>
+</html>

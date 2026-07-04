@@ -1,0 +1,386 @@
+:root{
+  --tile-min: 140px;
+  --navy: #0b2e6f;
+  --tabs-h: 44px;
+  --header-h: 56px;
+}
+
+/* Home wrapper */
+.home-wrap{
+  max-width: 1200px;
+  margin: 16px auto;
+  padding: 0 16px 24px;
+}
+
+/* Home card container */
+.home-card{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  padding: 12px;
+  background-image: radial-gradient(
+    130% 130% at 20% 0%,
+    #ffffff 0%,
+    #f7f9fc 60%,
+    #eef2f7 100%
+  );
+}
+
+/* Card header */
+.home-head{
+  padding: 6px 8px 12px;
+}
+.home-title{
+  margin:0 0 6px;
+  font-size:1.25rem;
+  font-weight:800;
+  color:var(--text);
+}
+.home-sub{
+  margin:0;
+  color:var(--muted);
+}
+
+/* Home tiles grid */
+/* 4 columns so CRM / Accounting / Documents / Teams are in one row */
+.home-grid{
+  display: grid;
+  grid-template-columns: repeat(4, minmax(120px, 1fr));
+  gap: 16px;
+  padding: 12px;
+}
+
+/* Tile styling (smaller size) */
+.home-tile{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap: 6px;
+  min-height: 90px;
+  padding: 10px 12px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--primary); /* main stroke */
+  border-radius: 12px;
+  background: #fff;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: 0 3px 10px var(--primary-50);
+  transition:
+    transform .12s ease,
+    box-shadow .2s ease,
+    background .2s ease,
+    border-color .2s ease,
+    color .2s ease;
+  cursor: pointer;
+}
+
+.home-tile:hover{
+  transform: translateY(-2px);
+  border-color: var(--primary);
+  background: #f7fbff;
+  box-shadow: 0 10px 24px var(--primary-100);
+}
+
+.home-tile:focus-visible{
+  outline: 3px solid var(--primary-50);
+  outline-offset: 2px;
+}
+
+.tile-title{
+  font-size: .9rem;
+  color: var(--text);
+  text-align:center;
+}
+
+.tile-meta{
+  font-size: .8rem;
+  color: var(--muted);
+  font-weight:600;
+  text-align:center;
+}
+
+/* Real Estate tile tweaks */
+.service-tile{
+  padding: 10px 12px;
+  align-items: center;
+}
+.service-tile .tile-title{
+  font-size: .9rem;
+  font-weight: 700;
+}
+
+/* Accent tiles (Real Estate Brokerage, Project Management, Property Management - yellow theme) */
+.accent-tile{
+  background: #fef9c3;          /* soft yellow background */
+  border-color: #facc15;        /* yellow stroke */
+  color: #854d0e;               /* darker text for contrast */
+  box-shadow: 0 3px 12px rgba(133, 77, 14, 0.18);
+}
+.accent-tile:hover{
+  background: #fef3c7;          /* slightly deeper on hover */
+  border-color: #fbbf24;
+  box-shadow: 0 10px 26px rgba(133, 77, 14, 0.26);
+}
+
+/* Second row positioning:
+   Real Estate Brokerage (col 2),
+   Project Management (col 3),
+   Property Management (col 4) */
+.home-grid [data-id="services"]{
+  grid-column: 2;
+}
+.home-grid [data-id="project-mgmt"]{
+  grid-column: 3;
+}
+.home-grid [data-id="property-mgmt"]{
+  grid-column: 4;
+}
+
+/* Right side of header (user area) */
+.user-area{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.user-name{
+  color: var(--text);
+  opacity:.95;
+  font-size:.95rem;
+}
+.mail-btn{
+  position: relative;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:36px;
+  height:32px;
+  border-radius:8px;
+  border:1px solid var(--border);
+  background:#fff;
+  color:var(--primary);
+  cursor: pointer;
+  transition:
+    transform .12s ease,
+    background .2s ease,
+    box-shadow .2s ease,
+    border-color .2s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,.04);
+}
+.mail-btn:hover{
+  transform: translateY(-1px);
+  background: var(--primary-50);
+  border-color: var(--primary-100);
+  box-shadow: 0 8px 18px var(--primary-100);
+}
+.mail-btn .badge{
+  position:absolute;
+  top:-6px;
+  right:-6px;
+  min-width: 16px;
+  height:16px;
+  padding:0 4px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:10px;
+  background:#ef4444;
+  color:#fff;
+  font-size:10px;
+  font-weight:800;
+  box-shadow:0 0 0 2px #fff;
+}
+
+/* ===== Tabs UI ===== */
+.tabs-wrap{
+  max-width: 1200px;
+  margin: 0 auto 0;
+  padding: 0 16px;
+}
+.tabs-bar{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  height: var(--tabs-h);
+  border-bottom: 1px solid var(--border);
+  overflow-x:auto;
+  scrollbar-width: thin;
+}
+.tab{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  height: 34px;
+  padding: 0 12px;
+  border:1px solid transparent;
+  border-radius: 10px 10px 0 0;
+  background: transparent;
+  color: var(--text);
+  font-weight:800;
+  cursor:pointer;
+  transition:
+    background .2s ease,
+    border-color .2s ease,
+    color .2s ease,
+    transform .12s ease;
+}
+.tab:hover{
+  transform: translateY(-1px);
+  background: var(--primary-50);
+}
+.tab.active{
+  background: var(--navy);
+  color: #fff;
+  border-color: var(--navy);
+  border-bottom-color: var(--navy);
+}
+.tab.active .close{
+  background: transparent;
+  color: #fff;
+  border-color: rgba(255,255,255,.6);
+}
+.tab.active .close:hover{
+  background: rgba(255,255,255,.12);
+  border-color: rgba(255,255,255,.85);
+}
+.tab.pinned{
+  position: relative;
+}
+.tab .close{
+  width:18px;
+  height:18px;
+  border-radius:6px;
+  border:1px solid var(--border);
+  background:#fff;
+  color: var(--text);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:800;
+  line-height:1;
+  cursor:pointer;
+}
+.tab .close:hover{
+  background:#fee2e2;
+  border-color:#fecaca;
+  color:#7f1d1d;
+}
+.tab.pinned .close{
+  display:none;
+}
+
+/* Tab views container */
+.tabs-views{
+  max-width: 1200px;
+  margin: 0 auto;
+  --tv-pad-top: 4px;
+  --tv-pad-bottom: 8px;
+  padding: var(--tv-pad-top) 16px var(--tv-pad-bottom);
+  height: calc(100vh - var(--header-h) - var(--tabs-h));
+}
+.tab-view{
+  display:none;
+  height: 100%;
+  min-height: 0;
+}
+.tab-view.active{
+  display:flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+.tab-iframe{
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background:#fff;
+  box-shadow: var(--shadow);
+}
+
+/* Responsive behavior */
+@media (max-width: 900px){
+  .home-grid{
+    grid-template-columns: repeat(2, minmax(130px, 1fr));
+  }
+
+  /* On smaller screens, let yellow tiles flow naturally */
+  .home-grid [data-id="services"],
+  .home-grid [data-id="project-mgmt"],
+  .home-grid [data-id="property-mgmt"]{
+    grid-column: auto;
+  }
+}
+@media (max-width: 600px){
+  .home-grid{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ====== Toast UI ====== */
+.toast-area{
+  position:fixed;
+  right:16px;
+  bottom:16px;
+  z-index:2147483647;
+  display:flex;
+  gap:10px;
+  flex-direction:column;
+  pointer-events:none;
+}
+.toast{
+  min-width:240px;
+  max-width:360px;
+  border:1px solid #fecaca;
+  background:#fef2f2;
+  color:#7f1d1d;
+  border-radius:10px;
+  box-shadow:0 10px 30px rgba(15,23,42,.18),0 2px 8px rgba(0,0,0,.06);
+  padding:8px 10px;
+  display:grid;
+  grid-template-columns:1fr auto;
+  align-items:start;
+  gap:8px;
+  pointer-events:auto;
+}
+.toast.success{
+  border-color:#bbf7d0;
+  background:#ecfdf5;
+  color:#065f46;
+}
+.toast .msg{
+  font-weight:800;
+  line-height:1.35;
+  font-size:.92rem;
+}
+.toast .close{
+  width:26px;
+  height:26px;
+  border-radius:8px;
+  display:inline-grid;
+  place-items:center;
+  border:1px solid #e5e7eb;
+  background:#fff0;
+  color:inherit;
+  cursor:pointer;
+  font-weight:900;
+}
+
+/* ====== Drag & Drop visual states (drag is logically disabled) ====== */
+.draggable-tile{
+  cursor: grab;
+  user-select: none;
+}
+.draggable-tile.dragging{
+  opacity:.85;
+  transform: scale(.98);
+  cursor: grabbing;
+  pointer-events: none;
+}
+.draggable-tile:hover{
+  box-shadow: 0 12px 30px var(--primary-100);
+}

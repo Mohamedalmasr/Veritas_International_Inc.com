@@ -1,0 +1,667 @@
+/* ====================== ONBOARDING PAGE ====================== */
+
+.page-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 94px 40px 0 40px; /* التعديل هنا: تم تغيير البادينج العلوي إلى 94px ليعوض مسافة الـ navbar الثابت ويمنع تداخل الزر والكارد أسفله */
+}
+
+.onboarding-container {
+  max-width: 1080px;
+  margin: 30px auto;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  padding: 48px 55px;
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 38px;
+  padding: 0 14px;
+  font-weight: 800;
+  text-decoration: none;
+  border: 1px solid var(--primary);
+  border-radius: 10px;
+  color: var(--primary);
+  background: #ffffff;
+  margin: 24px 0 18px 0; 
+  transition: 0.2s ease;
+}
+
+.back-btn:hover {
+  background: var(--primary-50, rgba(11, 61, 145, 0.08));
+}
+
+/* Locked section state */
+.form-section.locked-section {
+  position: relative;
+  border-radius: 16px;
+}
+
+.form-section.locked-section > *:not(.section-btn-container) {
+  opacity: 0.42;
+}
+
+.form-section.locked-section .section-btn-container {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  background: transparent;
+  border-radius: 14px;
+  opacity: 1;
+}
+
+.form-section.locked-section input,
+.form-section.locked-section select {
+  background: #eef2f7;
+  color: #475569;
+  border-color: #d8e0ea;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Header */
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 36px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--border);
+}
+
+.form-title {
+  font-size: 1.42rem;
+  font-weight: 700;
+  color: #0f1724;
+  margin: 0;
+}
+
+.step-number {
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.required {
+  color: #d32f2f;
+  font-size: 1.1rem;
+  margin-left: 4px;
+}
+
+/* Section titles */
+.section-title {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 34px 0 18px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.org-info-head-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 28px;
+  margin: 32px 0 22px 0;
+}
+
+.org-info-title-inline {
+  margin: 0;
+  flex: 1;
+  align-self: center;
+}
+
+.field-client-card-top {
+  width: 100%;
+  max-width: 320px;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.field-client-card-top label {
+  margin-bottom: 8px;
+}
+
+/* Question icon */
+.question-icon {
+  width: 26px;
+  height: 26px;
+  background: #e0f2fe;
+  color: #0369a1;
+  border: 1px solid #bae6fd;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.question-icon:hover {
+  background: #bae6fd;
+  transform: scale(1.05);
+  box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.12);
+}
+
+/* Main form grid */
+.form-grid,
+.address-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 18px;
+  row-gap: 20px;
+  align-items: end;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  grid-column: span 4;
+  min-width: 0;
+}
+
+/* First row */
+.form-grid-org .field-organization-name {
+  grid-column: span 6;
+}
+
+.form-grid-org .field-trade-name {
+  grid-column: span 6;
+}
+
+/* Legal row */
+.form-grid-org .field-legal-structure-main {
+  grid-column: span 4;
+}
+
+.form-grid-org .field-org-legal-status {
+  grid-column: span 4;
+}
+
+.form-grid-org .field-sector {
+  grid-column: span 4;
+}
+
+/* Organization and registration row */
+.form-grid-org .field-organization-type {
+  grid-column: span 6;
+}
+
+.form-grid-org .field-country-prov,
+.form-grid-org .field-prov,
+.form-grid-org .field-legal-doc {
+  grid-column: span 2;
+}
+
+/* --- Date Row Adjustments --- */
+.form-grid-org .field-date-established {
+  grid-column: span 4; 
+}
+
+.field-fiscal-label {
+  grid-column: span 4; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fiscal-year-end-row {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  width: 100%;
+}
+
+.fiscal-year-end-row .fiscal-month,
+.fiscal-year-end-row .fiscal-day {
+  width: 80px;
+  flex: none;
+}
+
+/* Date Dissolved on the right */
+.form-grid-org .field-date-dissolved {
+  grid-column: span 4;
+}
+
+/* Force Business Number to start a new row */
+.form-grid-org .field-business-number {
+  grid-column: 1 / span 4;
+}
+
+.form-grid-org .field-hst {
+  grid-column: span 4;
+}
+
+.form-grid-org .field-payroll {
+  grid-column: span 4;
+}
+
+/* Compact Month and Day dropdowns */
+.fiscal-month,
+.fiscal-day {
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+}
+
+/* Labels and fields */
+label {
+  font-size: 0.87rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: 8px;
+  line-height: 1.25;
+}
+
+input,
+select {
+  width: 100%;
+  height: 52px;
+  padding: 14px 15px;
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  font-size: 1rem;
+  background: #ffffff;
+  transition: all 0.25s ease;
+  box-sizing: border-box;
+}
+
+select {
+  cursor: pointer;
+}
+
+input::placeholder {
+  color: #9ca3af;
+}
+
+input:focus,
+select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px var(--primary-50);
+  outline: none;
+}
+
+input:disabled,
+select:disabled,
+button:disabled {
+  cursor: not-allowed;
+}
+
+/* Contact section */
+.contact-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 34px;
+  margin-bottom: 18px;
+}
+
+.contact-title {
+  margin: 0;
+}
+
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contact-row {
+  display: grid;
+  grid-template-columns: 130px 150px 1fr 52px;
+  gap: 12px;
+  align-items: center;
+}
+
+.contact-type-label,
+.contact-method,
+.contact-input {
+  width: 100%;
+}
+
+.add-btn,
+.remove-contact-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  background: #ffffff;
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.add-btn:hover {
+  background: var(--primary);
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+.remove-contact-btn {
+  color: #dc2626;
+  border-color: #fecaca;
+}
+
+.remove-contact-btn:hover {
+  background: #dc2626;
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+/* Buttons */
+.btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 55px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  min-width: 160px;
+  padding: 16px 32px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-save {
+  background: var(--primary);
+  color: #ffffff;
+}
+
+.btn-save:hover {
+  background: #0a2e70;
+  transform: translateY(-3px);
+}
+
+.btn-edit {
+  background: #0b3d91;
+  color: #ffffff;
+}
+
+.btn-edit:hover {
+  background: #082a6b;
+  transform: translateY(-3px);
+}
+
+.form-section.locked-section .edit-btn {
+  background: #0b3d91;
+  color: #ffffff;
+  opacity: 1;
+  box-shadow: 0 6px 18px rgba(11, 61, 145, 0.2);
+}
+
+.form-section.locked-section .edit-btn:hover {
+  background: #082a6b;
+  transform: translateY(-3px);
+}
+
+.btn-cancel {
+  background: #f1f3f6;
+  color: var(--text);
+}
+
+.btn-cancel:hover {
+  background: #e2e6eb;
+}
+
+/* Toast messages */
+.error-toast,
+.success-toast,
+.info-toast {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  max-width: 420px;
+  padding: 24px 28px;
+  color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  z-index: 10000;
+  animation: slideUp 0.4s ease;
+}
+
+.error-toast {
+  background: #ef4444;
+}
+
+.success-toast {
+  background: #16a34a;
+}
+
+.info-toast {
+  background: #0ea5e9;
+}
+
+.error-toast .toast-header,
+.success-toast .toast-header,
+.info-toast .toast-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.error-toast .toast-title,
+.success-toast .toast-title,
+.info-toast .toast-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.error-toast .toast-title::after {
+  content: " (2000000)";
+  margin-left: 8px;
+  font-weight: 600;
+}
+
+.success-toast[data-code="3000000"] .toast-title::after {
+  content: " (3000000)";
+  margin-left: 8px;
+  font-weight: 600;
+}
+
+.success-toast[data-code="3000001"] .toast-title::after {
+  content: " (3000001)";
+  margin-left: 8px;
+  font-weight: 600;
+}
+
+.error-toast .close-btn,
+.success-toast .close-btn,
+.info-toast .close-btn {
+  background: none;
+  border: none;
+  font-size: 1.9rem;
+  color: #ffffff;
+  cursor: pointer;
+  line-height: 1;
+  opacity: 0.9;
+}
+
+.error-toast .close-btn:hover,
+.success-toast .close-btn:hover,
+.info-toast .close-btn:hover {
+  opacity: 1;
+}
+
+.error-toast ul {
+  margin: 16px 0 0 0;
+  padding-left: 20px;
+}
+
+.error-toast li {
+  margin-bottom: 6px;
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+/* Animations */
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+}
+
+/* Tablet layout */
+@media (max-width: 1100px) {
+  .page-shell {
+    padding: 94px 20px 0 20px; /* تم تعديل البادينج العلوي هنا أيضاً للشاشات المتوسطة */
+  }
+
+  .form-grid,
+  .address-grid {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 16px;
+    row-gap: 18px;
+  }
+
+  .form-group {
+    grid-column: span 3;
+  }
+
+  .form-grid-org .field-organization-name,
+  .form-grid-org .field-trade-name {
+    grid-column: span 3;
+  }
+
+  .form-grid-org .field-legal-structure-main,
+  .form-grid-org .field-org-legal-status,
+  .form-grid-org .field-sector {
+    grid-column: span 2;
+  }
+
+  .form-grid-org .field-organization-type {
+    grid-column: span 6;
+  }
+
+  .form-grid-org .field-country-prov,
+  .form-grid-org .field-prov,
+  .form-grid-org .field-legal-doc {
+    grid-column: span 2;
+  }
+
+  .form-grid-org .field-date-established,
+  .field-fiscal-label,
+  .form-grid-org .field-date-dissolved {
+    grid-column: span 2;
+  }
+
+  .form-grid-org .field-business-number,
+  .form-grid-org .field-hst,
+  .form-grid-org .field-payroll {
+    grid-column: span 2;
+  }
+
+  .contact-row {
+    grid-template-columns: 120px 140px 1fr 52px;
+  }
+}
+
+/* Mobile layout */
+@media (max-width: 900px) {
+  .page-shell {
+    padding: 94px 20px 0 20px; /* تم تعديل البادينج العلوي هنا أيضاً لشاشات الموبايل */
+  }
+
+  .onboarding-container {
+    padding: 35px 30px;
+  }
+
+  .org-info-head-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+  }
+
+  .field-client-card-top {
+    max-width: 100%;
+  }
+
+  .form-grid,
+  .address-grid {
+    grid-template-columns: 1fr;
+    row-gap: 18px;
+  }
+
+  .form-group,
+  .form-grid-org .field-organization-name,
+  .form-grid-org .field-trade-name,
+  .form-grid-org .field-legal-structure-main,
+  .form-grid-org .field-org-legal-status,
+  .form-grid-org .field-sector,
+  .form-grid-org .field-organization-type,
+  .form-grid-org .field-country-prov,
+  .form-grid-org .field-prov,
+  .form-grid-org .field-legal-doc,
+  .form-grid-org .field-date-established,
+  .field-fiscal-label,
+  .form-grid-org .field-date-dissolved,
+  .form-grid-org .field-business-number,
+  .form-grid-org .field-hst,
+  .form-grid-org .field-payroll {
+    grid-column: auto;
+  }
+
+  .contact-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .contact-row {
+    grid-template-columns: 1fr;
+  }
+
+  .add-btn,
+  .remove-contact-btn {
+    width: 100%;
+    border-radius: 12px;
+  }
+
+  .btn-container {
+    gap: 12px;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}

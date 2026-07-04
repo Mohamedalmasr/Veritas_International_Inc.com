@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Services – Groups</title>
+
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="group.css"/>
+</head>
+<body class="services">
+
+  <!-- Navbar -->
+  <header class="app-header" role="navigation" aria-label="Primary">
+    <div class="app-brand">
+      <span class="logo" aria-hidden="true"></span>
+      <span class="brand-name">Veritas International Inc</span>
+
+      <div class="status-area" id="statusArea" hidden>
+        <span id="statusChip" class="status-chip" aria-live="polite"></span>
+        <button id="helpBtn" class="help-circle" type="button" title="Help" aria-label="Help">?</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Layout -->
+  <main class="svc-wrap svc-transfer">
+
+    <!-- Unassigned (العمود اليمين في الديزاين الحالي) -->
+    <section class="svc-col left" aria-labelledby="unassigned-title">
+      <div class="head-row">
+        <h2 id="unassigned-title" class="col-title">Unassigned users</h2>
+        <a href="services.html" class="back-btn" aria-label="Back to Services">← Back</a>
+      </div>
+
+      <div class="box-head">
+        <div class="hint muted">Select one or more, then use arrows</div>
+      </div>
+
+      <select id="unassignedList" class="listbox" multiple size="16" aria-label="Unassigned people"></select>
+    </section>
+
+    <!-- Controls -->
+    <section class="controls" aria-label="Transfer controls">
+      <button id="toGroupBtn" class="big-arrow" title="Move to group" aria-label="Move to group">←</button>
+      <button id="toPoolBtn"  class="big-arrow" title="Remove from group" aria-label="Remove from group">→</button>
+    </section>
+
+    <!-- Groups (العمود الشمال في الديزاين الحالي) -->
+    <section class="svc-col right" aria-labelledby="groups-title">
+      <div class="title-row">
+        <h2 id="groups-title" class="col-title">Teams - Assigned users</h2>
+        <button id="addGroupBtn" class="add-group-btn" type="button" title="Add group" aria-label="Add group">+</button>
+      </div>
+
+      <button id="groupsToggle" class="dropdown-toggle" aria-expanded="false" aria-controls="groupsPanel">
+        <span id="currentGroupLabel">Select team…</span>
+        <span class="chev" aria-hidden="true"></span>
+      </button>
+
+      <div id="groupsPanel" class="list collapsed" role="listbox" aria-label="Groups list"></div>
+
+      <div class="section-gap"></div>
+      <div class="roster-head">
+        <div class="legend" aria-hidden="true">
+          <span class="leader-badge" aria-pressed="true"><span class="dot"></span></span>
+          <span class="legend-text">= Leader (click to toggle)</span>
+        </div>
+      </div>
+
+      <div id="groupRoster" class="roster" aria-label="Group roster"></div>
+
+      <!-- ===== Meta ===== -->
+      <div class="meta-form" aria-label="Group information">
+        <div class="meta-inline" aria-live="polite">
+          <span id="metaCode" class="meta-item"></span>
+          <span id="metaName" class="meta-item"></span>
+        </div>
+
+        <div class="field">
+          <div class="meta-title">Description</div>
+          <textarea id="groupDesc" rows="4" disabled></textarea>
+        </div>
+
+        <div class="field status-row">
+          <span class="meta-title">Group Status</span>
+          <select id="groupStatus" class="status-select" aria-label="Group Status">
+            <option value="active" selected>Active</option>
+            <option value="inactive">Inactive</option>
+          </select>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Modal: Add Group ===== -->
+  <div id="addGroupModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="addGroupTitle">
+    <div class="modal-backdrop" data-close="true"></div>
+    <div class="modal-card">
+      <div class="modal-head">
+        <h3 id="addGroupTitle">Create Group</h3>
+      </div>
+
+      <div class="modal-body">
+        <div class="form-grid">
+          <div class="fg-field">
+            <label for="newGroupCode" class="fg-label">Group Code</label>
+            <input id="newGroupCode" type="text" maxlength="8" class="fg-input" placeholder="e.g., FIN"/>
+          </div>
+
+          <div class="fg-field">
+            <label for="newGroupName" class="fg-label">Group Name</label>
+            <input id="newGroupName" type="text" maxlength="64" class="fg-input" placeholder="e.g., Finance"/>
+          </div>
+
+          <div class="fg-field fg-full">
+            <label for="newGroupDesc" class="fg-label">Group Desc</label>
+            <textarea id="newGroupDesc" rows="3" class="fg-textarea" placeholder="Optional description"></textarea>
+          </div>
+
+          <div class="fg-field fg-full">
+            <label for="newGroupStatus" class="fg-label">Group Status</label>
+            <select id="newGroupStatus" class="fg-select">
+              <option value="new">New</option>
+              <option value="active" selected>Active</option>
+              <option value="inactive">Inactive</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <button id="confirmAddGroup" class="icon-btn ok" type="button" title="Save (Add group)" aria-label="Save">✔</button>
+        <button id="cancelAddGroup"  class="icon-btn cancel" type="button" title="Cancel" aria-label="Cancel">✖</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="group.js"></script>
+</body>
+</html>

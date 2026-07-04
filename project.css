@@ -1,0 +1,169 @@
+:root{
+  /* Theme tokens (same palette used across your app) */
+  --navy:#0b2e6f;
+  --heading:#000000;            /* keep for reference if needed elsewhere */
+  --text:#0f172a;
+  --muted:#64748b;
+
+  --bg:#f6f9ff;
+  --card:#ffffff;
+  --border:#e5e7eb;
+  --radius:12px;
+  --ctl-h:42px;
+
+  --shadow:0 10px 30px rgba(15,23,42,.08), 0 2px 8px rgba(0,0,0,.04);
+}
+
+/* Base */
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial;
+}
+
+/* Page shell */
+.page-wrap{
+  max-width:1100px;
+  margin:22px auto 42px;
+  padding:0 16px;
+  padding-bottom: clamp(80px, 14vh, 200px);
+  padding-bottom: calc(clamp(80px, 14vh, 200px) + env(safe-area-inset-bottom, 0px));
+  display:grid;
+  gap:14px; /* consistent vertical rhythm between cards */
+}
+
+/* Card */
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:16px;
+}
+.card-head{ margin-bottom:6px; }
+
+/* Titles (MAIN HEADINGS → black) */
+.title{
+  margin:0;
+  color:#000;                  /* changed to black */
+  font-weight:900;
+  font-size:1.25rem;
+}
+.title.sm{
+  color:#000;                  /* ensure small section titles are also black */
+  font-size:1.05rem;
+}
+
+/* Form grid helpers */
+.proj-form{ display:grid; gap:14px; }
+
+/* Two columns: 70% / 30% (for Name + Code / Task + Due) */
+.grid.two-70-30{
+  display:grid;
+  grid-template-columns: 1.7fr .9fr;
+  gap:12px;
+}
+
+/* Three equal compact columns (Start / Due / Budget) */
+.grid.three{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:12px;
+}
+
+/* One small column (for a single short field like Task Start) */
+.grid.one-300{
+  display:grid;
+  grid-template-columns: 300px;
+}
+
+/* Field + label */
+.fld{ display:flex; flex-direction:column; gap:8px; }
+.fld.wide{ grid-column:1 / -1; } /* span full width */
+.lbl{
+  font-weight:900;
+  color:var(--navy);           /* keep labels in navy */
+  font-size:.92rem;
+}
+
+/* Inputs & textareas (same look used everywhere) */
+input[type="text"],
+input[type="date"],
+textarea{
+  height:var(--ctl-h);
+  padding:0 12px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  outline:0;
+  background:#fff;
+  color:#0f172a;
+  font-weight:700;
+  min-width:0;
+}
+textarea{
+  height:auto;
+  padding:10px 12px;
+  min-height:120px;
+  resize:vertical;
+}
+
+/* Subtle focus (no bright outer glow) */
+input:focus, textarea:focus{
+  border-color:#d5d9e2;
+  box-shadow:none;
+}
+
+/* Money input hint */
+.money::placeholder{ color:#9aa3b2; }
+
+/* Buttons (documents section) */
+.btn{
+  height:40px;
+  padding:0 16px;
+  border-radius:999px;
+  border:1px solid var(--navy);
+  background:#fff;
+  color:var(--navy);
+  font-weight:900;
+  cursor:pointer;
+  box-shadow:0 2px 8px rgba(0,0,0,.04);
+}
+.btn:hover{ filter:brightness(.98); }
+
+/* Documents actions row */
+.docs-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  padding-top:4px;
+}
+
+/* Toast (used by JS helpers) */
+.toast-area{
+  position:fixed;
+  right:16px; bottom:16px;
+  z-index:2147483647;
+  display:flex; flex-direction:column; gap:10px;
+  pointer-events:none;
+}
+.toast{
+  pointer-events:auto;
+  min-width:260px;
+  background:#ecfdf5;
+  color:#065f46;
+  border:1px solid #bbf7d0;
+  padding:10px 12px;
+  border-radius:10px;
+  box-shadow:var(--shadow);
+  font-weight:800;
+}
+
+/* Responsive */
+@media (max-width:900px){
+  .grid.two-70-30{ grid-template-columns: 1fr; }
+  .grid.three{ grid-template-columns: 1fr; }
+  .grid.one-300{ grid-template-columns: 1fr; }
+}

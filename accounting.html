@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Accounting</title>
+
+  <link rel="stylesheet" href="style1.css"/>
+  <link rel="stylesheet" href="accounting.css"/>
+</head>
+<body>
+  <main class="acc-wrap">
+    <section class="acc-card" aria-labelledby="acc-title">
+      <h1 id="acc-title" class="content-title" style="margin:0 0 12px">Accounting</h1>
+
+      <div id="accBody" class="acc-body work-mode">
+        <div class="work-area">
+          <!-- Single-pane layout only -->
+          <div class="pane-right">
+            <header class="content-head">
+              <h2 class="content-title" id="paneTitle" style="margin:0">Dashboard</h2>
+              <button id="homeBtn" class="home-btn" type="button" hidden title="Back to Dashboard" aria-label="Back to Dashboard">← Dashboard</button>
+            </header>
+
+            <div id="contentArea" class="content-box" role="region" aria-live="polite"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="accounting.js"></script>
+</body>
+</html>

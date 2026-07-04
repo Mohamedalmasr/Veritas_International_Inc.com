@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prepared & Review</title>
+
+  <link rel="stylesheet" href="admin-oneklient.css" />
+  <link rel="stylesheet" href="Sales_Record_Sheet_Template.css" />
+</head>
+<body>
+  <main class="srs-page-shell">
+    <section class="srs-top-summary" aria-label="File quick summary">
+      <div class="srs-top-summary-left">
+        <div class="srs-person-line">Jane Goodard</div>
+        <div class="srs-person-line">Terry Hunter</div>
+      </div>
+
+      <div class="srs-top-summary-right">
+        <div class="srs-company-name">Midgard Solutions Inc</div>
+        <div class="srs-office-row">
+          <span class="srs-office-name">Fredericton Office</span>
+          <span class="srs-office-code">001</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="srs-container">
+      <header class="srs-header">
+        <h1>Prepared &amp; Review</h1>
+        <p class="srs-subtitle">
+          Conditions, trust dates and review details.
+        </p>
+      </header>
+
+      <main>
+        <section class="srs-section srs-section-inline">
+          <div class="srs-grid srs-grid-2col">
+            <div class="srs-field-row srs-full">
+              <label for="conditions" class="srs-label">Conditions (e.g. Financing, Inspection)</label>
+              <textarea id="conditions" name="conditions" class="srs-input srs-textarea"></textarea>
+            </div>
+
+            <div class="srs-field-row">
+              <label for="conditionsMetDate" class="srs-label">Conditions Met Date</label>
+              <input type="date" id="conditionsMetDate" name="conditionsMetDate" class="srs-input" />
+            </div>
+
+            <div class="srs-field-row">
+              <label for="trustDisbursementDate" class="srs-label">Trust Disbursement Date</label>
+              <input type="date" id="trustDisbursementDate" name="trustDisbursementDate" class="srs-input" />
+            </div>
+
+            <div class="srs-field-row srs-full">
+              <label for="disbursedTo" class="srs-label">Disbursed To</label>
+              <input type="text" id="disbursedTo" name="disbursedTo" class="srs-input" />
+            </div>
+
+            <div class="srs-field-row">
+              <label for="fileClosedDate" class="srs-label">File Closed Date</label>
+              <input type="date" id="fileClosedDate" name="fileClosedDate" class="srs-input" />
+            </div>
+          </div>
+        </section>
+
+        <section class="srs-section">
+          <h2>Prepared &amp; Review</h2>
+          <div class="srs-grid srs-grid-2col srs-grid-tight">
+            <div class="srs-field-row">
+              <label for="preparedBy" class="srs-label">Prepared By</label>
+              <input type="text" id="preparedBy" name="preparedBy" class="srs-input" />
+            </div>
+
+            <div class="srs-field-row">
+              <label for="preparedDate" class="srs-label">Prepared Date</label>
+              <input type="date" id="preparedDate" name="preparedDate" class="srs-input" />
+            </div>
+
+            <div class="srs-field-row">
+              <label for="managerReviewBy" class="srs-label">Manager Review By</label>
+              <input type="text" id="managerReviewBy" name="managerReviewBy" class="srs-input" />
+            </div>
+
+            <div class="srs-field-row">
+              <label for="reviewDate" class="srs-label">Review Date</label>
+              <input type="date" id="reviewDate" name="reviewDate" class="srs-input" />
+            </div>
+          </div>
+
+          <div class="srs-field-row srs-full srs-mt-small">
+            <label for="managerNotes" class="srs-label">Manager Review Notes</label>
+            <textarea id="managerNotes" name="managerNotes" class="srs-input srs-textarea"></textarea>
+          </div>
+        </section>
+      </main>
+    </div>
+  </main>
+
+  <script src="Sales_Record_Sheet_Template1.js"></script>
+</body>
+</html>

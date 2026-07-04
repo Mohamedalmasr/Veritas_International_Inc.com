@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transtario Global Tours | India, Sri Lanka, Panama & Costa Rica</title>
+  <meta name="description" content="Discover handcrafted tours to India, Sri Lanka, Panama and Costa Rica with Transtario Global Tours." />
+  <style>
+    :root {
+      --ink: #17211f;
+      --muted: #68746f;
+      --sand: #fff8ed;
+      --cream: #fffdf8;
+      --teal: #0f766e;
+      --deep-teal: #0b4f4a;
+      --gold: #f0a33a;
+      --coral: #eb6a4a;
+      --green: #247a4d;
+      --card: rgba(255, 255, 255, 0.86);
+      --shadow: 0 20px 50px rgba(16, 37, 32, 0.14);
+      --radius: 28px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .topbar {
+      background: #073d39;
+      color: white;
+      text-align: center;
+      padding: 0.65rem 1rem;
+      font-size: 0.92rem;
+      letter-spacing: 0.01em;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(18px);
+      background: rgba(255, 253, 248, 0.86);
+      border-bottom: 1px solid rgba(15, 118, 110, 0.12);
+    }
+
+    .nav {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 1rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      font-size: 1.2rem;
+      color: var(--deep-teal);
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      color: white;
+      background: conic-gradient(from 180deg, var(--teal), var(--gold), var(--coral), var(--teal));
+      box-shadow: 0 8px 22px rgba(15, 118, 110, 0.24);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.94rem;
+    }
+
+    nav a:hover {
+      color: var(--teal);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      border: none;
+      border-radius: 999px;
+      padding: 0.9rem 1.25rem;
+      background: var(--teal);
+      color: white;
+      font-weight: 800;
+      box-shadow: 0 14px 30px rgba(15, 118, 110, 0.24);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      background: var(--deep-teal);
+      box-shadow: 0 18px 36px rgba(11, 79, 74, 0.28);
+    }
+
+    .btn.secondary {
+      background: white;
+      color: var(--deep-teal);
+      border: 1px solid rgba(11, 79, 74, 0.16);
+      box-shadow: none;
+    }
+
+    .hero {
+      position: relative;
+      isolation: isolate;
+      min-height: 760px;
+      display: grid;
+      align-items: center;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 18% 20%, rgba(240, 163, 58, 0.26), transparent 30%),
+        radial-gradient(circle at 86% 18%, rgba(235, 106, 74, 0.2), transparent 28%),
+        linear-gradient(135deg, #fff8ed 0%, #f3fffb 52%, #fff7e8 100%);
+    }
+
+    .hero:before,
+    .hero:after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      z-index: -1;
+    }
+
+    .hero:before {
+      width: 520px;
+      height: 520px;
+      right: -140px;
+      bottom: -160px;
+      background: linear-gradient(135deg, rgba(15, 118, 110, 0.17), rgba(240, 163, 58, 0.22));
+    }
+
+    .hero:after {
+      width: 380px;
+      height: 380px;
+      left: -120px;
+      top: 260px;
+      background: linear-gradient(135deg, rgba(235, 106, 74, 0.15), rgba(15, 118, 110, 0.15));
+    }
+
+    .hero-wrap {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.03fr 0.97fr;
+      align-items: center;
+      gap: 3rem;
+      padding: 5rem 0 4rem;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(15, 118, 110, 0.1);
+      color: var(--deep-teal);
+      border: 1px solid rgba(15, 118, 110, 0.16);
+      border-radius: 999px;
+      padding: 0.4rem 0.78rem;
+      font-weight: 800;
+      margin-bottom: 1.2rem;
+      font-size: 0.92rem;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 7vw, 5.75rem);
+      line-height: 0.92;
+      letter-spacing: -0.08em;
+      max-width: 760px;
+      margin-bottom: 1.35rem;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.15rem;
+      max-width: 650px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.85rem;
+      max-width: 620px;
+    }
+
+    .stat {
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(15, 118, 110, 0.12);
+      border-radius: 22px;
+      padding: 1rem;
+      box-shadow: 0 10px 28px rgba(16, 37, 32, 0.06);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.45rem;
+      color: var(--teal);
+      line-height: 1.1;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .postcard-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      transform: rotate(1deg);
+    }
+
+    .postcard {
+      position: relative;
+      min-height: 240px;
+      border-radius: 32px;
+      overflow: hidden;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow);
+      color: white;
+      isolation: isolate;
+      transition: transform 0.25s ease;
+    }
+
+    .postcard:hover {
+      transform: translateY(-6px) rotate(-1deg);
+    }
+
+    .postcard:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.05), rgba(0,0,0,0.42));
+      z-index: -1;
+    }
+
+    .postcard.india { background: linear-gradient(135deg, #e76f32, #f7b733 52%, #1d8a74); }
+    .postcard.srilanka { background: linear-gradient(135deg, #1b8f68, #e9b44c 55%, #28536b); }
+    .postcard.panama { background: linear-gradient(135deg, #1264a3, #30a6a1 55%, #f76f4f); }
+    .postcard.costarica { background: linear-gradient(135deg, #1f8d55, #5bbf7a 55%, #2357a4); }
+
+    .postcard .icon {
+      font-size: 2.2rem;
+    }
+
+    .postcard h3 {
+      font-size: 1.8rem;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+
+    .postcard small {
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.86;
+    }
+
+    section {
+      padding: 5.2rem 0;
+    }
+
+    .section-wrap {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 2rem;
+      margin-bottom: 2.2rem;
+    }
+
+    .section-kicker {
+      color: var(--teal);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.78rem;
+      margin-bottom: 0.4rem;
+    }
+
+    h2 {
+      font-size: clamp(2.1rem, 4vw, 3.6rem);
+      line-height: 0.98;
+      letter-spacing: -0.06em;
+      max-width: 760px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      max-width: 430px;
+    }
+
+    .destination-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.1rem;
+    }
+
+    .destination-card {
+      background: white;
+      border: 1px solid rgba(15, 118, 110, 0.11);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 16px 34px rgba(16, 37, 32, 0.08);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .destination-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 22px 44px rgba(16, 37, 32, 0.14);
+    }
+
+    .card-art {
+      height: 150px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-art:before,
+    .card-art:after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.22);
+    }
+
+    .card-art:before {
+      width: 150px;
+      height: 150px;
+      right: -45px;
+      top: -40px;
+    }
+
+    .card-art:after {
+      width: 90px;
+      height: 90px;
+      left: 24px;
+      bottom: -32px;
+    }
+
+    .card-art span {
+      position: absolute;
+      left: 1rem;
+      bottom: 0.9rem;
+      font-size: 3rem;
+      filter: drop-shadow(0 8px 16px rgba(0,0,0,0.16));
+    }
+
+    .card-art.india { background: linear-gradient(135deg, #e76f32, #ffc857); }
+    .card-art.srilanka { background: linear-gradient(135deg, #116466, #e9b44c); }
+    .card-art.panama { background: linear-gradient(135deg, #1264a3, #2ec4b6); }
+    .card-art.costarica { background: linear-gradient(135deg, #1f8d55, #b7e4c7); }
+
+    .card-body {
+      padding: 1.2rem;
+    }
+
+    .card-body h3 {
+      font-size: 1.45rem;
+      letter-spacing: -0.04em;
+      margin-bottom: 0.35rem;
+    }
+
+    .card-body p {
+      color: var(--muted);
+      font-size: 0.96rem;
+      margin-bottom: 1rem;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .chip {
+      padding: 0.36rem 0.62rem;
+      border-radius: 999px;
+      background: #f3f8f5;
+      color: var(--deep-teal);
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .feature-band {
+      background: #073d39;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-band:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(240, 163, 58, 0.26), transparent 28%),
+        radial-gradient(circle at 80% 80%, rgba(235, 106, 74, 0.24), transparent 28%);
+      pointer-events: none;
+    }
+
+    .feature-band .section-wrap {
+      position: relative;
+    }
+
+    .feature-band h2,
+    .feature-band .section-kicker {
+      color: white;
+    }
+
+    .feature-band .section-head p {
+      color: rgba(255,255,255,0.76);
+    }
+
+    .experience-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .experience {
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 26px;
+      padding: 1.45rem;
+      min-height: 230px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .experience .number {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.14);
+      font-weight: 900;
+      margin-bottom: 1rem;
+    }
+
+    .experience h3 {
+      font-size: 1.35rem;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.6rem;
+    }
+
+    .experience p {
+      color: rgba(255,255,255,0.76);
+    }
+
+    .itinerary-layout {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 1.4rem;
+      align-items: start;
+    }
+
+    .tabs {
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .tab {
+      width: 100%;
+      text-align: left;
+      background: white;
+      border: 1px solid rgba(15, 118, 110, 0.12);
+      padding: 1rem;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: border 0.2s ease, transform 0.2s ease, background 0.2s ease;
+    }
+
+    .tab:hover,
+    .tab.active {
+      border-color: rgba(15, 118, 110, 0.5);
+      background: #f2fbf8;
+      transform: translateX(4px);
+    }
+
+    .tab strong {
+      display: block;
+      color: var(--deep-teal);
+      font-size: 1rem;
+    }
+
+    .tab span {
+      color: var(--muted);
+      font-weight: 650;
+      font-size: 0.9rem;
+    }
+
+    .itinerary-panel {
+      background: white;
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      border: 1px solid rgba(15, 118, 110, 0.12);
+      box-shadow: var(--shadow);
+    }
+
+    .panel-top {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding-bottom: 1.2rem;
+      margin-bottom: 1.2rem;
+      border-bottom: 1px solid rgba(15, 118, 110, 0.12);
+    }
+
+    .panel-icon {
+      width: 68px;
+      height: 68px;
+      display: grid;
+      place-items: center;
+      border-radius: 22px;
+      background: #f3f8f5;
+      font-size: 2rem;
+    }
+
+    .panel-top h3 {
+      font-size: 1.7rem;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+    }
+
+    .panel-top p {
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .timeline {
+      list-style: none;
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .timeline li {
+      display: grid;
+      grid-template-columns: 88px 1fr;
+      gap: 1rem;
+      align-items: start;
+      padding: 1rem;
+      border-radius: 18px;
+      background: #fffaf1;
+    }
+
+    .timeline .day {
+      color: var(--teal);
+      font-weight: 900;
+    }
+
+    .timeline strong {
+      display: block;
+      margin-bottom: 0.15rem;
+    }
+
+    .timeline span {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .packages {
+      background: var(--sand);
+    }
+
+    .package-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .package-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 1.45rem;
+      border: 1px solid rgba(15, 118, 110, 0.12);
+      box-shadow: 0 16px 32px rgba(16, 37, 32, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .package-card.featured {
+      transform: translateY(-10px);
+      border-color: rgba(240, 163, 58, 0.62);
+    }
+
+    .badge {
+      display: inline-flex;
+      border-radius: 999px;
+      padding: 0.35rem 0.65rem;
+      background: rgba(240, 163, 58, 0.14);
+      color: #9b5b00;
+      font-weight: 900;
+      font-size: 0.78rem;
+      margin-bottom: 1rem;
+    }
+
+    .package-card h3 {
+      font-size: 1.6rem;
+      letter-spacing: -0.04em;
+      margin-bottom: 0.4rem;
+    }
+
+    .price {
+      font-size: 2.4rem;
+      line-height: 1;
+      font-weight: 950;
+      color: var(--deep-teal);
+      letter-spacing: -0.06em;
+      margin: 1rem 0;
+    }
+
+    .price span {
+      font-size: 0.95rem;
+      color: var(--muted);
+      letter-spacing: 0;
+      font-weight: 800;
+    }
+
+    .package-card ul {
+      list-style: none;
+      display: grid;
+      gap: 0.65rem;
+      margin: 1.2rem 0 1.4rem;
+      color: var(--muted);
+      font-weight: 650;
+    }
+
+    .package-card li:before {
+      content: "✓";
+      color: var(--teal);
+      font-weight: 900;
+      margin-right: 0.5rem;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .why {
+      padding: 1.35rem;
+      background: white;
+      border-radius: 24px;
+      border: 1px solid rgba(15, 118, 110, 0.1);
+      box-shadow: 0 12px 28px rgba(16, 37, 32, 0.06);
+    }
+
+    .why .why-icon {
+      font-size: 2rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .why h3 {
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.03em;
+    }
+
+    .why p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .quote {
+      background: linear-gradient(135deg, #f2fbf8, #fff6e8);
+    }
+
+    .quote-card {
+      background: white;
+      border-radius: 36px;
+      padding: clamp(1.5rem, 5vw, 3.2rem);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(15, 118, 110, 0.12);
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .quote-card blockquote {
+      font-size: clamp(1.8rem, 4vw, 3.15rem);
+      line-height: 1.02;
+      letter-spacing: -0.06em;
+      font-weight: 950;
+    }
+
+    .quote-details {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .mini-card {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      background: #fffaf1;
+      border-radius: 20px;
+      padding: 1rem;
+    }
+
+    .mini-card .mini-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 15px;
+      display: grid;
+      place-items: center;
+      background: white;
+      flex: 0 0 44px;
+    }
+
+    .mini-card strong {
+      display: block;
+      margin-bottom: 0.15rem;
+    }
+
+    .mini-card span {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .contact {
+      background: #073d39;
+      color: white;
+      padding-bottom: 0;
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .contact h2,
+    .contact .section-kicker {
+      color: white;
+    }
+
+    .contact p {
+      color: rgba(255,255,255,0.74);
+      margin-top: 1rem;
+    }
+
+    .contact-info {
+      display: grid;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .contact-line {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+      color: rgba(255,255,255,0.9);
+      font-weight: 700;
+    }
+
+    form {
+      background: white;
+      color: var(--ink);
+      border-radius: 32px 32px 0 0;
+      padding: 1.5rem;
+      display: grid;
+      gap: 0.9rem;
+      box-shadow: 0 -12px 34px rgba(0,0,0,0.12);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.9rem;
+    }
+
+    label {
+      display: grid;
+      gap: 0.4rem;
+      color: var(--deep-teal);
+      font-weight: 850;
+      font-size: 0.9rem;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid rgba(15, 118, 110, 0.18);
+      border-radius: 16px;
+      padding: 0.9rem 0.95rem;
+      font: inherit;
+      background: #fbfffd;
+      color: var(--ink);
+      outline: none;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.1);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    footer {
+      background: #052d2a;
+      color: rgba(255,255,255,0.78);
+      padding: 2rem 0;
+    }
+
+    .footer-wrap {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      font-size: 0.92rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: white;
+      font-weight: 750;
+      opacity: 0.86;
+    }
+
+    .mobile-menu {
+      display: none;
+      background: white;
+      border: 1px solid rgba(15, 118, 110, 0.16);
+      color: var(--deep-teal);
+      border-radius: 999px;
+      padding: 0.68rem 0.9rem;
+      font-weight: 900;
+    }
+
+    @media (max-width: 980px) {
+      nav ul,
+      .nav .btn {
+        display: none;
+      }
+
+      .mobile-menu {
+        display: inline-flex;
+      }
+
+      .hero-wrap,
+      .itinerary-layout,
+      .quote-card,
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .postcard-grid,
+      .destination-grid,
+      .experience-grid,
+      .package-grid,
+      .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .package-card.featured {
+        transform: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .topbar {
+        font-size: 0.8rem;
+      }
+
+      .hero-wrap {
+        padding-top: 3.5rem;
+      }
+
+      .stats,
+      .postcard-grid,
+      .destination-grid,
+      .experience-grid,
+      .package-grid,
+      .why-grid,
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-head p {
+        margin-top: 1rem;
+      }
+
+      .timeline li {
+        grid-template-columns: 1fr;
+        gap: 0.3rem;
+      }
+
+      section {
+        padding: 4rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">New seasonal group departures now open: India • Sri Lanka • Panama • Costa Rica</div>
+
+  <header>
+    <div class="nav">
+      <a class="brand" href="#top" aria-label="Transtario Global Tours home">
+        <span class="brand-mark">✈</span>
+        <span>Transtario Global Tours</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="#destinations">Destinations</a></li>
+          <li><a href="#itineraries">Itineraries</a></li>
+          <li><a href="#packages">Packages</a></li>
+          <li><a href="#why-us">Why Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a class="btn" href="#contact">Plan My Trip</a>
+      <button class="mobile-menu" onclick="document.querySelector('#destinations').scrollIntoView()">Explore</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-wrap">
+        <div>
+          <div class="eyebrow">🌍 Curated journeys from coast to culture</div>
+          <h1>Four dream trips. One effortless booking.</h1>
+          <p>Discover India, Sri Lanka, Panama and Costa Rica through flexible guided tours built for families, couples, solo travelers and small groups.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#destinations">View Trips</a>
+            <a class="btn secondary" href="#itineraries">See Sample Itineraries</a>
+          </div>
+          <div class="stats" aria-label="Tour highlights">
+            <div class="stat"><strong>4</strong><span>Featured destinations</span></div>
+            <div class="stat"><strong>7-14</strong><span>Day trip options</span></div>
+            <div class="stat"><strong>24/7</strong><span>Travel support</span></div>
+          </div>
+        </div>
+        <div class="postcard-grid" aria-label="Destination preview cards">
+          <article class="postcard india">
+            <small>India</small>
+            <span class="icon">🕌</span>
+            <h3>Palaces, temples & spice trails</h3>
+          </article>
+          <article class="postcard srilanka">
+            <small>Sri Lanka</small>
+            <span class="icon">🐘</span>
+            <h3>Tea hills, beaches & wildlife</h3>
+          </article>
+          <article class="postcard panama">
+            <small>Panama</small>
+            <span class="icon">🚢</span>
+            <h3>Canal city, islands & rainforest</h3>
+          </article>
+          <article class="postcard costarica">
+            <small>Costa Rica</small>
+            <span class="icon">🦜</span>
+            <h3>Volcanoes, jungle & pura vida</h3>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="destinations">
+      <div class="section-wrap">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Featured destinations</div>
+            <h2>Choose your next chapter.</h2>
+          </div>
+          <p>Each trip balances signature landmarks, local food, natural beauty and relaxed time so travelers can enjoy the journey without feeling rushed.</p>
+        </div>
+
+        <div class="destination-grid">
+          <article class="destination-card">
+            <div class="card-art india"><span>🪷</span></div>
+            <div class="card-body">
+              <h3>India</h3>
+              <p>A colorful journey through heritage cities, sacred rivers, lively markets, grand architecture and regional cuisine.</p>
+              <div class="chips">
+                <span class="chip">Culture</span><span class="chip">Heritage</span><span class="chip">Cuisine</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="destination-card">
+            <div class="card-art srilanka"><span>🌴</span></div>
+            <div class="card-body">
+              <h3>Sri Lanka</h3>
+              <p>Compact and unforgettable, with ancient sites, tea country, wildlife drives and golden Indian Ocean beaches.</p>
+              <div class="chips">
+                <span class="chip">Tea Country</span><span class="chip">Safari</span><span class="chip">Beaches</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="destination-card">
+            <div class="card-art panama"><span>🌊</span></div>
+            <div class="card-body">
+              <h3>Panama</h3>
+              <p>Where Central America meets the world: canal history, island escapes, coffee highlands and rainforest adventures.</p>
+              <div class="chips">
+                <span class="chip">Canal</span><span class="chip">Islands</span><span class="chip">Rainforest</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="destination-card">
+            <div class="card-art costarica"><span>🌋</span></div>
+            <div class="card-body">
+              <h3>Costa Rica</h3>
+              <p>An eco-adventure favorite for volcanoes, cloud forests, beaches, wildlife and wellness-focused travel.</p>
+              <div class="chips">
+                <span class="chip">Eco Travel</span><span class="chip">Adventure</span><span class="chip">Wellness</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature-band">
+      <div class="section-wrap">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">What we arrange</div>
+            <h2>Designed for easy travel from start to finish.</h2>
+          </div>
+          <p>Our team can coordinate airport transfers, hotels, local guides, sightseeing, internal travel and optional add-ons.</p>
+        </div>
+
+        <div class="experience-grid">
+          <article class="experience">
+            <div>
+              <div class="number">01</div>
+              <h3>Personalized planning</h3>
+              <p>Tell us your dates, pace, budget and travel style. We build a trip that matches your comfort level.</p>
+            </div>
+          </article>
+          <article class="experience">
+            <div>
+              <div class="number">02</div>
+              <h3>Local experiences</h3>
+              <p>Mix landmark sightseeing with authentic meals, markets, nature walks and optional cultural workshops.</p>
+            </div>
+          </article>
+          <article class="experience">
+            <div>
+              <div class="number">03</div>
+              <h3>Reliable support</h3>
+              <p>Receive clear documents, destination notes and emergency support so every traveler knows what comes next.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="itineraries">
+      <div class="section-wrap">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Sample itineraries</div>
+            <h2>Preview the journey.</h2>
+          </div>
+          <p>Use these as starting points. Each itinerary can be shortened, extended or combined with other countries.</p>
+        </div>
+
+        <div class="itinerary-layout">
+          <div class="tabs" role="tablist" aria-label="Destination itineraries">
+            <button class="tab active" data-destination="india" role="tab" aria-selected="true"><strong>India Discovery</strong><span>Delhi, Agra, Jaipur, Kerala</span></button>
+            <button class="tab" data-destination="srilanka" role="tab" aria-selected="false"><strong>Sri Lanka Escape</strong><span>Sigiriya, Kandy, Ella, Galle</span></button>
+            <button class="tab" data-destination="panama" role="tab" aria-selected="false"><strong>Panama Explorer</strong><span>Panama City, Canal, Boquete, Bocas</span></button>
+            <button class="tab" data-destination="costarica" role="tab" aria-selected="false"><strong>Costa Rica Nature</strong><span>Arenal, Monteverde, Manuel Antonio</span></button>
+          </div>
+
+          <article class="itinerary-panel" aria-live="polite">
+            <div class="panel-top">
+              <div class="panel-icon" id="panelIcon">🕌</div>
+              <div>
+                <h3 id="panelTitle">India Discovery</h3>
+                <p id="panelSubtitle">12 days • Culture, cuisine and nature</p>
+              </div>
+            </div>
+            <ul class="timeline" id="timeline"></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="packages" class="packages">
+      <div class="section-wrap">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Trip packages</div>
+            <h2>Flexible options for every traveler.</h2>
+          </div>
+          <p>Prices are placeholders for website presentation and can be updated with your exact seasonal rates.</p>
+        </div>
+
+        <div class="package-grid">
+          <article class="package-card">
+            <span class="badge">Starter</span>
+            <h3>Essential Tour</h3>
+            <p>Great for travelers who want guided highlights with independent free time.</p>
+            <div class="price">$1,499 <span>/ person</span></div>
+            <ul>
+              <li>7 nights accommodation</li>
+              <li>Airport transfers</li>
+              <li>Three guided excursions</li>
+              <li>Daily breakfast</li>
+            </ul>
+            <a class="btn secondary" href="#contact">Request Details</a>
+          </article>
+
+          <article class="package-card featured">
+            <span class="badge">Most popular</span>
+            <h3>Signature Journey</h3>
+            <p>A balanced package with guided touring, local meals and premium transport.</p>
+            <div class="price">$2,399 <span>/ person</span></div>
+            <ul>
+              <li>10 nights accommodation</li>
+              <li>Private or group transfers</li>
+              <li>Six guided excursions</li>
+              <li>Selected local dinners</li>
+            </ul>
+            <a class="btn" href="#contact">Start Planning</a>
+          </article>
+
+          <article class="package-card">
+            <span class="badge">Custom</span>
+            <h3>Luxury Private Trip</h3>
+            <p>For families, small groups and special occasions with elevated service.</p>
+            <div class="price">Custom <span>/ quote</span></div>
+            <ul>
+              <li>Premium hotels or villas</li>
+              <li>Private guides</li>
+              <li>Custom pacing</li>
+              <li>VIP experiences</li>
+            </ul>
+            <a class="btn secondary" href="#contact">Build My Quote</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="why-us">
+      <div class="section-wrap">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Why Transtario</div>
+            <h2>Travel with confidence.</h2>
+          </div>
+          <p>A tourism site should make visitors feel inspired and safe. These blocks can be adjusted to match your real services.</p>
+        </div>
+
+        <div class="why-grid">
+          <article class="why"><div class="why-icon">🧭</div><h3>Clear routes</h3><p>Simple day-by-day plans that avoid confusion and reduce decision fatigue.</p></article>
+          <article class="why"><div class="why-icon">🤝</div><h3>Trusted partners</h3><p>Hotels, drivers and guides selected for comfort, reliability and guest care.</p></article>
+          <article class="why"><div class="why-icon">🌱</div><h3>Responsible travel</h3><p>Balanced itineraries that respect nature, communities and local culture.</p></article>
+          <article class="why"><div class="why-icon">📞</div><h3>Support-first</h3><p>Fast help before departure, during the trip and after you return home.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote">
+      <div class="section-wrap">
+        <div class="quote-card">
+          <blockquote>“Make the world feel closer, warmer and easier to explore.”</blockquote>
+          <div class="quote-details">
+            <div class="mini-card"><div class="mini-icon">📌</div><div><strong>Best for groups</strong><span>Family vacations, community trips, school groups, corporate incentives and cultural tours.</span></div></div>
+            <div class="mini-card"><div class="mini-icon">🧳</div><div><strong>Optional add-ons</strong><span>Travel insurance support, visa guidance checklist, flight coordination and local SIM recommendations.</span></div></div>
+            <div class="mini-card"><div class="mini-icon">✨</div><div><strong>Website-ready content</strong><span>Sections, package cards and enquiry form are already included in this HTML page.</span></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="section-wrap contact-layout">
+        <div>
+          <div class="section-kicker">Plan your trip</div>
+          <h2>Tell us where you want to go.</h2>
+          <p>Send your preferred destination, travel dates, group size and budget range. A travel specialist can reply with a custom quote and suggested itinerary.</p>
+          <div class="contact-info">
+            <div class="contact-line">📧 tours@transtario.com</div>
+            <div class="contact-line">📞 +1 (000) 000-0000</div>
+            <div class="contact-line">📍 Serving travelers across Canada and beyond</div>
+          </div>
+        </div>
+
+        <form onsubmit="event.preventDefault(); document.querySelector('#formNote').textContent='Thank you! This demo form is ready to connect to your email or booking system.';">
+          <div class="form-row">
+            <label>Full Name<input type="text" name="name" placeholder="Your name" required></label>
+            <label>Email<input type="email" name="email" placeholder="you@example.com" required></label>
+          </div>
+          <div class="form-row">
+            <label>Destination
+              <select name="destination" required>
+                <option value="">Choose one</option>
+                <option>India</option>
+                <option>Sri Lanka</option>
+                <option>Panama</option>
+                <option>Costa Rica</option>
+                <option>Multi-country custom trip</option>
+              </select>
+            </label>
+            <label>Travel Month<input type="month" name="month"></label>
+          </div>
+          <div class="form-row">
+            <label>Travelers<input type="number" name="travelers" min="1" placeholder="2"></label>
+            <label>Package
+              <select name="package">
+                <option>Essential Tour</option>
+                <option>Signature Journey</option>
+                <option>Luxury Private Trip</option>
+              </select>
+            </label>
+          </div>
+          <label>Message<textarea name="message" placeholder="Tell us your trip style, dates, budget and must-see places."></textarea></label>
+          <button class="btn" type="submit">Send Trip Request</button>
+          <p id="formNote" style="color:#0b4f4a; margin:0; font-weight:800;"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-wrap">
+      <div>© 2026 Transtario Global Tours. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="https://www.incredibleindia.gov.in/en" target="_blank" rel="noreferrer">India Tourism</a>
+        <a href="https://srilanka.travel/" target="_blank" rel="noreferrer">Sri Lanka Tourism</a>
+        <a href="https://www.tourismpanama.com/" target="_blank" rel="noreferrer">Visit Panama</a>
+        <a href="https://www.visitcostarica.com/" target="_blank" rel="noreferrer">Visit Costa Rica</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const itineraries = {
+      india: {
+        icon: "🕌",
+        title: "India Discovery",
+        subtitle: "12 days • Culture, cuisine and nature",
+        days: [
+          ["Days 1-2", "Delhi arrival", "Old Delhi food walk, heritage landmarks and welcome dinner."],
+          ["Days 3-4", "Agra & Jaipur", "Taj Mahal sunrise, Amber Fort, artisan markets and royal architecture."],
+          ["Days 5-8", "Kerala slow travel", "Backwaters, spice gardens, coastal meals and relaxed resort time."],
+          ["Days 9-12", "Customize & return", "Add Varanasi, Goa, Mumbai or a wellness retreat before flying home."]
+        ]
+      },
+      srilanka: {
+        icon: "🐘",
+        title: "Sri Lanka Escape",
+        subtitle: "10 days • Ancient sites, tea hills and coast",
+        days: [
+          ["Days 1-2", "Colombo & Sigiriya", "Arrival, local food, village experience and the famous rock fortress area."],
+          ["Days 3-5", "Kandy & tea country", "Temple visits, scenic train-style route planning and tea estate landscapes."],
+          ["Days 6-7", "Wildlife & wellness", "Optional national park safari, cooking class or Ayurveda-inspired relaxation."],
+          ["Days 8-10", "Galle & beaches", "Fort walks, coastal cafes, beach time and farewell dinner."]
+        ]
+      },
+      panama: {
+        icon: "🚢",
+        title: "Panama Explorer",
+        subtitle: "9 days • Canal, rainforest and islands",
+        days: [
+          ["Days 1-2", "Panama City", "Casco Viejo, skyline views, canal history and welcome dinner."],
+          ["Days 3-4", "Rainforest & culture", "Nature trails, local communities and wildlife-focused excursions."],
+          ["Days 5-6", "Boquete highlands", "Coffee region, mountain air, waterfalls and optional soft adventure."],
+          ["Days 7-9", "Bocas del Toro", "Island hopping, beach time, snorkeling options and return flight."]
+        ]
+      },
+      costarica: {
+        icon: "🦜",
+        title: "Costa Rica Nature",
+        subtitle: "10 days • Volcanoes, cloud forest and beach",
+        days: [
+          ["Days 1-3", "Arenal Volcano", "Hot springs, waterfall visit and volcano-view relaxation."],
+          ["Days 4-5", "Monteverde", "Cloud forest walks, hanging bridges and wildlife spotting."],
+          ["Days 6-8", "Manuel Antonio", "Beach, national park trails and optional kayaking or catamaran cruise."],
+          ["Days 9-10", "San José & return", "Craft markets, final dinner and airport transfer."]
+        ]
+      }
+    };
+
+    const tabs = document.querySelectorAll('.tab');
+    const icon = document.querySelector('#panelIcon');
+    const title = document.querySelector('#panelTitle');
+    const subtitle = document.querySelector('#panelSubtitle');
+    const timeline = document.querySelector('#timeline');
+
+    function renderItinerary(key) {
+      const item = itineraries[key];
+      icon.textContent = item.icon;
+      title.textContent = item.title;
+      subtitle.textContent = item.subtitle;
+      timeline.innerHTML = item.days.map(day => `
+        <li>
+          <div class="day">${day[0]}</div>
+          <div><strong>${day[1]}</strong><span>${day[2]}</span></div>
+        </li>
+      `).join('');
+    }
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+        renderItinerary(tab.dataset.destination);
+      });
+    });
+
+    renderItinerary('india');
+  </script>
+</body>
+</html>

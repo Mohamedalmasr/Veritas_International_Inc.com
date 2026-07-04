@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Vitals</title>
+  <link rel="stylesheet" href="vitals.css" />
+</head>
+<body>
+  <!-- Sticky step bar -->
+  <div id="stepSticky" class="step-sticky" role="status" aria-live="polite">
+    <div class="step-sticky-inner">
+      <div class="step-sticky-info">
+        <strong id="stepStickyLabel"></strong>
+      </div>
+      <div class="step-sticky-right">
+        <div class="step-progress">
+          <div id="stepStickyProg" class="step-progress-bar"></div>
+        </div>
+        <div class="step-boxes" aria-label="Steps">
+          <span class="step-box" data-step="1">1</span>
+          <span class="step-box" data-step="2">2</span>
+          <span class="step-box" data-step="3">3</span>
+          <span class="step-box" data-step="4">4</span>
+          <span class="step-box" data-step="5">5</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-wrap">
+    <!-- Header -->
+    <header class="page-head">
+      <div class="head-left">
+        <h1 class="title">Trade Report Of</h1>
+        <input
+          id="reportOfName"
+          class="head-input"
+          type="text"
+          name="reportOfName"
+          placeholder="Full name"
+          aria-label="Trade Report Of"
+          autocomplete="off"
+          form="projectForm"
+          value="Lenzi Aziz"
+        />
+      </div>
+
+      <div class="head-right">
+        <h1 class="title">Name of Broker</h1>
+        <input
+          id="orgBrokerTop"
+          class="head-input"
+          type="text"
+          name="orgBrokerName"
+          placeholder="Organization Broker"
+          aria-label="Organization Broker"
+          autocomplete="off"
+          form="projectForm"
+          value="ONEklient"
+        />
+      </div>
+    </header>
+
+    <form id="projectForm" class="project-form" novalidate>
+      <!-- ===== STEP 1 ===== -->
+      <section class="form-step" data-step="1" data-active="true" aria-label="Step 1">
+        <!-- Header fields -->
+        <section class="card" aria-label="Header fields">
+          <div class="grid three">
+            <label class="fld">
+              <span class="lbl">Sale No.</span>
+              <input id="saleNo" type="text" name="saleNo" autocomplete="off" />
+            </label>
+            <label class="fld">
+              <span class="lbl">MLS</span>
+              <input id="mlsNo" type="text" name="mlsNo" autocomplete="off" />
+            </label>
+            <label class="fld">
+              <span class="lbl">Date</span>
+              <input id="saleDate" type="date" name="date" />
+            </label>
+          </div>
+        </section>
+
+        <!-- Parties & Property (section 1) -->
+        <section class="card" aria-labelledby="secParties">
+          <div class="col-grid">
+            <label class="fld">
+              <button
+                class="pill-btn"
+                type="button"
+                data-picker="individual"
+                data-target="#indBrokerName"
+              >
+                Name of Broker
+              </button>
+              <input id="indBrokerName" type="text" name="indBrokerName" autocomplete="off" />
+            </label>
+
+            <label class="fld">
+              <button
+                class="pill-btn"
+                type="button"
+                data-picker="individual"
+                data-target="#indSalesperson"
+              >
+                Salesperson
+              </button>
+              <input id="indSalesperson" type="text" name="indSalesperson" autocomplete="off" />
+            </label>
+          </div>
+
+          <div class="owned-inline">
+            <span class="lbl">Owned by</span>
+            <select name="ownedBy" id="ownedBy" aria-label="Owned by">
+              <option value="" selected disabled>Select…</option>
+              <option value="organization">Organization</option>
+              <option value="individual">Individual</option>
+            </select>
+            <input
+              type="text"
+              id="ownedByName"
+              name="ownedByName"
+              class="owned-name"
+              placeholder=""
+              aria-label="Owner name"
+              autocomplete="off"
+            />
+          </div>
+
+          <div class="addr6 addr-block">
+            <label class="fld">
+              <span class="lbl">Street Num</span>
+              <input type="text" name="whoseStreetNum" value="15" autocomplete="off" />
+            </label>
+            <label class="fld">
+              <span class="lbl">Unit Num</span>
+              <input type="text" name="whoseUnitNum" value="4B" autocomplete="off" />
+            </label>
+            <label class="fld">
+              <span class="lbl">Street Name</span>
+              <input
+                type="text"
+                name="whoseStreetName"
+                value="Nile Corniche"
+                autocomplete="off"
+              />
+            </label>
+            <label class="fld">
+              <span class="lbl">City</span>
+              <input type="text" name="whoseCity" value="Cairo" autocomplete="off" />
+            </label>
+            <label class="fld">
+              <span class="lbl">Prov</span>
+              <input type="text" name="whoseProv" value="C" autocomplete="off" />
+            </label>
+            <label class="fld">
+              <span class="lbl">Postal Code</span>
+              <input type="text" name="whosePostal" value="11511" autocomplete="off" />
+            </label>
+          </div>
+
+          <div class="grid phone-row">
+            <label class="fld phone-sm">
+              <span class="lbl">Tel. No.</span>
+              <div class="phone-inline">
+                <select id="phoneSelect" aria-label="Saved phones">
+                  <option value="">Choose…</option>
+                  <option value="+966 55 123 4567">+966 55 123 4567</option>
+                  <option value="+20 100 222 3333">+20 100 222 3333</option>
+                  <option value="+971 50 987 6543">+971 50 987 6543</option>
+                </select>
+              </div>
+            </label>
+          </div>
+        </section>
+
+        <!-- Residence + Financials (section 2) -->
+        <section class="card" aria-labelledby="secResidence">
+          <h2 id="secResidence" class="sec-title">Residence &amp; Financials</h2>
+
+          <h3 class="group-title">Now Living At</h3>
+          <div class="addr6 addr-block">
+            <label class="fld">
+              <span class="lbl">Street Num</span>
+              <input type="text" name="liveStreetNum" value="220" autocomplete="off" />
+            </label>
+            <label class="fld">
+              <span class="lbl">Unit Num</span>
+              <input type="text" name="liveUnitNum" value="12A" autocomplete="off" />
+            </label>
+            <label class="fld">
+              <span class="lbl">Street Name</span>
+              <input
+                type="text"
+                name="liveStreetName"
+                value="King Fahd Rd"
+                autocomplete="off"
+              />
+            </label>
+            <label class="fld">
+              <span class="lbl">City</span>
+              <input type="text" name="liveCity" value="Riyadh" autocomplete="off" />
+            </label>
+            <label class="fld">
+              <span class="lbl">Prov</span>
+              <input type="text" name="liveProv" value="RY" autocomplete="off" />
+            </label>
+            <label class="fld">
+              <span class="lbl">Postal Code</span>
+              <input type="text" name="livePostal" value="12261" autocomplete="off" />
+            </label>
+          </div>
+
+          <div class="row-compact three">
+            <label class="fld sm">
+              <span class="lbl">At a Price (Currency)</span>
+              <input type="text" name="price" inputmode="decimal" class="money" />
+            </label>
+            <label class="fld sm">
+              <span class="lbl">Transaction To Be Completed (Date)</span>
+              <input type="date" name="completeDate" />
+            </label>
+            <label class="fld sm">
+              <span class="lbl">Deposit Amount</span>
+              <input
+                id="depositAmount"
+                type="text"
+                name="deposit"
+                inputmode="decimal"
+                class="money"
+              />
+            </label>
+          </div>
+
+          <div class="row-compact two right-col-auto">
+            <fieldset class="fld pay-method sm" role="group" aria-label="Deposit method">
+              <legend class="lbl">Deposit Method</legend>
+              <div class="seg seg-chk">
+                <label><input type="checkbox" value="cash" /> <span>Cash</span></label>
+                <label><input type="checkbox" value="e-transfer" /> <span>e-Transfer</span></label>
+                <label><input type="checkbox" value="cheque" /> <span>Cheque</span></label>
+              </div>
+              <div id="allocWrap" class="alloc-wrap" hidden></div>
+            </fieldset>
+
+            <label class="fld sm total-commission-right">
+              <span class="lbl">Total Commission</span>
+              <input
+                type="text"
+                name="totalCommission"
+                inputmode="decimal"
+                class="money"
+              />
+            </label>
+          </div>
+
+          <div class="step-actions">
+            <button class="btn" type="button" data-action="save-exit">Save and Exit</button>
+            <button class="btn primary" type="button" data-action="next">Save and continue</button>
+          </div>
+        </section>
+      </section>
+
+      <!-- ===== STEP 2 ===== -->
+      <section class="form-step" data-step="2" aria-label="Step 2">
+        <!-- Deposit Details -->
+        <section class="card" id="secDepositDetails">
+          <div class="dep-head-row">
+            <h2 class="sec-title">Deposit Details</h2>
+          </div>
+
+          <div id="depGroups" class="dep-groups">
+            <!-- Group 1 -->
+            <article class="dep-group locked" data-group="1">
+              <header class="dep-group-head">
+                <span class="dep-group-title">Deposit 1</span>
+                <button
+                  type="button"
+                  class="dep-icon-btn dep-edit"
+                  aria-label="Edit deposit 1"
+                >
+                  ✏️
+                </button>
+              </header>
+              <div class="dep-group-body">
+                <div class="dep-row-main">
+                  <label class="fld sm">
+                    <span class="lbl">Deposit</span>
+                    <input type="text" name="depNumber[]" value="D-001" />
+                  </label>
+                  <label class="fld sm">
+                    <span class="lbl">Amount</span>
+                    <input
+                      type="text"
+                      name="depAmount[]"
+                      class="money"
+                      inputmode="decimal"
+                      value="5000.00"
+                    />
+                  </label>
+                  <label class="fld sm">
+                    <span class="lbl">Date Received</span>
+                    <input type="date" name="depDateReceived[]" value="2025-03-01" />
+                  </label>
+                  <label class="fld sm dep-advanced">
+                    <span class="lbl">Payment Method (Cash/Cheque/EMT/Wire)</span>
+                    <select name="depPayMethod[]">
+                      <option value="">Select…</option>
+                      <option value="cash">Cash</option>
+                      <option value="cheque">Cheque</option>
+                      <option value="emt" selected>EMT</option>
+                      <option value="wire">Wire</option>
+                    </select>
+                  </label>
+                </div>
+
+                <div class="dep-row-extra">
+                  <label class="fld sm dep-advanced">
+                    <span class="lbl">Received From</span>
+                    <input type="text" name="depReceivedFrom[]" value="Ahmed Kamel" />
+                  </label>
+
+                  <label class="fld sm dep-advanced">
+                    <span class="lbl">Date Deposited to Trust</span>
+                    <input type="date" name="depDateToTrust[]" value="2025-03-02" />
+                  </label>
+
+                  <label class="fld sm dep-advanced">
+                    <span class="lbl">Bank Deposit Ref</span>
+                    <input type="text" name="depBankRef[]" value="DEP-1023" />
+                  </label>
+
+                  <label class="fld sm dep-advanced">
+                    <span class="lbl">Trust Receipt</span>
+                    <input type="text" name="depTrustReceipt[]" value="TR-5501" />
+                  </label>
+
+                  <label class="fld sm dep-advanced">
+                    <span class="lbl">Trust Ledger Ref</span>
+                    <input type="text" name="depTrustLedger[]" value="L-9001" />
+                  </label>
+                </div>
+              </div>
+            </article>
+
+            <!-- Group 2 -->
+            <article class="dep-group locked" data-group="2">
+              <header class="dep-group-head">
+                <span class="dep-group-title">Deposit 2</span>
+                <button
+                  type="button"
+                  class="dep-icon-btn dep-edit"
+                  aria-label="Edit deposit 2"
+                >
+                  ✏️
+                </button>
+              </header>
+              <div class="dep-group-body">
+                <div class="dep-row-main">
+                  <label class="fld sm">
+                    <span class="lbl">Deposit</span>
+                    <input type="text" name="depNumber[]" value="D-002" />
+                  </label>
+                  <label class="fld sm">
+                    <span class="lbl">Amount</span>
+                    <input
+                      type="text"
+                      name="depAmount[]"
+                      class="money"
+                      inputmode="decimal"
+                      value="2500.00"
+                    />
+                  </label>
+                  <label class="fld sm">
+                    <span class="lbl">Date Received</span>
+                    <input type="date" name="depDateReceived[]" value="2025-03-05" />
+                  </label>
+                  <label class="fld sm dep-advanced">
+                    <span class="lbl">Payment Method (Cash/Cheque/EMT/Wire)</span>
+                    <select name="depPayMethod[]">
+                      <option value="">Select…</option>
+                      <option value="cash">Cash</option>
+                      <option value="cheque" selected>Cheque</option>
+                      <option value="emt">EMT</option>
+                      <option value="wire">Wire</option>
+                    </select>
+                  </label>
+                </div>
+
+                <div class="dep-row-extra">
+                  <label class="fld sm dep-advanced">
+                    <span class="lbl">Received From</span>
+                    <input type="text" name="depReceivedFrom[]" value="Sara Nader" />
+                  </label>
+
+                  <label class="fld sm dep-advanced">
+                    <span class="lbl">Date Deposited to Trust</span>
+                    <input type="date" name="depDateToTrust[]" value="2025-03-06" />
+                  </label>
+
+                  <label class="fld sm dep-advanced">
+                    <span class="lbl">Bank Deposit Ref </span>
+                    <input type="text" name="depBankRef[]" value="DEP-1040" />
+                  </label>
+
+                  <label class="fld sm dep-advanced">
+                    <span class="lbl">Trust Receipt </span>
+                    <input type="text" name="depTrustReceipt[]" value="TR-5510" />
+                  </label>
+
+                  <label class="fld sm dep-advanced">
+                    <span class="lbl">Trust Ledger Ref</span>
+                    <input type="text" name="depTrustLedger[]" value="L-9002" />
+                  </label>
+                </div>
+              </div>
+            </article>
+
+            <!-- Group 3 -->
+            <article class="dep-group locked" data-group="3">
+              <header class="dep-group-head">
+                <span class="dep-group-title">Deposit 3</span>
+                <button
+                  type="button"
+                  class="dep-icon-btn dep-edit"
+                  aria-label="Edit deposit 3"
+                >
+                  ✏️
+                </button>
+              </header>
+              <div class="dep-group-body">
+                <div class="dep-row-main">
+                  <label class="fld sm">
+                    <span class="lbl">Deposit</span>
+                    <input type="text" name="depNumber[]" value="D-003" />
+                  </label>
+                  <label class="fld sm">
+                    <span class="lbl">Amount</span>
+                    <input
+                      type="text"
+                      name="depAmount[]"
+                      class="money"
+                      inputmode="decimal"
+                      value="1200.00"
+                    />
+                  </label>
+                  <label class="fld sm">
+                    <span class="lbl">Date Received</span>
+                    <input type="date" name="depDateReceived[]" value="2025-03-10" />
+                  </label>
+                  <label class="fld sm dep-advanced">
+                    <span class="lbl">Payment Method (Cash/Cheque/EMT/Wire)</span>
+                    <select name="depPayMethod[]">
+                      <option value="">Select…</option>
+                      <option value="cash" selected>Cash</option>
+                      <option value="cheque">Cheque</option>
+                      <option value="emt">EMT</option>
+                      <option value="wire">Wire</option>
+                    </select>
+                  </label>
+                </div>
+
+                <div class="dep-row-extra">
+                  <label class="fld sm dep-advanced">
+                    <span class="lbl">Received From</span>
+                    <input type="text" name="depReceivedFrom[]" value="Kareem Adel" />
+                  </label>
+
+                  <label class="fld sm dep-advanced">
+                    <span class="lbl">Date Deposited to Trust</span>
+                    <input type="date" name="depDateToTrust[]" value="2025-03-11" />
+                  </label>
+
+                  <label class="fld sm dep-advanced">
+                    <span class="lbl">Bank Deposit Ref</span>
+                    <input type="text" name="depBankRef[]" value="DEP-1055" />
+                  </label>
+
+                  <label class="fld sm dep-advanced">
+                    <span class="lbl">Trust Receipt</span>
+                    <input type="text" name="depTrustReceipt[]" value="TR-5520" />
+                  </label>
+
+                  <label class="fld sm dep-advanced">
+                    <span class="lbl">Trust Ledger Ref</span>
+                    <input type="text" name="depTrustLedger[]" value="L-9003" />
+                  </label>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="dep-footer">
+            <button type="button" class="dep-add-btn" id="depAdd">Add</button>
+
+            <div class="dep-edit-actions" id="depEditActions" hidden>
+              <button type="button" class="dep-save" id="depSave" hidden>✓</button>
+              <button type="button" class="dep-cancel" id="depCancel" hidden>✕</button>
+
+            </div>
+          </div>
+        </section>
+
+        <!-- Trust & Remittance -->
+        <section class="card" id="secTrust">
+          <h2 class="sec-title">Trust &amp; Remittance</h2>
+          <div class="grid two">
+            <label class="fld">
+              <span class="lbl">Received Deposit From (Salesperson)</span>
+              <input type="text" name="depositFrom" autocomplete="off" />
+            </label>
+            <label class="fld">
+              <span class="lbl">Date Received</span>
+              <input type="date" name="depositDate" />
+            </label>
+
+            <label class="fld">
+              <span class="lbl">Deposited in Trust (Date)</span>
+              <input type="date" name="trustDate" />
+            </label>
+            <label class="fld">
+              <span class="lbl">Statement to Vendor (Date)</span>
+              <input type="date" name="stmtVendorDate" />
+            </label>
+
+            <label class="fld">
+              <span class="lbl">Remitted to Vendor (Date)</span>
+              <input type="date" name="remitDate" />
+            </label>
+            <label class="fld">
+              <span class="lbl">Cheque No.</span>
+              <input type="text" name="chequeNo" autocomplete="off" />
+            </label>
+
+            <label class="fld">
+              <span class="lbl">Transferred Commission to Gen. Acct (Date)</span>
+              <input type="date" name="genAcctDate" />
+            </label>
+          </div>
+
+          <div class="step-actions">
+            <button class="btn" type="button" data-action="save-exit">Save and Exit</button>
+            <button class="btn btn-back" type="button" data-action="back">Back</button>
+            <button class="btn primary" type="button" data-action="next">Save and continue</button>
+          </div>
+        </section>
+      </section>
+
+      <!-- ===== STEP 3 ===== -->
+      <section class="form-step" data-step="3" aria-label="Step 3">
+        <section class="card" id="secCancel">
+          <h2 class="sec-title">Cancellation</h2>
+          <div class="grid two">
+            <label class="fld">
+              <span class="lbl">Cancellation Date</span>
+              <input type="date" name="cancellationDate" />
+            </label>
+            <label class="fld">
+              <span class="lbl">Deposit Returned</span>
+              <select name="depositReturned">
+                <option value="" selected disabled>Select…</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </label>
+            <label class="fld">
+              <span class="lbl">Amount Returned</span>
+              <input
+                type="text"
+                name="amountReturnedC"
+                class="money"
+                inputmode="decimal"
+                placeholder="0.00"
+              />
+            </label>
+            <label class="fld">
+              <span class="lbl">Date Returned</span>
+              <input type="date" name="dateReturnedC" />
+            </label>
+          </div>
+
+          <div class="step-actions">
+            <button class="btn" type="button" data-action="save-exit">Save and Exit</button>
+            <button class="btn btn-back" type="button" data-action="back">Back</button>
+            <button class="btn primary" type="button" data-action="next">Save and continue</button>
+          </div>
+        </section>
+      </section>
+
+      <!-- ===== STEP 4 ===== -->
+      <section class="form-step" data-step="4" aria-label="Step 4">
+        <section class="card" id="secSol">
+          <h2 class="sec-title">Solicitors</h2>
+          <div class="grid two">
+            <div class="subcard">
+              <h3 class="mini">Purchaser’s Solicitor</h3>
+              <label class="fld">
+                <button
+                  class="pill-btn"
+                  type="button"
+                  data-picker="individual"
+                  data-target="#pSolicitorName"
+                  data-role="p"
+                >
+                  Search Person
+                </button>
+                <input
+                  id="pSolicitorName"
+                  type="text"
+                  name="pSolicitorName"
+                  placeholder="Full name"
+                />
+              </label>
+              <label class="fld">
+                <span class="lbl">Address</span>
+                <input type="text" id="pSolicitorAddress" name="pSolicitorAddress" />
+              </label>
+              <label class="fld">
+                <span class="lbl">Phone</span>
+                <input type="tel" id="pSolicitorPhone" name="pSolicitorPhone" />
+              </label>
+              <label class="fld">
+                <span class="lbl">Email</span>
+                <input type="email" id="pSolicitorEmail" name="pSolicitorEmail" />
+              </label>
+            </div>
+
+            <div class="subcard">
+              <h3 class="mini">Vendor’s Solicitor</h3>
+              <label class="fld">
+                <button
+                  class="pill-btn"
+                  type="button"
+                  data-picker="individual"
+                  data-target="#vSolicitorName"
+                  data-role="v"
+                >
+                  Search Person
+                </button>
+                <input
+                  id="vSolicitorName"
+                  type="text"
+                  name="vSolicitorName"
+                  placeholder="Full name"
+                />
+              </label>
+              <label class="fld">
+                <span class="lbl">Address</span>
+                <input type="text" id="vSolicitorAddress" name="vSolicitorAddress" />
+              </label>
+              <label class="fld">
+                <span class="lbl">Phone</span>
+                <input type="tel" id="vSolicitorPhone" name="vSolicitorPhone" />
+              </label>
+              <label class="fld">
+                <span class="lbl">Email</span>
+                <input type="email" id="vSolicitorEmail" name="vSolicitorEmail" />
+              </label>
+            </div>
+          </div>
+
+          <div class="step-actions">
+            <button class="btn" type="button" data-action="save-exit">Save and Exit</button>
+            <button class="btn btn-back" type="button" data-action="back">Back</button>
+            <button class="btn primary" type="button" data-action="next">Save and continue</button>
+          </div>
+        </section>
+      </section>
+
+      <!-- ===== STEP 5 ===== -->
+      <section class="form-step" data-step="5" aria-label="Step 5">
+        <section class="card" id="secAdd">
+          <h2 class="sec-title">Additional Information</h2>
+
+          <div class="grid one">
+            <label class="fld wide">
+              <span class="lbl">Notes / Memo</span>
+              <textarea
+                id="memoText"
+                name="memo"
+                rows="4"
+                spellcheck="false"
+                placeholder="Type your memo here..."
+              ></textarea>
+            </label>
+
+            <div class="note-actions">
+              <button id="btnAddNote" type="button" class="btn">Add Note</button>
+              <button id="btnClearNote" type="button" class="btn">Clear Note</button>
+            </div>
+
+            <div id="notesArea" class="notes-area"></div>
+
+            <div class="grid two">
+              <label class="fld">
+                <span class="lbl">Amount Returned</span>
+                <input
+                  type="text"
+                  name="amountReturned"
+                  inputmode="decimal"
+                  class="money"
+                />
+              </label>
+              <label class="fld">
+                <span class="lbl">Date Returned</span>
+                <input type="date" name="dateReturned" />
+              </label>
+            </div>
+          </div>
+        </section>
+
+        <section class="card" id="secCert" data-final="true">
+          <h2 class="sec-title">Certification</h2>
+          <div class="grid two">
+            <label class="fld">
+              <span class="lbl">Name of Broker</span>
+              <input type="text" name="certBroker" />
+            </label>
+            <label class="fld">
+              <span class="lbl">Dated At (City)</span>
+              <input type="text" name="datedAt" />
+            </label>
+            <label class="fld">
+              <span class="lbl">Day</span>
+              <input type="number" name="datedDay" min="1" max="31" />
+            </label>
+            <label class="fld">
+              <span class="lbl">Month</span>
+              <input type="text" name="datedMonth" />
+            </label>
+          </div>
+
+          <div class="step-actions">
+            <button class="btn btn-back" type="button" data-action="back">Back</button>
+            <button class="btn" type="button" data-action="save-draft">Save Draft</button>
+            <button id="saveFinal" class="btn primary" type="button">Save</button>
+          </div>
+        </section>
+      </section>
+    </form>
+  </div>
+
+  <div class="toast-area" id="toastArea" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Picker modal -->
+  <section
+    class="picker-sheet"
+    id="pickerSheet"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Pick a record"
+  >
+    <header class="picker-head">
+      <div class="picker-title"><span id="pickerTitle">Select Individual</span></div>
+      <button class="picker-close" id="pickerClose" aria-label="Close">×</button>
+    </header>
+
+    <div class="picker-body">
+      <form id="pickerForm" class="picker-bar split" autocomplete="off">
+        <div class="field field-box select-box">
+          <select id="bySelect" aria-label="Search by"></select>
+        </div>
+        <div class="field field-box input-box">
+          <input id="pickerQ" type="text" placeholder="" aria-label="Search value" />
+        </div>
+        <button class="btn pick-btn" type="submit">Search</button>
+      </form>
+
+      <div id="pickerResults" class="picker-results" aria-live="polite" aria-busy="false"></div>
+    </div>
+  </section>
+
+  <script src="vitals.js"></script>
+</body>
+</html>

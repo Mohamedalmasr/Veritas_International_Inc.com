@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Customer Docs</title>
+  <link rel="stylesheet" href="style1.css"/>
+  <link rel="stylesheet" href="customer-docs.css"/>
+</head>
+<body>
+  <div class="page-wrap">
+    <h1 class="title">Customer Docs</h1>
+
+    <!-- Toolbar -->
+    <div class="card toolbar-card">
+      <div class="toolbar">
+        <div class="field input-wrap" style="min-width:220px">
+          <input id="searchInput" type="search" placeholder="Search by name or IP…"/>
+        </div>
+
+        <div class="field select-wrap" style="width:auto">
+          <label class="sr-only" for="typeSelect">Account Type</label>
+          <select id="typeSelect" class="status-select" aria-label="Account Type">
+            <option value="">All types</option>
+            <option value="AR">Accounts Receivable (AR)</option>
+            <option value="AP">Accounts Payable (AP)</option>
+            <option value="PR">Payroll (PR)</option>
+          </select>
+        </div>
+
+        <button id="withFilesBtn" class="chip-btn" type="button" aria-pressed="false">With files only</button>
+      </div>
+      <p class="small-hint">Tip: Click a row to show/hide files.</p>
+    </div>
+
+    <!-- Table -->
+    <div class="table-wrap">
+      <table id="peopleTable" class="sheet-table">
+        <thead>
+          <tr>
+            <th class="sortable" data-key="name">Name <span class="caret"></span></th>
+            <th class="sortable" data-key="ip">IP <span class="caret"></span></th>
+            <th class="sortable" data-key="type" style="width:1%">Type <span class="caret"></span></th>
+            <th class="num sortable" data-key="filesCount" style="width:1%; white-space:nowrap">Files <span class="caret"></span></th>
+            <th style="width:1%">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="peopleTbody">
+          <!-- filled by JS -->
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="5">
+              <span class="totals-label" id="totalsLbl">0 people • 0 files</span>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+
+  <!-- Toast (optional) -->
+  <div id="toastArea" class="toast-area" aria-live="assertive" aria-atomic="true"></div>
+
+  <script src="customer-docs.js"></script>
+</body>
+</html>

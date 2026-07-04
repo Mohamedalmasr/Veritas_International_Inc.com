@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Purchase Invoice • ONEklient</title>
+    <link rel="stylesheet" href="purchase-invoice.css" />
+  </head>
+  <body class="theme-ok">
+    <main class="container" role="main">
+      <form id="purchase-invoice" class="pi-shell" method="post" action="#" aria-labelledby="pi-title" novalidate>
+        <!-- Page Head -->
+        <div class="pi-top">
+          <div>
+            <h1 id="pi-title" class="pi-title">Purchase Invoice</h1>
+            <p class="pi-sub">Organized entry for supplier invoices — flat, fast, consistent.</p>
+          </div>
+          <div class="actions">
+            <button class="btn btn-ghost" type="reset" id="btn-clear">Clear</button>
+            <button class="btn btn-navy" type="submit">Process</button>
+          </div>
+        </div>
+
+        <!-- Body -->
+        <div class="pi-body">
+          <!-- LEFT -->
+          <section class="pi-main">
+            <fieldset class="group">
+              <div class="grid g-3">
+                <div class="field span-2">
+                  <label for="vendor">Vendor <span class="req">*</span></label>
+                  <div class="inline">
+                    <input id="vendor" name="vendor" required autocomplete="organization" placeholder="Select vendor…" />
+                    <button class="btn btn-navy" type="button" title="Add vendor">Add</button>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="invoice_date">Date <span class="req">*</span></label>
+                  <input type="date" id="invoice_date" name="invoice_date" required />
+                </div>
+
+                <div class="field">
+                  <label for="invoice_no">Invoice No. <span class="req">*</span></label>
+                  <input id="invoice_no" name="invoice_no" required placeholder="INV-2025-001"
+                         pattern="[A-Za-z0-9_\-/]{1,50}" title="Letters, numbers, -, _, / (max 50)" />
+                </div>
+                <div class="field">
+                  <label for="transaction">Transaction</label>
+                  <select id="transaction" name="transaction">
+                    <option>Invoice</option>
+                    <option>Credit Note</option>
+                    <option>Debit Note</option>
+                  </select>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="group">
+              <div class="grid g-4">
+                <div class="field">
+                  <label for="store">Items stored at</label>
+                  <select id="store" name="store">
+                    <option>BC</option><option>WH-A</option><option>WH-B</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="payment">Payment Method</label>
+                  <select id="payment" name="payment">
+                    <option>Pay Later</option><option>Cash</option><option>Cheque</option><option>Bank Transfer</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="job_site">Job Site</label>
+                  <select id="job_site" name="job_site">
+                    <option>—</option><option>Site A</option><option>Site B</option>
+                  </select>
+                </div>
+                <div class="field switch">
+                  <input type="checkbox" id="invoice_received" name="invoice_received" value="yes" />
+                  <label for="invoice_received">Invoice Received</label>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="group">
+              <div class="grid g-2">
+                <div class="field">
+                  <label for="grn_ref">GRN/Order/Quote No.</label>
+                  <input id="grn_ref" name="grn_ref" placeholder="PO-10432 / GRN-0081" />
+                </div>
+                <div class="field">
+                  <label for="ref_notes">Reference Notes</label>
+                  <input id="ref_notes" name="ref_notes" placeholder="Optional reference notes…" />
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="group">
+              <div id="items" class="items" aria-live="polite"></div>
+              <div class="row-actions" role="group" aria-label="Item actions">
+                <button class="btn btn-ghost" type="button" id="btn-import">Import</button>
+                <button class="btn btn-ghost" type="button" id="btn-from-po">From PO</button>
+                <button class="btn btn-navy" type="button" id="btn-add-item">Add Item</button>
+              </div>
+            </fieldset>
+
+            <fieldset class="group">
+              <div class="field">
+                <label for="notes">Notes</label>
+                <textarea id="notes" name="notes" placeholder="Anything the team should know…"></textarea>
+              </div>
+            </fieldset>
+
+            <div class="actions sm-only">
+              <button class="btn" type="button">Save Draft</button>
+              <button class="btn btn-navy" type="submit">Process</button>
+            </div>
+          </section>
+
+          <!-- RIGHT -->
+          <aside class="pi-side" aria-label="Summary">
+            <section class="panel">
+              <h3 class="panel-title">Totals</h3>
+              <div class="kv">
+                <label for="subtotal">Subtotal</label>
+                <input id="subtotal" name="subtotal" class="input-plain right" value="0.00" readonly />
+
+                <label for="freight">Freight</label>
+                <input id="freight" name="freight" class="right" type="number" inputmode="decimal" step="0.01" min="0" placeholder="0.00" />
+
+                <label for="tax_total">Tax</label>
+                <input id="tax_total" name="tax_total" class="input-plain right" value="0.00" readonly />
+
+                <label for="grand_total" class="grand">Total</label>
+                <input id="grand_total" name="grand_total" class="input-plain right grand" value="0.00" readonly />
+              </div>
+            </section>
+
+            <section class="panel">
+              <h3 class="panel-title">Payment Terms</h3>
+              <div class="grid g-3">
+                <div class="field">
+                  <label for="early_pct">Discount %</label>
+                  <input id="early_pct" name="early_pct" type="number" inputmode="decimal" min="0" step="0.01" placeholder="0" />
+                </div>
+                <div class="field">
+                  <label for="early_days">Within (Days)</label>
+                  <input id="early_days" name="early_days" type="number" inputmode="numeric" min="0" step="1" placeholder="0" />
+                </div>
+                <div class="field">
+                  <label for="net_days">Net (Days)</label>
+                  <input id="net_days" name="net_days" type="number" inputmode="numeric" min="0" step="1" placeholder="30" />
+                </div>
+              </div>
+            </section>
+
+            <div class="actions lg-only">
+              <button class="btn" type="button">Save Draft</button>
+              <button class="btn btn-navy" type="submit">Process</button>
+            </div>
+          </aside>
+        </div>
+      </form>
+    </main>
+
+    <!-- Item template -->
+    <template id="item-template">
+      <div class="item" data-index="__i__">
+        <div class="grid g-3">
+          <div class="field">
+            <label for="item_code-__i__">Item Number</label>
+            <input id="item_code-__i__" name="items[__i__][code]" placeholder="ITEM-__i__" pattern="[A-Za-z0-9_\-.]{1,40}" />
+          </div>
+          <div class="field">
+            <label for="unit-__i__">Unit</label>
+            <select id="unit-__i__" name="items[__i__][unit]">
+              <option>pcs</option><option>box</option><option>kg</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="account-__i__">Account</label>
+            <select id="account-__i__" name="items[__i__][account]">
+              <option>Inventory</option><option>Materials Expense</option><option>Services Expense</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="desc-__i__">Description</label>
+          <input id="desc-__i__" name="items[__i__][desc]" placeholder="Item description…" maxlength="140" />
+        </div>
+
+        <div class="grid g-4">
+          <div class="field">
+            <label for="qty-__i__">Quantity</label>
+            <input id="qty-__i__" name="items[__i__][qty]" type="number" inputmode="numeric" min="0" step="1" placeholder="0" value="0" />
+          </div>
+          <div class="field">
+            <label for="price-__i__">Price</label>
+            <input id="price-__i__" name="items[__i__][price]" class="right" type="number" inputmode="decimal" min="0" step="0.01" placeholder="0.00" value="0.00" />
+          </div>
+          <div class="field">
+            <label for="tax-__i__">Tax</label>
+            <select id="tax-__i__" name="items[__i__][tax]">
+              <option>—</option><option>VAT 5%</option><option>VAT 10%</option><option>Exempt</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="amount-__i__">Amount</label>
+            <input id="amount-__i__" name="items[__i__][amount]" class="input-plain right" value="0.00" readonly />
+          </div>
+        </div>
+
+        <div class="row-actions item-actions">
+          <button class="btn btn-ghost btn-remove" type="button" aria-label="Remove item">Remove</button>
+        </div>
+      </div>
+    </template>
+
+    <script src="purchase-invoice.js"></script>
+  </body>
+</html>

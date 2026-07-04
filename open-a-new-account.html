@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Open A New Account</title>
+  <link rel="stylesheet" href="open-a-new-account.css"/>
+</head>
+<body>
+  <div class="page-wrap">
+    <h1 class="title">Open A New Account</h1>
+
+    <!-- Step 1: Account Type -->
+    <div class="card">
+      <form id="accountStep" class="form-row second-step">
+        <label class="inline-label" for="accType">Account type---select</label>
+        <div class="field select-wrap">
+          <select id="accType" aria-label="Account type">
+            <option value="" selected disabled>Select type</option>
+            <option value="payroll">Payroll</option>
+            <option value="receivable">Receivable</option>
+            <option value="payable">Payable</option>
+          </select>
+        </div>
+      </form>
+      <p id="typeHint" class="small-hint">Choose an account type to start adding owners.</p>
+    </div>
+
+    <!-- Step 2: Owners -->
+    <div class="card owners-card" id="ownersCard" hidden>
+      <div class="owners-head">
+        <span class="field-label">Owners</span>
+      </div>
+
+      <div id="ownersList" class="owners-list">
+        <div class="owner-row" data-index="0">
+          <!-- Saved owners -->
+          <div id="savedOwners" class="saved-owners" hidden></div>
+
+          <!-- Search block -->
+          <div id="ownerSearchBlock">
+            <form class="form-row owner-form" autocomplete="off" id="ownersSearchForm">
+              <div class="field select-wrap">
+                <select class="by" aria-label="Search by" id="ownerBy">
+                  <option value="ip">IP</option>
+                  <option value="first">First name</option>
+                  <option value="last">Last name</option>
+                </select>
+              </div>
+              <div class="field input-wrap">
+                <input class="q" id="ownerQ" type="text" placeholder="e.g. 192.168.1.20" aria-label="Search value"/>
+              </div>
+              <button class="btn btn-find" type="submit" aria-label="Search owner">Search</button>
+            </form>
+
+            <p class="hint selected" id="ownerSelectHint" hidden aria-live="polite">
+              <span class="owner-label">Selected:</span>
+              <span class="sel-text" id="ownerSelText">—</span>
+              <span class="hint-actions">
+                <button class="icon-btn confirm" type="button" id="confirmOwner" title="Add owner">✓</button>
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Authorization -->
+    <div class="card" id="authCard" hidden>
+      <div class="block">
+        <label class="field-label" for="authTypeSel">Authorization type</label>
+        <div class="field select-wrap">
+          <select id="authTypeSel" aria-label="Authorization type">
+            <option value="" selected disabled>Select authorization</option>
+            <option value="tenant">Tenant</option>
+            <option value="guarantor">Gurantor</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="owners-head" style="margin-top:10px">
+        <span class="field-label">Authorized people</span>
+      </div>
+
+      <div id="authList" class="owners-list">
+        <div class="owner-row" data-index="a0">
+          <!-- Saved authorized -->
+          <div id="savedAuth" class="saved-owners" hidden></div>
+
+          <!-- Search block -->
+          <div id="authSearchBlock">
+            <form class="form-row owner-form" autocomplete="off" id="authSearchForm">
+              <div class="field select-wrap">
+                <select class="by" aria-label="Search by" id="authBy">
+                  <option value="ip">IP</option>
+                  <option value="first">First name</option>
+                  <option value="last">Last name</option>
+                </select>
+              </div>
+              <div class="field input-wrap">
+                <input class="q" id="authQ" type="text" placeholder="e.g. 192.168.1.20" aria-label="Search value"/>
+              </div>
+              <button class="btn btn-find" type="submit" aria-label="Search authorized">Search</button>
+            </form>
+
+            <p class="hint selected" id="authSelectHint" hidden aria-live="polite">
+              <span class="owner-label">Selected:</span>
+              <span class="sel-text" id="authSelText">—</span>
+              <span class="hint-actions">
+                <button class="icon-btn confirm" type="button" id="confirmAuth" title="Add authorized">✓</button>
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer (ثابت الترتيب + جنب بعض) -->
+    <div id="wizardFooter" class="footer-actions" hidden>
+      <div class="btn-with-help">
+        <button class="btn" id="btnNext" type="button" disabled>Assign New Account</button>
+        <button type="button" class="help-btn"
+                title="Creates the account and opens the Customer Profile.">?</button>
+      </div>
+
+      <div class="btn-with-help" id="wrapAddCo" hidden>
+        <button type="button" class="btn" id="btnAddCoOwner">Add co-owner</button>
+        <button type="button" class="help-btn"
+                title="Add a second/third owner (Payroll allows only one owner).">?</button>
+      </div>
+
+      <div class="btn-with-help" id="wrapAddAuth" hidden>
+        <button type="button" class="btn" id="btnAddAuthorized">Add Authorized Person</button>
+        <button type="button" class="help-btn"
+                title="Add a person with authorization only (not an owner).">?</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Results sheet -->
+  <section class="sheet" id="resultsSheet" role="dialog" aria-modal="true" aria-label="Results">
+    <header class="sheet-head">
+      <button class="sheet-close" id="closeSheet" aria-label="Close">×</button>
+    </header>
+    <div class="sheet-body" id="results"></div>
+  </section>
+
+  <!-- Toast -->
+  <div id="toastArea" class="toast-area" aria-live="assertive" aria-atomic="true"></div>
+
+  <script src="open-a-new-account.js"></script>
+</body>
+</html>

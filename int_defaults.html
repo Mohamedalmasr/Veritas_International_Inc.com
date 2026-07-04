@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Defaults</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="defaults.css" />
+</head>
+<body class="steps defaults">
+
+  <aside class="sidebar" id="defaultsSidebar">
+    <div id="sections" class="panel show">
+      <div class="field">
+        <label class="sr-only" for="filterInput">Filter</label>
+        <input id="filterInput" type="text" placeholder="Search…" class="defaults-filter"/>
+      </div>
+
+      <div class="defaults-list" id="defaultsList"></div>
+    </div>
+
+    <div id="sidebarResizer" class="sidebar-resizer" role="separator" aria-orientation="vertical" aria-label="Resize sidebar"></div>
+  </aside>
+
+  <main class="content defaults-content">
+    <header class="content-head">
+      <div class="head-left">
+        <h1>Defaults</h1>
+        <p>Select an item from the left to view and edit its details.</p>
+      </div>
+    </header>
+
+    <section class="placeholder">
+      <div class="card">
+        <div class="detail-columns-row">
+          <div class="detail-column detail-top-column">
+            <div class="detail-row detail-top-row">
+              <input type="text" id="detailCol1" disabled placeholder="Col1" />
+              <input type="text" id="detailCol2" disabled placeholder="Col2" />
+            </div>
+          </div>
+
+          <div class="detail-column column4">
+            <div class="detail-row detail-textarea-row">
+              <textarea id="detailCol4" disabled placeholder="Col4"></textarea>
+            </div>
+
+            <div class="detail-buttons">
+              <button id="detailEditBtn" class="btn">Edit</button>
+              <button id="detailSaveBtn" class="btn btn-primary" style="display:none;">Save</button>
+              <button id="detailCancelBtn" class="btn btn-secondary" style="display:none;">Cancel</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="child-values-container" id="childrenContainer" style="margin-top:12px;"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="site.js"></script>
+  <script src="defaults.js"></script>
+</body>
+</html>

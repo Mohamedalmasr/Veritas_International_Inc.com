@@ -1,0 +1,208 @@
+
+:root {
+    --mtc-border: #d1d5db;
+    --mtc-border-strong: #9ca3af;
+    --mtc-bg: #f9fafb;
+    --mtc-bg-card: #ffffff;
+    --mtc-text-main: #111827;
+    --mtc-text-muted: #4b5563;
+    --mtc-accent: #1f4f8f;
+    --mtc-radius-sm: 4px;
+    --mtc-radius-lg: 10px;
+    --mtc-shadow-soft: 0 2px 6px rgba(15, 23, 42, 0.08);
+    --mtc-spacing-xs: 4px;
+    --mtc-spacing-sm: 8px;
+    --mtc-spacing-md: 12px;
+    --mtc-spacing-lg: 20px;
+    --mtc-spacing-xl: 28px;
+    --mtc-font-size-sm: 0.8rem;
+    --mtc-font-size: 0.9rem;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: var(--mtc-spacing-xl);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background-color: var(--mtc-bg);
+    color: var(--mtc-text-main);
+}
+
+.mtc-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: var(--mtc-bg-card);
+    border-radius: var(--mtc-radius-lg);
+    box-shadow: var(--mtc-shadow-soft);
+    padding: 24px 28px 28px;
+    border: 1px solid var(--mtc-border);
+}
+
+.mtc-header {
+    border-bottom: 2px solid var(--mtc-border-strong);
+    padding-bottom: var(--mtc-spacing-md);
+    margin-bottom: var(--mtc-spacing-md);
+}
+
+.mtc-header h1 {
+    margin: 0 0 4px;
+    font-size: 1.15rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.mtc-subtitle {
+    margin: 0 0 var(--mtc-spacing-sm);
+    font-size: 0.9rem;
+    color: var(--mtc-text-muted);
+}
+
+.mtc-header-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--mtc-spacing-xs);
+    margin-top: var(--mtc-spacing-xs);
+}
+
+.mtc-field-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.mtc-field-label {
+    width: 210px;
+    font-size: var(--mtc-font-size-sm);
+    font-weight: 600;
+}
+
+.mtc-inline-label {
+    width: auto;
+    flex: 0 0 auto;
+}
+
+.mtc-input {
+    flex: 1;
+    min-width: 0;
+    padding: 4px 6px;
+    border-radius: var(--mtc-radius-sm);
+    border: 1px solid var(--mtc-border);
+    font-size: var(--mtc-font-size);
+    background-color: #f9fafb;
+}
+
+.mtc-input:focus {
+    outline: 1px solid var(--mtc-accent);
+    border-color: var(--mtc-accent);
+    background-color: #ffffff;
+}
+
+.mtc-input::placeholder {
+    color: #9ca3af;
+}
+
+.mtc-date-input {
+    max-width: 150px;
+}
+
+.mtc-init-input {
+    max-width: 80px;
+}
+
+/* Sections */
+
+.mtc-section {
+    margin-top: var(--mtc-spacing-md);
+    padding-top: var(--mtc-spacing-sm);
+}
+
+.mtc-section > h2 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0 0 var(--mtc-spacing-xs);
+    color: var(--mtc-accent);
+}
+
+.mtc-subsection {
+    margin-top: var(--mtc-spacing-md);
+    padding-top: var(--mtc-spacing-xs);
+    border-top: 1px dashed var(--mtc-border);
+}
+
+.mtc-subsection h3 {
+    margin: 0 0 var(--mtc-spacing-xs);
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+/* Checklist */
+
+.mtc-checklist {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.mtc-sublist {
+    margin-top: var(--mtc-spacing-xs);
+    margin-left: 20px;
+}
+
+.mtc-check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    margin-bottom: 4px;
+    font-size: var(--mtc-font-size);
+}
+
+.mtc-check-item input[type="checkbox"] {
+    margin-top: 3px;
+    width: 14px;
+    height: 14px;
+}
+
+.mtc-check-item span {
+    flex: 1;
+}
+
+/* Initials block */
+
+.mtc-initials-block {
+    margin-top: var(--mtc-spacing-sm);
+    padding-top: var(--mtc-spacing-xs);
+    border-top: 1px dashed var(--mtc-border);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* Print styles */
+
+@media print {
+    body {
+        background: #ffffff;
+        padding: 0;
+    }
+
+    .mtc-container {
+        border-radius: 0;
+        box-shadow: none;
+        border: none;
+        padding: 10px 12px;
+    }
+
+    .mtc-header {
+        border-bottom-width: 1px;
+    }
+
+    .mtc-input {
+        background-color: transparent;
+    }
+}
